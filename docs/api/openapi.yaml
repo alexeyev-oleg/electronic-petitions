@@ -1,0 +1,877 @@
+openapi: 3.1.0
+info:
+  title: Electronic Petitions Platform API
+  version: 0.1.0
+  summary: Public and admin API baseline for petitions, complaints, municipal enforcement, and KYC.
+servers:
+  - url: https://api.example.com
+    description: Production placeholder
+  - url: https://staging-api.example.com
+    description: Staging placeholder
+tags:
+  - name: Auth
+  - name: KYC
+  - name: Media
+  - name: Petitions
+  - name: Complaints
+  - name: Enforcement
+  - name: Notifications
+  - name: AdminModeration
+  - name: AdminPetitions
+  - name: AdminComplaints
+  - name: AdminEnforcement
+  - name: AdminSystem
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    webhookSignature:
+      type: apiKey
+      in: header
+      name: X-Signature
+  parameters:
+    LocaleHeader:
+      name: Accept-Language
+      in: header
+      required: false
+      schema:
+        type: string
+        enum: [en, he, ru, ar]
+    LocaleQuery:
+      name: locale
+      in: query
+      required: false
+      schema:
+        type: string
+        enum: [en, he, ru, ar]
+    Page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        default: 1
+    PageSize:
+      name: pageSize
+      in: query
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 20
+    PetitionId:
+      name: petitionId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    ComplaintId:
+      name: complaintId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    ReportId:
+      name: reportId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    MediaId:
+      name: mediaId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+    VerificationId:
+      name: verificationId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    Error:
+      type: object
+      required: [code, message]
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+          additionalProperties: true
+    AuthTokens:
+      type: object
+      required: [accessToken, refreshToken, expiresIn]
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+        expiresIn:
+          type: integer
+    User:
+      type: object
+      required: [id, assuranceLevel, defaultLocale]
+      properties:
+        id:
+          type: string
+          format: uuid
+        phone:
+          type: string
+        email:
+          type: string
+          format: email
+        assuranceLevel:
+          type: string
+          enum: [none, phone_verified, basic_reporter, identity_verified, staff_verified]
+        defaultLocale:
+          type: string
+          enum: [en, he, ru, ar]
+        roles:
+          type: array
+          items:
+            type: string
+    LocalizedText:
+      type: object
+      properties:
+        en:
+          type: string
+        he:
+          type: string
+        ru:
+          type: string
+        ar:
+          type: string
+    LocationPayload:
+      type: object
+      properties:
+        deviceGeo:
+          $ref: '#/components/schemas/GeoPoint'
+        mediaExifGeo:
+          $ref: '#/components/schemas/GeoPoint'
+        manualGeo:
+          $ref: '#/components/schemas/GeoPoint'
+        manualAddress:
+          type: string
+        accuracyMeters:
+          type: number
+        capturedAt:
+          type: string
+          format: date-time
+    GeoPoint:
+      type: object
+      required: [lat, lng]
+      properties:
+        lat:
+          type: number
+        lng:
+          type: number
+    UploadIntentRequest:
+      type: object
+      required: [mediaClass, fileName, mimeType, sizeBytes]
+      properties:
+        mediaClass:
+          type: string
+          enum: [petition_attachment, complaint_media, enforcement_media, kyc_document, kyc_selfie]
+        fileName:
+          type: string
+        mimeType:
+          type: string
+        sizeBytes:
+          type: integer
+        linkedEntityType:
+          type: string
+          enum: [petition, complaint, enforcement_report, verification]
+        linkedEntityId:
+          type: string
+          format: uuid
+    UploadIntentResponse:
+      type: object
+      required: [uploadId, method, uploadUrl]
+      properties:
+        uploadId:
+          type: string
+          format: uuid
+        method:
+          type: string
+        uploadUrl:
+          type: string
+          format: uri
+        headers:
+          type: object
+          additionalProperties:
+            type: string
+    MediaObject:
+      type: object
+      required: [id, mediaType, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        mediaType:
+          type: string
+        status:
+          type: string
+          enum: [uploaded, processing, ready, rejected]
+        previewUrl:
+          type: string
+          format: uri
+    Petition:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        categoryId:
+          type: string
+          format: uuid
+        districtId:
+          type: string
+          format: uuid
+        signatureGoal:
+          type: integer
+        signatureCount:
+          type: integer
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+    Complaint:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        priority:
+          type: string
+        trustLevel:
+          type: string
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+        location:
+          $ref: '#/components/schemas/LocationPayload'
+    EnforcementReport:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+        severityHint:
+          type: string
+        trustLevel:
+          type: string
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+        location:
+          $ref: '#/components/schemas/LocationPayload'
+    Verification:
+      type: object
+      required: [id, status]
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [created, document_received, selfie_received, provider_processing, approved, manual_review, rejected]
+        assuranceLevel:
+          type: string
+        providerCode:
+          type: string
+    NotificationPreference:
+      type: object
+      properties:
+        emailEnabled:
+          type: boolean
+        smsEnabled:
+          type: boolean
+        pushEnabled:
+          type: boolean
+    PetitionCreateRequest:
+      type: object
+      required: [categoryId, districtId, content]
+      properties:
+        categoryId:
+          type: string
+          format: uuid
+        districtId:
+          type: string
+          format: uuid
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+        attachmentIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    ComplaintCreateRequest:
+      type: object
+      required: [categoryId, content, location]
+      properties:
+        categoryId:
+          type: string
+          format: uuid
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+        location:
+          $ref: '#/components/schemas/LocationPayload'
+        mediaIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    EnforcementCreateRequest:
+      type: object
+      required: [categoryId, content, location]
+      properties:
+        categoryId:
+          type: string
+          format: uuid
+        content:
+          $ref: '#/components/schemas/LocalizedText'
+        location:
+          $ref: '#/components/schemas/LocationPayload'
+        mediaIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    AdminStatusUpdate:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+        note:
+          type: string
+    KycWebhook:
+      type: object
+      required: [providerReference, eventType]
+      properties:
+        providerReference:
+          type: string
+        eventType:
+          type: string
+          enum:
+            - document_verified
+            - selfie_verified
+            - verification_approved
+            - verification_manual_review
+            - verification_rejected
+        payload:
+          type: object
+          additionalProperties: true
+paths:
+  /v1/auth/register/start:
+    post:
+      tags: [Auth]
+      summary: Start registration with phone number
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone]
+              properties:
+                phone:
+                  type: string
+      responses:
+        '202':
+          description: OTP issued
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /v1/auth/register/verify-phone:
+    post:
+      tags: [Auth]
+      summary: Verify phone OTP
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [phone, otp]
+              properties:
+                phone:
+                  type: string
+                otp:
+                  type: string
+      responses:
+        '200':
+          description: Phone verified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /v1/auth/login:
+    post:
+      tags: [Auth]
+      summary: Authenticate resident or staff user
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                phone:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                otp:
+                  type: string
+                passkeyResponse:
+                  type: object
+                  additionalProperties: true
+      responses:
+        '200':
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokens'
+  /v1/auth/refresh:
+    post:
+      tags: [Auth]
+      summary: Rotate refresh token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [refreshToken]
+              properties:
+                refreshToken:
+                  type: string
+      responses:
+        '200':
+          description: Token pair refreshed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthTokens'
+  /v1/auth/logout:
+    post:
+      tags: [Auth]
+      summary: Revoke current session
+      responses:
+        '204':
+          description: Logged out
+  /v1/me:
+    get:
+      tags: [Auth]
+      summary: Get current user profile
+      parameters:
+        - $ref: '#/components/parameters/LocaleHeader'
+      responses:
+        '200':
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /v1/me/notification-preferences:
+    get:
+      tags: [Notifications]
+      summary: Get current user notification preferences
+      responses:
+        '200':
+          description: Preferences
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPreference'
+    put:
+      tags: [Notifications]
+      summary: Update current user notification preferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPreference'
+      responses:
+        '200':
+          description: Updated preferences
+  /v1/kyc/verifications:
+    post:
+      tags: [KYC]
+      summary: Create KYC verification session
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [documentType, documentNumber]
+              properties:
+                documentType:
+                  type: string
+                documentNumber:
+                  type: string
+      responses:
+        '201':
+          description: Verification created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Verification'
+  /v1/kyc/verifications/{verificationId}:
+    get:
+      tags: [KYC]
+      summary: Get KYC verification status
+      parameters:
+        - $ref: '#/components/parameters/VerificationId'
+      responses:
+        '200':
+          description: Verification state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Verification'
+  /v1/media/uploads:
+    post:
+      tags: [Media]
+      summary: Create upload intent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadIntentRequest'
+      responses:
+        '201':
+          description: Upload intent created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadIntentResponse'
+  /v1/media/uploads/{mediaId}/complete:
+    post:
+      tags: [Media]
+      summary: Mark upload as complete and trigger processing
+      parameters:
+        - $ref: '#/components/parameters/MediaId'
+      responses:
+        '202':
+          description: Processing started
+  /v1/media/{mediaId}:
+    get:
+      tags: [Media]
+      summary: Get media object metadata
+      parameters:
+        - $ref: '#/components/parameters/MediaId'
+      responses:
+        '200':
+          description: Media object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaObject'
+  /v1/petitions:
+    get:
+      tags: [Petitions]
+      summary: List public petitions
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/LocaleHeader'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Public petitions
+    post:
+      tags: [Petitions]
+      summary: Create petition draft
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PetitionCreateRequest'
+      responses:
+        '201':
+          description: Petition draft created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Petition'
+  /v1/petitions/{petitionId}:
+    get:
+      tags: [Petitions]
+      summary: Get petition details
+      security: []
+      parameters:
+        - $ref: '#/components/parameters/PetitionId'
+        - $ref: '#/components/parameters/LocaleHeader'
+      responses:
+        '200':
+          description: Petition details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Petition'
+  /v1/petitions/{petitionId}/sign:
+    post:
+      tags: [Petitions]
+      summary: Sign petition
+      parameters:
+        - $ref: '#/components/parameters/PetitionId'
+      responses:
+        '202':
+          description: Signature accepted or step-up required
+  /v1/complaints:
+    post:
+      tags: [Complaints]
+      summary: Create complaint
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ComplaintCreateRequest'
+      responses:
+        '201':
+          description: Complaint created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Complaint'
+  /v1/complaints/{complaintId}:
+    get:
+      tags: [Complaints]
+      summary: Get own complaint details
+      parameters:
+        - $ref: '#/components/parameters/ComplaintId'
+        - $ref: '#/components/parameters/LocaleHeader'
+      responses:
+        '200':
+          description: Complaint details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Complaint'
+  /v1/enforcement-reports:
+    post:
+      tags: [Enforcement]
+      summary: Create municipal enforcement report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EnforcementCreateRequest'
+      responses:
+        '201':
+          description: Enforcement report created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnforcementReport'
+  /v1/enforcement-reports/{reportId}:
+    get:
+      tags: [Enforcement]
+      summary: Get own enforcement report details
+      parameters:
+        - $ref: '#/components/parameters/ReportId'
+        - $ref: '#/components/parameters/LocaleHeader'
+      responses:
+        '200':
+          description: Enforcement report details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnforcementReport'
+  /v1/webhooks/kyc:
+    post:
+      tags: [KYC]
+      summary: Receive KYC provider callback
+      security:
+        - webhookSignature: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KycWebhook'
+      responses:
+        '202':
+          description: Callback accepted
+        '401':
+          description: Invalid signature
+  /v1/admin/moderation/cases:
+    get:
+      tags: [AdminModeration]
+      summary: List moderation cases
+      parameters:
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Moderation cases
+  /v1/admin/petitions:
+    get:
+      tags: [AdminPetitions]
+      summary: List petition review queue
+      responses:
+        '200':
+          description: Petition queue
+  /v1/admin/petitions/{petitionId}/status:
+    post:
+      tags: [AdminPetitions]
+      summary: Update petition status
+      parameters:
+        - $ref: '#/components/parameters/PetitionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminStatusUpdate'
+      responses:
+        '200':
+          description: Petition status updated
+  /v1/admin/petitions/{petitionId}/official-response:
+    post:
+      tags: [AdminPetitions]
+      summary: Publish official petition response
+      parameters:
+        - $ref: '#/components/parameters/PetitionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [content]
+              properties:
+                content:
+                  $ref: '#/components/schemas/LocalizedText'
+      responses:
+        '201':
+          description: Official response created
+  /v1/admin/complaints:
+    get:
+      tags: [AdminComplaints]
+      summary: List complaint triage queue
+      responses:
+        '200':
+          description: Complaint queue
+  /v1/admin/complaints/{complaintId}/status:
+    post:
+      tags: [AdminComplaints]
+      summary: Update complaint status
+      parameters:
+        - $ref: '#/components/parameters/ComplaintId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminStatusUpdate'
+      responses:
+        '200':
+          description: Complaint status updated
+  /v1/admin/enforcement-reports:
+    get:
+      tags: [AdminEnforcement]
+      summary: List enforcement triage queue
+      responses:
+        '200':
+          description: Enforcement queue
+  /v1/admin/enforcement-reports/{reportId}/status:
+    post:
+      tags: [AdminEnforcement]
+      summary: Update enforcement report or case status
+      parameters:
+        - $ref: '#/components/parameters/ReportId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdminStatusUpdate'
+      responses:
+        '200':
+          description: Enforcement status updated
+  /v1/admin/enforcement-reports/{reportId}/dispatch:
+    post:
+      tags: [AdminEnforcement]
+      summary: Create dispatch task for enforcement case
+      parameters:
+        - $ref: '#/components/parameters/ReportId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dispatchType:
+                  type: string
+                unitId:
+                  type: string
+                  format: uuid
+      responses:
+        '201':
+          description: Dispatch task created
+  /v1/admin/enforcement-reports/{reportId}/validated-outcome:
+    post:
+      tags: [AdminEnforcement]
+      summary: Record validated enforcement outcome
+      parameters:
+        - $ref: '#/components/parameters/ReportId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [outcomeType]
+              properties:
+                outcomeType:
+                  type: string
+                  enum: [no_action, warning, fine_issued]
+                fineCode:
+                  type: string
+                fineAmount:
+                  type: number
+      responses:
+        '201':
+          description: Validated outcome recorded
+  /v1/admin/system/categories:
+    get:
+      tags: [AdminSystem]
+      summary: List system categories and reference data
+      responses:
+        '200':
+          description: Categories and references

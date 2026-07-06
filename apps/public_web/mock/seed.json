@@ -1,0 +1,262 @@
+{
+  "version": "1.4.0",
+  "locale": "ru",
+  "brand": {
+    "name": "G.E.S.H.E.R.",
+    "tagline": "Ваш голос. Ваш город.",
+    "colors": {
+      "terracotta": "#C6643C",
+      "graphite": "#2B2B2B"
+    }
+  },
+  "staffUsers": [
+    {
+      "id": "staff-moderator",
+      "email": "moderator@gesher.mock",
+      "password": "staff123",
+      "role": "moderator",
+      "displayName": "М. Модератор",
+      "badgeId": "MOD-101"
+    },
+    {
+      "id": "staff-operator",
+      "email": "operator@gesher.mock",
+      "password": "staff123",
+      "role": "operator",
+      "displayName": "О. Оператор",
+      "badgeId": "OPS-204"
+    },
+    {
+      "id": "staff-supervisor",
+      "email": "supervisor@gesher.mock",
+      "password": "staff123",
+      "role": "supervisor",
+      "displayName": "С. Супервайзер",
+      "badgeId": "SUP-310"
+    },
+    {
+      "id": "staff-municipality",
+      "email": "staff@gesher.mock",
+      "password": "staff123",
+      "role": "municipality_staff",
+      "displayName": "А. Сотрудник мэрии",
+      "badgeId": "MUN-415"
+    },
+    {
+      "id": "staff-admin",
+      "email": "admin@gesher.mock",
+      "password": "staff123",
+      "role": "admin",
+      "displayName": "А. Администратор",
+      "badgeId": "ADM-001"
+    }
+  ],
+  "petitions": [
+    {
+      "id": "p1",
+      "title": "Освещение в соседском парке",
+      "summary": "Жители просят улучшить освещение и безопасность в вечернее время.",
+      "status": "published",
+      "category": "blagoustroystvo",
+      "signatureCount": 128,
+      "signatureGoal": 500,
+      "submittedAtLabel": "12 дней назад",
+      "isOwnedByCurrentUser": false,
+      "officialResponse": null,
+      "moderationNote": null
+    },
+    {
+      "id": "p2",
+      "title": "Теневые навесы на остановках",
+      "summary": "Установить теневые зоны ожидания на основных остановках общественного транспорта.",
+      "status": "moderation_review",
+      "category": "transport",
+      "signatureCount": 12,
+      "signatureGoal": 300,
+      "submittedAtLabel": "3 дня назад",
+      "isOwnedByCurrentUser": true,
+      "officialResponse": null,
+      "moderationNote": null
+    },
+    {
+      "id": "p3",
+      "title": "Ремонт плитки на набережной",
+      "summary": "Заменить повреждённую плитку и улучшить доступность набережной.",
+      "status": "published",
+      "category": "blagoustroystvo",
+      "signatureCount": 64,
+      "signatureGoal": 400,
+      "submittedAtLabel": "1 неделя назад",
+      "isOwnedByCurrentUser": false,
+      "officialResponse": "Мэрия рассматривает инициативу в рамках плана благоустройства набережной.",
+      "moderationNote": null
+    },
+    {
+      "id": "p4",
+      "title": "Велопарковки в центре города",
+      "summary": "Установить безопасные велопарковки у общественных зданий в центре.",
+      "status": "draft",
+      "category": "transport",
+      "signatureCount": 0,
+      "signatureGoal": 200,
+      "submittedAtLabel": "Сегодня",
+      "isOwnedByCurrentUser": true,
+      "officialResponse": null,
+      "moderationNote": null
+    }
+  ],
+  "complaints": [
+    {
+      "id": "c1",
+      "title": "Не работает уличный фонарь",
+      "description": "Фонарь на углу не горит ночью. Жители сообщают о тёмном участке тротуара.",
+      "status": "triage",
+      "locationLabel": "ул. Герцль, 12",
+      "latitude": 32.794,
+      "longitude": 34.989,
+      "department": null,
+      "operatorNote": null,
+      "resolutionNote": null,
+      "assignedOperatorLabel": null,
+      "submittedAtLabel": "Сегодня"
+    },
+    {
+      "id": "c2",
+      "title": "Переполненный мусорный бак",
+      "description": "Мусорный бак в парке переполнен и требует вывоза.",
+      "status": "in_progress",
+      "locationLabel": "Вход в Центральный парк",
+      "latitude": 32.812,
+      "longitude": 34.998,
+      "department": "sanitation",
+      "operatorNote": "Направлено в санитарную службу, ожидается вывоз.",
+      "resolutionNote": null,
+      "assignedOperatorLabel": "О. Оператор",
+      "submittedAtLabel": "Вчера"
+    },
+    {
+      "id": "c3",
+      "title": "Сломанная скамейка в сквере",
+      "description": "Доски скамейки расшатаны, есть риск травмы.",
+      "status": "resolved",
+      "locationLabel": "Сквер на ул. Бен-Гуриона",
+      "latitude": 32.808,
+      "longitude": 34.992,
+      "department": "parks",
+      "operatorNote": "Передано в управление парков.",
+      "resolutionNote": "Скамейка заменена, участок проверен бригадой благоустройства.",
+      "assignedOperatorLabel": "О. Оператор",
+      "submittedAtLabel": "5 дней назад"
+    }
+  ],
+  "enforcement": [
+    {
+      "id": "e1",
+      "title": "Незаконная парковка на тротуаре",
+      "description": "Автомобиль перекрывает тротуар и мешает пешеходам.",
+      "status": "triage",
+      "locationLabel": "ул. Алленби, 8",
+      "latitude": 32.819,
+      "longitude": 34.998,
+      "geoMismatch": false,
+      "trustLabel": "standard",
+      "actionNote": null,
+      "oversightNote": null,
+      "mergedCaseId": null,
+      "submittedAtLabel": "Сегодня"
+    },
+    {
+      "id": "e2",
+      "title": "Возможная несанкционированная свалка",
+      "description": "Строительный мусор оставлен на общественной территории.",
+      "status": "review_required",
+      "locationLabel": "Требуется ручной адрес",
+      "latitude": null,
+      "longitude": null,
+      "geoMismatch": true,
+      "trustLabel": "low_geo_confidence",
+      "actionNote": null,
+      "oversightNote": null,
+      "mergedCaseId": null,
+      "submittedAtLabel": "Вчера"
+    },
+    {
+      "id": "e3",
+      "title": "Заблокирован проезд для пожарных",
+      "description": "Грузовик припаркован в разметке для пожарного проезда у школы.",
+      "status": "triage",
+      "locationLabel": "ул. Ха-Невиим, 44",
+      "latitude": 32.821,
+      "longitude": 34.995,
+      "geoMismatch": false,
+      "trustLabel": "standard",
+      "actionNote": null,
+      "oversightNote": null,
+      "mergedCaseId": null,
+      "submittedAtLabel": "2 дня назад"
+    },
+    {
+      "id": "e4",
+      "title": "Незаконная торговля на тротуаре",
+      "description": "Торговая точка без разрешения блокирует проход пешеходов.",
+      "status": "dispatch_task",
+      "locationLabel": "ул. Йефет, 102",
+      "latitude": 32.817,
+      "longitude": 34.991,
+      "geoMismatch": false,
+      "trustLabel": "standard",
+      "actionNote": "Полевая бригада назначена инспектором.",
+      "oversightNote": null,
+      "mergedCaseId": null,
+      "submittedAtLabel": "3 дня назад"
+    }
+  ],
+  "stats": {
+    "initiativesSubmitted": 1248,
+    "underReview": 562,
+    "implemented": 416,
+    "citizenVotes": 78532
+  },
+  "settings": {
+    "maintenanceMode": false,
+    "publicPetitionsEnabled": true,
+    "requireOtpForStaffActions": true,
+    "mockOtpHintVisible": true,
+    "defaultLocale": "ru"
+  },
+  "auditLog": [
+    {
+      "id": "audit-seed-1",
+      "at": "2026-07-04T10:15:00.000Z",
+      "actorId": "staff-moderator",
+      "actorName": "М. Модератор",
+      "role": "moderator",
+      "entityType": "petition",
+      "entityId": "p3",
+      "action": "official_response",
+      "note": "Мэрия рассматривает инициативу в рамках плана благоустройства набережной."
+    },
+    {
+      "id": "audit-seed-2",
+      "at": "2026-07-05T08:40:00.000Z",
+      "actorId": "staff-operator",
+      "actorName": "О. Оператор",
+      "role": "operator",
+      "entityType": "complaint",
+      "entityId": "c2",
+      "action": "assign_department",
+      "note": "sanitation"
+    },
+    {
+      "id": "audit-seed-3",
+      "at": "2026-07-05T14:20:00.000Z",
+      "actorId": "staff-supervisor",
+      "actorName": "С. Супервайзер",
+      "role": "supervisor",
+      "entityType": "enforcement",
+      "entityId": "e4",
+      "action": "dispatch_task",
+      "note": "Полевая бригада назначена инспектором."
+    }
+  ]
+}

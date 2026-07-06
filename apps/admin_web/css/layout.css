@@ -1,0 +1,149 @@
+@import url("components.css");
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.auth-hero {
+  background: linear-gradient(180deg, #fff 0%, #f7f7f7 100%);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+.auth-hero h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.auth-hero h1 .accent-dot {
+  color: var(--color-terracotta);
+}
+
+.auth-hero p {
+  max-width: 520px;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.auth-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: var(--color-graphite);
+  color: #fff;
+}
+
+.auth-card {
+  width: min(420px, 100%);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.auth-card h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.auth-hint {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.auth-error {
+  color: #ffb4a8;
+  font-size: 0.875rem;
+  min-height: 1.25rem;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: var(--sidebar-width) 1fr;
+}
+
+.sidebar {
+  background: var(--color-graphite);
+  color: #fff;
+  padding: var(--space-lg) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.sidebar__nav {
+  display: grid;
+  gap: 6px;
+}
+
+.sidebar__link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.sidebar__link:hover,
+.sidebar__link.is-active {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: #fff;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.topbar__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.content {
+  padding: var(--space-lg);
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-lg);
+}
+
+@media (max-width: 960px) {
+  .auth-page,
+  .app-shell,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+}

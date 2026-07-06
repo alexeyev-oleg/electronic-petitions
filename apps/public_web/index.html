@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G.E.S.H.E.R. — Ваш голос. Ваш город.</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B2B2B'/%3E%3Ctext x='18' y='42' fill='white' font-size='28' font-family='Arial' font-weight='700'%3EG%3C/text%3E%3Ccircle cx='44' cy='42' r='5' fill='%23C6643C'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <header class="site-header" id="site-header"></header>
+
+    <main>
+      <section class="hero">
+        <div class="page-section hero__grid">
+          <div class="hero__copy">
+            <span class="chip" id="hero-tagline">Ваш голос. Ваш город.</span>
+            <h1 id="hero-title">Участвуйте в жизни города через G.E.S.H.E.R.</h1>
+            <p id="hero-subtitle">
+              Подписывайте инициативы, отправляйте жалобы и сообщайте о нарушениях — в одном гражданском приложении.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" id="cta-download" href="#">Скачать приложение</a>
+              <a class="btn btn--secondary" id="cta-browser" href="#">Открыть в браузере</a>
+            </div>
+          </div>
+          <div class="hero__visual">
+            <div class="hero__visual-top">
+              <div class="logo logo--inverse" id="hero-logo" aria-label="G.E.S.H.E.R."></div>
+              <span class="chip" style="background:rgba(255,255,255,0.12);color:#fff;">MOCK BETA</span>
+            </div>
+            <div id="hero-mock-cards" style="display:grid;gap:var(--space-sm);"></div>
+            <p style="margin:0;color:rgba(255,255,255,0.7);font-size:0.875rem;">Демо-инициативы из shared mock seed</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-section page-section--muted" id="stats-panel"></section>
+
+      <section class="page-section">
+        <div id="cta-band" class="cta-band"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/public-data.js"></script>
+    <script src="js/home.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        renderLogo(document.getElementById('hero-logo'), true);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+---
+description: Show stage checklists and dynamic progress bars with time estimates on substantial tasks
+alwaysApply: true
+---
+
+# Staged Progress Reporting
+
+For every substantial or multi-step task, report progress in every update until the task is done.
+
+## Required format
+
+1. **Stage checklist** with `- [x]` done and `- [ ]` pending items.
+2. **Text progress bar** with percent, e.g. `████░░░░░░ 40%`.
+3. **Time estimate** for the current stage and remaining work.
+
+## Dynamic updates
+
+On large tasks, update the bar every progress message:
+- recalculate percent from completed substeps
+- revise time estimates when scope or blockers change
+- show both **current substage** and **overall task** bars when nested
+
+## Example
+
+```
+Overall:  ████░░░░░░ 35%  (~40 min left)
+I1 scaffold: ██████░░░░ 60%  (~6 min left)
+
+- [x] Create Flutter app shell
+- [ ] Wire triage queue screen
+```
+
+Stop after each approved stage unless the user explicitly says to continue.

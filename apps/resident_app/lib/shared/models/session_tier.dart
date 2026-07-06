@@ -1,0 +1,4 @@
+enum SessionTier {
+  beta,
+  secure,
+}

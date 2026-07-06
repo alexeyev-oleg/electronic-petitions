@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G.E.S.H.E.R. — Staff Portal</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B2B2B'/%3E%3Ctext x='18' y='42' fill='white' font-size='28' font-family='Arial' font-weight='700'%3EG%3C/text%3E%3Ccircle cx='44' cy='42' r='5' fill='%23C6643C'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="css/layout.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="auth-hero">
+        <div class="logo-mark" aria-hidden="true">G</div>
+        <div class="logo" id="hero-logo" aria-label="G.E.S.H.E.R."></div>
+        <h1>
+          Ваш голос<span class="accent-dot">.</span> Ваш город<span class="accent-dot">.</span>
+        </h1>
+        <p>
+          Портал сотрудников G.E.S.H.E.R. для модерации инициатив, обработки жалоб
+          и контроля нарушений. Mock-режим без backend.
+        </p>
+      </section>
+
+      <section class="auth-panel">
+        <form class="auth-card" id="login-form">
+          <h2>Вход для staff</h2>
+          <p class="auth-hint">Demo: moderator@gesher.mock / staff123</p>
+
+          <div class="field">
+            <label for="email">Рабочий email</label>
+            <input id="email" name="email" type="email" value="moderator@gesher.mock" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Пароль</label>
+            <input id="password" name="password" type="password" value="staff123" required />
+          </div>
+
+          <div class="field">
+            <label for="role-preview">Роль (после входа)</label>
+            <select id="role-preview" disabled>
+              <option>Определяется учётной записью</option>
+            </select>
+          </div>
+
+          <p class="auth-error" id="login-error" aria-live="polite"></p>
+          <button class="btn btn--primary btn--block" type="submit">Войти</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="js/config.js"></script>
+    <script src="js/mock-store.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
