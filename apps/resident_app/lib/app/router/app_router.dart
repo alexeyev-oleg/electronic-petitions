@@ -14,6 +14,7 @@ import '../../features/enforcement/presentation/screens/enforcement_report_creat
 import '../../features/enforcement/presentation/screens/enforcement_report_detail_screen.dart';
 import '../../features/enforcement/presentation/screens/enforcement_reports_list_screen.dart';
 import '../../features/help/presentation/screens/about_screen.dart';
+import '../../features/help/presentation/screens/contact_feedback_screen.dart';
 import '../../features/help/presentation/screens/faq_screen.dart';
 import '../../features/help/presentation/screens/help_screen.dart';
 import '../../features/location/presentation/screens/location_confirm_screen.dart';
@@ -128,6 +129,10 @@ final appRouterProvider = Provider<GoRouter>(
       GoRoute(
         path: '/help/about',
         builder: (context, state) => const AboutScreen(),
+      ),
+      GoRoute(
+        path: '/help/contact',
+        builder: (context, state) => const ContactFeedbackScreen(),
       ),
       GoRoute(
         path: '/forgot-password',

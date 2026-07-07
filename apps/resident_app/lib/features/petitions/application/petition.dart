@@ -7,7 +7,9 @@ class Petition {
     required this.summary,
     required this.status,
     required this.signatureCount,
+    required this.signatureGoal,
     required this.isOwnedByCurrentUser,
+    this.signedByCurrentUser = false,
     this.attachments = const [],
   });
 
@@ -16,8 +18,17 @@ class Petition {
   final String summary;
   final String status;
   final int signatureCount;
+  final int signatureGoal;
   final bool isOwnedByCurrentUser;
+  final bool signedByCurrentUser;
   final List<PetitionAttachment> attachments;
+
+  double get signatureProgress {
+    if (signatureGoal <= 0) {
+      return 0;
+    }
+    return (signatureCount / signatureGoal).clamp(0, 1);
+  }
 
   Map<String, dynamic> toJson() {
     return {
@@ -26,7 +37,9 @@ class Petition {
       'summary': summary,
       'status': status,
       'signatureCount': signatureCount,
+      'signatureGoal': signatureGoal,
       'isOwnedByCurrentUser': isOwnedByCurrentUser,
+      'signedByCurrentUser': signedByCurrentUser,
       'attachments': attachments.map((item) => item.toJson()).toList(),
     };
   }
@@ -38,8 +51,10 @@ class Petition {
       title: json['title'] as String,
       summary: json['summary'] as String,
       status: json['status'] as String,
-      signatureCount: json['signatureCount'] as int,
-      isOwnedByCurrentUser: json['isOwnedByCurrentUser'] as bool,
+      signatureCount: json['signatureCount'] as int? ?? 0,
+      signatureGoal: json['signatureGoal'] as int? ?? 500,
+      isOwnedByCurrentUser: json['isOwnedByCurrentUser'] as bool? ?? false,
+      signedByCurrentUser: json['signedByCurrentUser'] as bool? ?? false,
       attachments: rawAttachments == null
           ? const []
           : rawAttachments

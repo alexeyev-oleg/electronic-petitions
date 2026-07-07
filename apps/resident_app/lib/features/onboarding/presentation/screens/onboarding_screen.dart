@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/constants/app_links.dart';
 import '../../../../core/widgets/app_section_card.dart';
+import '../../../../core/widgets/gesher_brand_mark.dart';
 import '../../../profile/application/preferences_controller.dart';
 
 class OnboardingScreen extends ConsumerStatefulWidget {
@@ -18,8 +21,6 @@ class OnboardingScreen extends ConsumerStatefulWidget {
 class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final _pageController = PageController();
   int _pageIndex = 0;
-
-  static const _pageCount = 4;
 
   @override
   void dispose() {
@@ -34,7 +35,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   void _next() {
-    if (_pageIndex >= _pageCount - 1) {
+    if (_pageIndex >= _slides.length - 1) {
       _finish();
       return;
     }
@@ -45,15 +46,16 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final preferences = ref.watch(preferencesControllerProvider);
+  Future<void> _openPublicWeb() async {
+    final uri = Uri.parse(AppLinks.publicWebUrl);
+    await launchUrl(uri, mode: LaunchMode.externalApplication);
+  }
 
-    final slides = [
+  List<_OnboardingSlideData> get _slides {
+    final l10n = AppLocalizations.of(context);
+    return [
       _OnboardingSlideData(
-        icon: Icons.account_balance_outlined,
-        iconColor: AppColors.primary,
+        useBrandMark: true,
         title: l10n.onboardingSlideWelcomeTitle,
         body: l10n.onboardingSlideWelcomeBody,
         showLanguagePicker: true,
@@ -76,7 +78,21 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
         title: l10n.onboardingSlideViolationsTitle,
         body: l10n.onboardingSlideViolationsBody,
       ),
+      _OnboardingSlideData(
+        icon: Icons.language_outlined,
+        iconColor: AppColors.primary,
+        title: l10n.onboardingSlideWebTitle,
+        body: l10n.onboardingSlideWebBody,
+        showPublicWebCta: true,
+      ),
     ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final preferences = ref.watch(preferencesControllerProvider);
+    final slides = _slides;
 
     return Scaffold(
       body: SafeArea(
@@ -100,26 +116,33 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Container(
-                                  width: 72,
-                                  height: 72,
-                                  decoration: BoxDecoration(
-                                    color: slide.iconColor
-                                        .withValues(alpha: 0.12),
-                                    borderRadius: BorderRadius.circular(16),
+                                if (slide.useBrandMark)
+                                  GesherBrandMark(
+                                    size: 88,
+                                    tagline: l10n.brandTagline,
+                                  )
+                                else
+                                  Container(
+                                    width: 72,
+                                    height: 72,
+                                    decoration: BoxDecoration(
+                                      color: slide.iconColor
+                                          .withValues(alpha: 0.12),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Icon(
+                                      slide.icon,
+                                      size: 36,
+                                      color: slide.iconColor,
+                                    ),
                                   ),
-                                  child: Icon(
-                                    slide.icon,
-                                    size: 36,
-                                    color: slide.iconColor,
-                                  ),
-                                ),
                                 const SizedBox(height: AppSpacing.lg),
                                 Text(
                                   slide.title,
                                   textAlign: TextAlign.center,
-                                  style:
-                                      Theme.of(context).textTheme.headlineSmall,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineSmall,
                                 ),
                                 const SizedBox(height: AppSpacing.sm),
                                 Text(
@@ -131,7 +154,8 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                                 if (slide.showLanguagePicker) ...[
                                   const SizedBox(height: AppSpacing.lg),
                                   Align(
-                                    alignment: AlignmentDirectional.centerStart,
+                                    alignment:
+                                        AlignmentDirectional.centerStart,
                                     child: Text(
                                       l10n.onboardingLanguagePrompt,
                                       style: Theme.of(context)
@@ -158,6 +182,14 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                                               .notifier)
                                           .setLocale(Locale(value));
                                     },
+                                  ),
+                                ],
+                                if (slide.showPublicWebCta) ...[
+                                  const SizedBox(height: AppSpacing.lg),
+                                  OutlinedButton.icon(
+                                    onPressed: _openPublicWeb,
+                                    icon: const Icon(Icons.open_in_new),
+                                    label: Text(l10n.onboardingOpenWebAction),
                                   ),
                                 ],
                               ],
@@ -198,12 +230,18 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                     }),
                   ),
                   const SizedBox(height: AppSpacing.md),
-                  FilledButton(
-                    onPressed: _next,
-                    child: Text(
-                      _pageIndex >= _pageCount - 1
-                          ? l10n.onboardingGetStarted
-                          : l10n.onboardingNext,
+                  Semantics(
+                    button: true,
+                    label: _pageIndex >= slides.length - 1
+                        ? l10n.onboardingGetStarted
+                        : l10n.onboardingNext,
+                    child: FilledButton(
+                      onPressed: _next,
+                      child: Text(
+                        _pageIndex >= slides.length - 1
+                            ? l10n.onboardingGetStarted
+                            : l10n.onboardingNext,
+                      ),
                     ),
                   ),
                 ],
@@ -231,16 +269,20 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
 
 class _OnboardingSlideData {
   const _OnboardingSlideData({
-    required this.icon,
-    required this.iconColor,
     required this.title,
     required this.body,
+    this.icon = Icons.circle_outlined,
+    this.iconColor = AppColors.primary,
+    this.useBrandMark = false,
     this.showLanguagePicker = false,
+    this.showPublicWebCta = false,
   });
 
   final IconData icon;
   final Color iconColor;
   final String title;
   final String body;
+  final bool useBrandMark;
   final bool showLanguagePicker;
+  final bool showPublicWebCta;
 }

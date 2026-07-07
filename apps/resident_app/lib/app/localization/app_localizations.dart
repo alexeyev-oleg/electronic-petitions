@@ -190,6 +190,7 @@ class AppLocalizations {
       'kycRequiredBanner': 'Complete identity verification to sign petitions.',
       'signPetitionAction': 'Sign petition',
       'petitionSignedNotice': 'Petition signed in mock mode.',
+      'petitionSignedLabel': 'You signed this petition',
       'kycRequiredForAction': 'Identity verification is required for this action.',
       'secureSessionRequired': 'A secure phone-verified session is required.',
       'sensitiveActionTitle': 'Confirm sensitive action',
@@ -214,6 +215,31 @@ class AppLocalizations {
       'faqAnswerMedia': 'Media permissions are used only when you attach photo or video evidence to a complaint or violation report.',
       'faqQuestionPendingStatus': 'Why does my case show pending or review?',
       'faqAnswerPendingStatus': 'In beta mock mode, statuses simulate municipal processing. Real status updates will come from the backend later.',
+      'faqQuestionPetitions': 'How do petitions and signatures work?',
+      'faqAnswerPetitions': 'Browse published petitions, complete KYC mock verification, then sign with staff OTP 123456. Signatures are stored locally in mock beta.',
+      'faqQuestionComplaints': 'How do I submit a complaint?',
+      'faqAnswerComplaints': 'Open Complaints, attach photos or video, confirm location on the map, and submit. Status updates appear in your lists and inbox.',
+      'faqQuestionNotifications': 'Where do notifications appear?',
+      'faqAnswerNotifications': 'Open Inbox from Home. Tap a notification with a link icon to jump to the related petition, complaint, or report.',
+      'faqQuestionMockSync': 'How does mock sync work?',
+      'faqAnswerMockSync': 'Staff export JSON from the admin portal and import it in Profile → Mock beta (resident) or Inspector mock sync. Seed versions must match.',
+      'contactFeedbackTitle': 'Contact & feedback',
+      'contactFeedbackIntro': 'Send pilot feedback to the product team. In mock beta messages are saved on this device only.',
+      'contactNameLabel': 'Name',
+      'contactEmailLabel': 'Email',
+      'contactMessageLabel': 'Message',
+      'contactSubmit': 'Send message',
+      'contactSuccess': 'Message saved locally (mock beta).',
+      'contactMockNotice': 'Real delivery will be enabled after backend integration.',
+      'contactNameRequired': 'Enter your name.',
+      'contactEmailRequired': 'Enter your email.',
+      'contactMessageRequired': 'Enter a message.',
+      'publicWebLabel': 'Public website',
+      'onboardingSlideWebTitle': 'Public website',
+      'onboardingSlideWebBody': 'Browse published initiatives and guides on the G.E.S.H.E.R. citizen site while mobile actions stay in the app.',
+      'onboardingOpenWebAction': 'Open public site',
+      'simulatePushAction': 'Simulate push notification',
+      'openNotificationAction': 'Open',
       'faqQuestionMockOtp': 'What code should I use for phone or sensitive actions?',
       'faqAnswerMockOtp': 'In this beta build, use 123456 for mock OTP and sensitive-action confirmation.',
       'petitionAttachmentsTitle': 'Attachments',
@@ -312,7 +338,7 @@ class AppLocalizations {
       'onboardingNext': 'הבא',
       'onboardingGetStarted': 'התחלה',
       'onboardingLanguagePrompt': 'בחרו שפה',
-      'onboardingSlideWelcomeTitle': 'ברוכים הבאים לאפליקציית התושבים',
+      'onboardingSlideWelcomeTitle': 'ברוכים הבאים ל-G.E.S.H.E.R.',
       'onboardingSlideWelcomeBody': 'התחברו לעירייה דרך עצומות, תלונות ודיווחי הפרות.',
       'onboardingSlidePetitionsTitle': 'עצומות אלקטרוניות',
       'onboardingSlidePetitionsBody': 'עיינו בעצומות פעילות, עקבו אחר התקדמות והיערכו לתמיכה בנושאים חשובים.',
@@ -395,6 +421,7 @@ class AppLocalizations {
       'kycRequiredBanner': 'השלימו אימות זהות כדי לחתום על עצומות.',
       'signPetitionAction': 'חתימה על עצומה',
       'petitionSignedNotice': 'העצומה נחתמה במצב דמה.',
+      'petitionSignedLabel': 'חתמתם על יוזמה זו',
       'kycRequiredForAction': 'נדרש אימות זהות לפעולה זו.',
       'secureSessionRequired': 'נדרש סשן מאובטח עם טלפון מאומת.',
       'sensitiveActionTitle': 'אישור פעולה רגישה',
@@ -419,6 +446,31 @@ class AppLocalizations {
       'faqAnswerMedia': 'הרשאות מדיה משמשות רק כשאתם מצרפים תמונה או וידאו לתלונה או דיווח.',
       'faqQuestionPendingStatus': 'למה הסטטוס מציג pending או review?',
       'faqAnswerPendingStatus': 'במצב mock, הסטטוס מדמה עיבוד עירוני. עדכונים אמיתיים יגיעו מה-backend.',
+      'faqQuestionPetitions': 'איך עובדות עצומות וחתימות?',
+      'faqAnswerPetitions': 'עיינו ביוזמות, השלימו mock KYC וחתמו עם OTP 123456. החתימות נשמרות מקומית.',
+      'faqQuestionComplaints': 'איך שולחים תלונה?',
+      'faqAnswerComplaints': 'פתחו תלונות, צרפו מדיה, אשרו מיקום במפה ושלחו.',
+      'faqQuestionNotifications': 'איפה רואים התראות?',
+      'faqAnswerNotifications': 'פתחו Inbox מהבית. הקשה על התראה עם קישור תפתח את הפריט.',
+      'faqQuestionMockSync': 'איך עובד mock sync?',
+      'faqAnswerMockSync': 'Staff מייצא JSON ומייבא ב-Profile → Mock beta או באפליקציית inspector.',
+      'contactFeedbackTitle': 'יצירת קשר',
+      'contactFeedbackIntro': 'משוב פיילוט נשמר מקומית ב-mock beta.',
+      'contactNameLabel': 'שם',
+      'contactEmailLabel': 'אימייל',
+      'contactMessageLabel': 'הודעה',
+      'contactSubmit': 'שליחה',
+      'contactSuccess': 'ההודעה נשמרה מקומית.',
+      'contactMockNotice': 'משלוח אמיתי יתווסף עם backend.',
+      'contactNameRequired': 'הזינו שם.',
+      'contactEmailRequired': 'הזינו אימייל.',
+      'contactMessageRequired': 'הזינו הודעה.',
+      'publicWebLabel': 'אתר ציבורי',
+      'onboardingSlideWebTitle': 'אתר ציבורי',
+      'onboardingSlideWebBody': 'עיינו ביוזמות ומדריכים באתר G.E.S.H.E.R.',
+      'onboardingOpenWebAction': 'פתיחת האתר',
+      'simulatePushAction': 'סימולציית push',
+      'openNotificationAction': 'פתיחה',
       'faqQuestionMockOtp': 'איזה קוד להשתמש לטלפון או פעולות רגישות?',
       'faqAnswerMockOtp': 'בגרסת בטא זו השתמשו ב-123456 ל-OTP mock ולאישור פעולות רגישות.',
       'petitionAttachmentsTitle': 'קבצים מצורפים',
@@ -601,6 +653,7 @@ class AppLocalizations {
       'kycRequiredBanner': 'Пройдите KYC, чтобы подписывать петиции.',
       'signPetitionAction': 'Подписать петицию',
       'petitionSignedNotice': 'Петиция подписана в mock-режиме.',
+      'petitionSignedLabel': 'Вы подписали эту петицию',
       'kycRequiredForAction': 'Для этого действия нужна верификация личности.',
       'secureSessionRequired': 'Нужна secure-сессия с подтверждённым телефоном.',
       'sensitiveActionTitle': 'Подтверждение действия',
@@ -625,6 +678,31 @@ class AppLocalizations {
       'faqAnswerMedia': 'Разрешения используются только когда вы прикрепляете фото или видео к жалобе или донесению.',
       'faqQuestionPendingStatus': 'Почему статус pending или review?',
       'faqAnswerPendingStatus': 'В mock-режиме статусы симулируют обработку муниципалитетом. Реальные обновления придут с backend.',
+      'faqQuestionPetitions': 'Как работают петиции и подписи?',
+      'faqAnswerPetitions': 'Просматривайте опубликованные петиции, пройдите mock KYC и подпишите с OTP 123456. Подписи сохраняются локально.',
+      'faqQuestionComplaints': 'Как отправить жалобу?',
+      'faqAnswerComplaints': 'Откройте Жалобы, прикрепите медиа, подтвердите адрес на карте и отправьте.',
+      'faqQuestionNotifications': 'Где смотреть уведомления?',
+      'faqAnswerNotifications': 'Входящие на главном экране. Нажмите уведомление со значком ссылки для перехода к объекту.',
+      'faqQuestionMockSync': 'Как работает mock sync?',
+      'faqAnswerMockSync': 'Staff экспортирует JSON, житель импортирует в Профиль → Mock beta. Версия seed должна совпадать.',
+      'contactFeedbackTitle': 'Контакты и обратная связь',
+      'contactFeedbackIntro': 'Форма пилотной обратной связи. В mock beta сообщения сохраняются только на устройстве.',
+      'contactNameLabel': 'Имя',
+      'contactEmailLabel': 'Email',
+      'contactMessageLabel': 'Сообщение',
+      'contactSubmit': 'Отправить',
+      'contactSuccess': 'Сообщение сохранено локально (mock beta).',
+      'contactMockNotice': 'Реальная доставка появится после подключения backend.',
+      'contactNameRequired': 'Укажите имя.',
+      'contactEmailRequired': 'Укажите email.',
+      'contactMessageRequired': 'Введите сообщение.',
+      'publicWebLabel': 'Публичный сайт',
+      'onboardingSlideWebTitle': 'Публичный сайт',
+      'onboardingSlideWebBody': 'Смотрите опубликованные инициативы и справку на сайте G.E.S.H.E.R., а действия — в приложении.',
+      'onboardingOpenWebAction': 'Открыть сайт',
+      'simulatePushAction': 'Симулировать push',
+      'openNotificationAction': 'Открыть',
       'faqQuestionMockOtp': 'Какой код для телефона и sensitive actions?',
       'faqAnswerMockOtp': 'В этой beta-сборке используйте 123456 для mock OTP и подтверждения действий.',
       'petitionAttachmentsTitle': 'Вложения',
@@ -723,7 +801,7 @@ class AppLocalizations {
       'onboardingNext': 'التالي',
       'onboardingGetStarted': 'ابدأ',
       'onboardingLanguagePrompt': 'اختر اللغة',
-      'onboardingSlideWelcomeTitle': 'مرحباً بك في تطبيق السكان',
+      'onboardingSlideWelcomeTitle': 'مرحباً بك في G.E.S.H.E.R.',
       'onboardingSlideWelcomeBody': 'تواصل مع البلدية عبر الالتماسات والشكاوى وتقارير المخالفات.',
       'onboardingSlidePetitionsTitle': 'الالتماسات الإلكترونية',
       'onboardingSlidePetitionsBody': 'تصفح الالتماسات النشطة وتابع التقدم واستعد لدعم القضايا المهمة.',
@@ -806,6 +884,7 @@ class AppLocalizations {
       'kycRequiredBanner': 'أكمل التحقق من الهوية لتوقيع الالتماسات.',
       'signPetitionAction': 'توقيع الالتماس',
       'petitionSignedNotice': 'تم توقيع الالتماس في الوضع التجريبي.',
+      'petitionSignedLabel': 'وقّعت هذا الالتماس',
       'kycRequiredForAction': 'التحقق من الهوية مطلوب لهذا الإجراء.',
       'secureSessionRequired': 'يلزم جلسة آمنة مع هاتف مؤكد.',
       'sensitiveActionTitle': 'تأكيد إجراء حساس',
@@ -830,6 +909,31 @@ class AppLocalizations {
       'faqAnswerMedia': 'تُستخدم هذه الصلاحيات فقط عند إرفاق صورة أو فيديو.',
       'faqQuestionPendingStatus': 'لماذا تظهر حالة pending أو review؟',
       'faqAnswerPendingStatus': 'في وضع mock، تحاكي الحالات معالجة البلدية. التحديثات الحقيقية ستأتي من الخلفية.',
+      'faqQuestionPetitions': 'كيف تعمل الالتماسات والتوقيعات؟',
+      'faqAnswerPetitions': 'تصفح الالتماسات المنشورة، أكمل mock KYC، ثم وقّع برمز OTP 123456.',
+      'faqQuestionComplaints': 'كيف أرسل شكوى؟',
+      'faqAnswerComplaints': 'افتح الشكاوى، أرفق الوسائط، أكد الموقع على الخريطة وأرسل.',
+      'faqQuestionNotifications': 'أين تظهر الإشعارات؟',
+      'faqAnswerNotifications': 'افتح الوارد من الرئيسية. اضغط إشعارًا به رابط للانتقال للعنصر.',
+      'faqQuestionMockSync': 'كيف يعمل mock sync؟',
+      'faqAnswerMockSync': 'يصدّر staff ملف JSON ويستورده في الملف → Mock beta. يجب تطابق إصدار seed.',
+      'contactFeedbackTitle': 'اتصل بنا',
+      'contactFeedbackIntro': 'نموذج ملاحظات تجريبي. في mock beta تُحفظ الرسائل محليًا.',
+      'contactNameLabel': 'الاسم',
+      'contactEmailLabel': 'البريد الإلكتروني',
+      'contactMessageLabel': 'الرسالة',
+      'contactSubmit': 'إرسال',
+      'contactSuccess': 'تم حفظ الرسالة محليًا.',
+      'contactMockNotice': 'سيتم التسليم الحقيقي بعد ربط backend.',
+      'contactNameRequired': 'أدخل الاسم.',
+      'contactEmailRequired': 'أدخل البريد.',
+      'contactMessageRequired': 'أدخل الرسالة.',
+      'publicWebLabel': 'الموقع العام',
+      'onboardingSlideWebTitle': 'الموقع العام',
+      'onboardingSlideWebBody': 'تصفح المبادرات والأدلة على موقع G.E.S.H.E.R.',
+      'onboardingOpenWebAction': 'فتح الموقع',
+      'simulatePushAction': 'محاكاة push',
+      'openNotificationAction': 'فتح',
       'faqQuestionMockOtp': 'ما الرمز للهاتف أو الإجراءات الحساسة؟',
       'faqAnswerMockOtp': 'في نسخة البيتا هذه استخدم 123456 لOTP mock وتأكيد الإجراءات.',
       'petitionAttachmentsTitle': 'المرفقات',
@@ -1030,6 +1134,7 @@ class AppLocalizations {
   String get kycRequiredBanner => _text('kycRequiredBanner');
   String get signPetitionAction => _text('signPetitionAction');
   String get petitionSignedNotice => _text('petitionSignedNotice');
+  String get petitionSignedLabel => _text('petitionSignedLabel');
   String get kycRequiredForAction => _text('kycRequiredForAction');
   String get secureSessionRequired => _text('secureSessionRequired');
   String get sensitiveActionTitle => _text('sensitiveActionTitle');
@@ -1054,6 +1159,31 @@ class AppLocalizations {
   String get faqAnswerMedia => _text('faqAnswerMedia');
   String get faqQuestionPendingStatus => _text('faqQuestionPendingStatus');
   String get faqAnswerPendingStatus => _text('faqAnswerPendingStatus');
+  String get faqQuestionPetitions => _text('faqQuestionPetitions');
+  String get faqAnswerPetitions => _text('faqAnswerPetitions');
+  String get faqQuestionComplaints => _text('faqQuestionComplaints');
+  String get faqAnswerComplaints => _text('faqAnswerComplaints');
+  String get faqQuestionNotifications => _text('faqQuestionNotifications');
+  String get faqAnswerNotifications => _text('faqAnswerNotifications');
+  String get faqQuestionMockSync => _text('faqQuestionMockSync');
+  String get faqAnswerMockSync => _text('faqAnswerMockSync');
+  String get contactFeedbackTitle => _text('contactFeedbackTitle');
+  String get contactFeedbackIntro => _text('contactFeedbackIntro');
+  String get contactNameLabel => _text('contactNameLabel');
+  String get contactEmailLabel => _text('contactEmailLabel');
+  String get contactMessageLabel => _text('contactMessageLabel');
+  String get contactSubmit => _text('contactSubmit');
+  String get contactSuccess => _text('contactSuccess');
+  String get contactMockNotice => _text('contactMockNotice');
+  String get contactNameRequired => _text('contactNameRequired');
+  String get contactEmailRequired => _text('contactEmailRequired');
+  String get contactMessageRequired => _text('contactMessageRequired');
+  String get publicWebLabel => _text('publicWebLabel');
+  String get onboardingSlideWebTitle => _text('onboardingSlideWebTitle');
+  String get onboardingSlideWebBody => _text('onboardingSlideWebBody');
+  String get onboardingOpenWebAction => _text('onboardingOpenWebAction');
+  String get simulatePushAction => _text('simulatePushAction');
+  String get openNotificationAction => _text('openNotificationAction');
   String get faqQuestionMockOtp => _text('faqQuestionMockOtp');
   String get faqAnswerMockOtp => _text('faqAnswerMockOtp');
   String get petitionAttachmentsTitle => _text('petitionAttachmentsTitle');

@@ -26,6 +26,7 @@ class MockPetitionsRepository implements PetitionsRepository {
       summary: summary.trim(),
       status: 'draft',
       signatureCount: 0,
+      signatureGoal: 500,
       isOwnedByCurrentUser: true,
       attachments: List<PetitionAttachment>.from(attachments),
     );
@@ -44,13 +45,19 @@ class MockPetitionsRepository implements PetitionsRepository {
     }
 
     final petition = items[index];
+    if (petition.signedByCurrentUser) {
+      return petition;
+    }
+
     final updatedPetition = Petition(
       id: petition.id,
       title: petition.title,
       summary: petition.summary,
       status: petition.status,
       signatureCount: petition.signatureCount + 1,
+      signatureGoal: petition.signatureGoal,
       isOwnedByCurrentUser: petition.isOwnedByCurrentUser,
+      signedByCurrentUser: true,
       attachments: petition.attachments,
     );
     final updated = [...items];

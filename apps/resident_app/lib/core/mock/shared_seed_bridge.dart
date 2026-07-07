@@ -33,7 +33,9 @@ class SharedSeedBridge {
             summary: json['summary'] as String,
             status: json['status'] as String,
             signatureCount: json['signatureCount'] as int? ?? 0,
+            signatureGoal: json['signatureGoal'] as int? ?? 500,
             isOwnedByCurrentUser: json['isOwnedByCurrentUser'] as bool? ?? false,
+            signedByCurrentUser: json['signedByCurrentUser'] as bool? ?? false,
             attachments: _attachmentsFromJson(json['attachments'] as List<dynamic>?),
           );
         })

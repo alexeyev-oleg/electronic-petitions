@@ -5,6 +5,7 @@ import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/widgets/app_list_state_view.dart';
 import '../../application/notifications_controller.dart';
+import 'notification_navigation.dart';
 
 class InboxScreen extends ConsumerWidget {
   const InboxScreen({super.key});
@@ -30,17 +31,31 @@ class InboxScreen extends ConsumerWidget {
           separatorBuilder: (_, __) => const SizedBox(height: AppSpacing.sm),
           itemBuilder: (context, index) {
             final item = controller.items[index];
-            return Card(
-              child: ListTile(
-                title: Text(item.title),
-                subtitle: Text('${item.body}\n${item.createdAtLabel}'),
-                isThreeLine: true,
-                trailing: item.isRead
-                    ? null
-                    : const Icon(Icons.mark_email_unread_outlined),
-                onTap: () {
-                  ref.read(notificationsControllerProvider).markAsRead(item.id);
-                },
+            final hasDeepLink = item.deepLink != null && item.deepLink!.isNotEmpty;
+
+            return Semantics(
+              button: hasDeepLink,
+              label: item.title,
+              hint: hasDeepLink ? l10n.openNotificationAction : item.body,
+              child: Card(
+                child: ListTile(
+                  title: Text(item.title),
+                  subtitle: Text('${item.body}\n${item.createdAtLabel}'),
+                  isThreeLine: true,
+                  trailing: item.isRead
+                      ? (hasDeepLink
+                          ? const Icon(Icons.open_in_new)
+                          : null)
+                      : const Icon(Icons.mark_email_unread_outlined),
+                  onTap: () {
+                    ref
+                        .read(notificationsControllerProvider)
+                        .markAsRead(item.id);
+                    if (hasDeepLink) {
+                      openNotificationDeepLink(context, item);
+                    }
+                  },
+                ),
               ),
             );
           },

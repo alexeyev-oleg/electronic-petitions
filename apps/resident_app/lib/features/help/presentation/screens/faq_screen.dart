@@ -19,6 +19,10 @@ class FaqScreen extends StatelessWidget {
       _FaqItem(l10n.faqQuestionLocation, l10n.faqAnswerLocation),
       _FaqItem(l10n.faqQuestionMedia, l10n.faqAnswerMedia),
       _FaqItem(l10n.faqQuestionPendingStatus, l10n.faqAnswerPendingStatus),
+      _FaqItem(l10n.faqQuestionPetitions, l10n.faqAnswerPetitions),
+      _FaqItem(l10n.faqQuestionComplaints, l10n.faqAnswerComplaints),
+      _FaqItem(l10n.faqQuestionNotifications, l10n.faqAnswerNotifications),
+      _FaqItem(l10n.faqQuestionMockSync, l10n.faqAnswerMockSync),
     ];
 
     return Scaffold(

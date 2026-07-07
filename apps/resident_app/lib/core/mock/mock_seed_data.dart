@@ -73,6 +73,7 @@ class MockSeedData {
         summary: 'Residents request improved lighting and safer evening access.',
         status: 'published',
         signatureCount: 128,
+        signatureGoal: 500,
         isOwnedByCurrentUser: false,
         attachments: [
           PetitionAttachment(
@@ -88,6 +89,7 @@ class MockSeedData {
         summary: 'Install shaded waiting areas at major public transit stops.',
         status: 'moderation_review',
         signatureCount: 12,
+        signatureGoal: 300,
         isOwnedByCurrentUser: true,
         attachments: [
           PetitionAttachment(
@@ -113,6 +115,7 @@ class MockSeedData {
         summary: 'Replace damaged tiles and improve accessibility along the promenade.',
         status: 'published',
         signatureCount: 64,
+        signatureGoal: 400,
         isOwnedByCurrentUser: false,
       ),
     ];
@@ -126,6 +129,7 @@ class MockSeedData {
         body: 'A petition you follow has moved to official review.',
         createdAtLabel: 'Today',
         isRead: false,
+        deepLink: '/petitions/p3',
       ),
       AppNotification(
         id: 'n2',
@@ -133,6 +137,7 @@ class MockSeedData {
         body: 'Your complaint is now in progress.',
         createdAtLabel: 'Yesterday',
         isRead: true,
+        deepLink: '/complaints/c2',
       ),
       AppNotification(
         id: 'n3',
@@ -140,6 +145,7 @@ class MockSeedData {
         body: 'Your report was accepted for municipal review.',
         createdAtLabel: '2 days ago',
         isRead: false,
+        deepLink: '/enforcement/e4',
       ),
     ];
   }

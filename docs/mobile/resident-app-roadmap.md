@@ -246,6 +246,19 @@ Exit criteria:
 - beta auth migration path exists
 - secure onboarding is testable without rewriting app structure
 
+### `R7` Resident polish v2 (completed)
+- petition detail shows signature progress, goal, and signed state with accessibility semantics
+- richer in-app FAQ (petition signing, notifications, contact, public web)
+- contact and feedback screen with email and public web links (`url_launcher`)
+- notification inbox deep links to petition, complaint, and enforcement detail routes
+- mock push simulation from profile (SnackBar with open action)
+- onboarding v2: G.E.S.H.E.R. brand mark on welcome slide, fifth slide with public web CTA
+- shared seed `1.6.2` with notification `deepLink` fields
+
+Exit criteria:
+- demo path covers signing UX, help/contact, and notification navigation without backend
+- onboarding introduces brand and public web companion site
+
 ### `P1` Resident polish without backend (completed)
 - push notification scaffold with mock device token in profile
 - analytics and crash reporting hooks (mock/no-op via environment flags)
@@ -387,8 +400,6 @@ For each major milestone:
 
 ## Next Recommended Execution Stage
 If we move from planning to execution, start with:
-1. Flutter app skeleton
-2. localization and RTL/LTR foundation
-3. auth shell with beta login
-4. mock repositories
-5. petitions module
+1. `U9` documentation and demo assets (README, screenshots, CHANGELOG)
+2. `Q1` CI quality gates (Flutter analyze, JS lint, Pages smoke test)
+3. `M0` backend integration planning

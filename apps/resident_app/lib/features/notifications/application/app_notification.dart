@@ -5,6 +5,7 @@ class AppNotification {
     required this.body,
     required this.createdAtLabel,
     required this.isRead,
+    this.deepLink,
   });
 
   final String id;
@@ -12,6 +13,7 @@ class AppNotification {
   final String body;
   final String createdAtLabel;
   final bool isRead;
+  final String? deepLink;
 
   AppNotification copyWith({
     String? id,
@@ -19,6 +21,7 @@ class AppNotification {
     String? body,
     String? createdAtLabel,
     bool? isRead,
+    String? deepLink,
   }) {
     return AppNotification(
       id: id ?? this.id,
@@ -26,6 +29,7 @@ class AppNotification {
       body: body ?? this.body,
       createdAtLabel: createdAtLabel ?? this.createdAtLabel,
       isRead: isRead ?? this.isRead,
+      deepLink: deepLink ?? this.deepLink,
     );
   }
 
@@ -36,6 +40,7 @@ class AppNotification {
       'body': body,
       'createdAtLabel': createdAtLabel,
       'isRead': isRead,
+      if (deepLink != null) 'deepLink': deepLink,
     };
   }
 
@@ -46,6 +51,7 @@ class AppNotification {
       body: json['body'] as String,
       createdAtLabel: json['createdAtLabel'] as String,
       isRead: json['isRead'] as bool? ?? false,
+      deepLink: json['deepLink'] as String?,
     );
   }
 }

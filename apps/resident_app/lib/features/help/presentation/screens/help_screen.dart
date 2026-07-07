@@ -28,6 +28,13 @@ class HelpScreen extends StatelessWidget {
           ),
           const SizedBox(height: AppSpacing.sm),
           AppFeatureTile(
+            title: l10n.contactFeedbackTitle,
+            icon: Icons.mail_outline,
+            iconColor: AppColors.primary,
+            onTap: () => context.push('/help/contact'),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          AppFeatureTile(
             title: l10n.aboutApp,
             icon: Icons.info_outline,
             iconColor: AppColors.secondary,

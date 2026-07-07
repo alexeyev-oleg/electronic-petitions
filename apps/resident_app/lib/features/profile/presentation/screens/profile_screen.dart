@@ -21,7 +21,9 @@ import '../../../../shared/models/session_tier.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../../complaints/application/complaints_controller.dart';
 import '../../../enforcement/application/enforcement_controller.dart';
+import '../../../notifications/application/app_notification.dart';
 import '../../../notifications/application/notifications_controller.dart';
+import '../../../notifications/presentation/notification_navigation.dart';
 import '../../../petitions/application/petitions_controller.dart';
 import '../../application/preferences_controller.dart';
 import '../../../../app/theme/app_colors.dart';
@@ -229,7 +231,51 @@ class _PushScaffoldSection extends ConsumerWidget {
             const SizedBox(height: AppSpacing.sm),
             Text('${l10n.pushDeviceTokenLabel}: ${push.deviceToken}'),
           ],
+          const SizedBox(height: AppSpacing.md),
+          OutlinedButton(
+            onPressed: enabled
+                ? () => _simulatePush(context, ref, l10n)
+                : null,
+            child: Text(l10n.simulatePushAction),
+          ),
         ],
+      ),
+    );
+  }
+
+  void _simulatePush(
+    BuildContext context,
+    WidgetRef ref,
+    AppLocalizations l10n,
+  ) {
+    final items = ref.read(notificationsControllerProvider).items;
+    AppNotification? target;
+    for (final item in items) {
+      if (item.deepLink != null && item.deepLink!.isNotEmpty && !item.isRead) {
+        target = item;
+        break;
+      }
+    }
+    target ??= () {
+      for (final item in items) {
+        if (item.deepLink != null && item.deepLink!.isNotEmpty) {
+          return item;
+        }
+      }
+      return null;
+    }();
+
+    if (target == null) {
+      return;
+    }
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${target.title}: ${target.body}'),
+        action: SnackBarAction(
+          label: l10n.openNotificationAction,
+          onPressed: () => openNotificationDeepLink(context, target!),
+        ),
       ),
     );
   }
