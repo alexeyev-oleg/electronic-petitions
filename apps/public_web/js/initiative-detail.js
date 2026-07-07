@@ -44,7 +44,7 @@ function renderInitiativeDetail(petition) {
     <section class="detail-panel detail-panel--cta">
       <h2>${t('signInApp')}</h2>
       <p>${t('signInAppHint')}</p>
-      <a class="btn btn--primary" href="${window.GESHER_PUBLIC_CONFIG.mockAppLinks.android}">${t('signInApp')}</a>
+      <a class="btn btn--primary" href="${pagePath('/download.html')}">${t('signInApp')}</a>
     </section>
   `;
 }
@@ -81,6 +81,16 @@ async function refreshInitiativeDetailPage() {
     }
 
     document.title = `G.E.S.H.E.R. — ${petition.title}`;
+    const imageUrl = petition.coverImage
+      ? `${window.location.origin}${mediaPath(petition.coverImage)}`
+      : defaultOgImageUrl();
+    setPageMeta({
+      title: `G.E.S.H.E.R. — ${petition.title}`,
+      description: petition.summary,
+      imageUrl,
+      type: 'article',
+      canonicalPath: `/initiative.html?id=${encodeURIComponent(petition.id)}`,
+    });
     renderInitiativeDetail(petition);
   } catch {
     host.innerHTML = '<p>Не удалось загрузить mock-данные.</p>';

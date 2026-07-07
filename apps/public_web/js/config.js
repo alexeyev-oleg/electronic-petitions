@@ -7,9 +7,9 @@ window.GESHER_PUBLIC_CONFIG = {
   githubRepo: 'electronic-petitions',
   staffPortalPath: '/staff/index.html',
   mockAppLinks: {
-    android: '#mock-apk-resident',
-    ios: '#mock-ios-soon',
-    browser: '#mock-browser-soon',
+    android: '/download.html',
+    ios: '/download.html',
+    browser: '/initiatives.html',
   },
 };
 

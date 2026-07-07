@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alexeyev-oleg.github.io/electronic-petitions/sitemap.xml

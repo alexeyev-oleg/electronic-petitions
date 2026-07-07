@@ -80,6 +80,14 @@ function renderSiteFooter() {
           </ul>
         </div>
         <div>
+          <h3>${t('footerLegal')}</h3>
+          <ul>
+            <li><a href="${pagePath('/contact.html')}">${t('navContact')}</a></li>
+            <li><a href="${pagePath('/privacy.html')}">${t('navPrivacy')}</a></li>
+            <li><a href="${pagePath('/download.html')}">${t('navDownload')}</a></li>
+          </ul>
+        </div>
+        <div>
           <h3>${t('footerStaff')}</h3>
           <ul>
             <li><a href="${pagePath(window.GESHER_PUBLIC_CONFIG.staffPortalPath)}">${t('ctaStaff')}</a></li>

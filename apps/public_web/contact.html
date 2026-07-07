@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>G.E.S.H.E.R. — Инициатива</title>
+    <title>G.E.S.H.E.R. — Контакты</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B2B2B'/%3E%3Ctext x='18' y='42' fill='white' font-size='28' font-family='Arial' font-weight='700'%3EG%3C/text%3E%3Ccircle cx='44' cy='42' r='5' fill='%23C6643C'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="css/layout.css" />
   </head>
@@ -12,8 +12,25 @@
 
     <main class="content-page">
       <div class="page-section page-section--narrow">
-        <a class="back-link" id="back-to-list" href="#">← К списку инициатив</a>
-        <div id="initiative-detail"></div>
+        <h1 id="contact-title"></h1>
+        <p id="contact-intro"></p>
+        <form class="contact-form" id="contact-form">
+          <label>
+            <span id="contact-name-label"></span>
+            <input type="text" name="name" required autocomplete="name" />
+          </label>
+          <label>
+            <span id="contact-email-label"></span>
+            <input type="email" name="email" required autocomplete="email" />
+          </label>
+          <label>
+            <span id="contact-message-label"></span>
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="btn btn--primary" type="submit" id="contact-submit"></button>
+        </form>
+        <p class="info-note" id="contact-notice"></p>
+        <p class="form-success" id="contact-success" hidden></p>
       </div>
     </main>
 
@@ -23,8 +40,6 @@
     <script src="js/i18n.js"></script>
     <script src="js/meta.js"></script>
     <script src="js/ui.js"></script>
-    <script src="js/public-data.js"></script>
-    <script src="js/initiatives.js"></script>
-    <script src="js/initiative-detail.js"></script>
+    <script src="js/contact.js"></script>
   </body>
 </html>

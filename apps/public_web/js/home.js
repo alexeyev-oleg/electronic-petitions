@@ -45,11 +45,11 @@ function renderHeroCopy() {
   }
   if (ctaDownload) {
     ctaDownload.textContent = t('ctaDownload');
-    ctaDownload.href = window.GESHER_PUBLIC_CONFIG.mockAppLinks.android;
+    ctaDownload.href = pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.android);
   }
   if (ctaBrowser) {
     ctaBrowser.textContent = t('ctaBrowser');
-    ctaBrowser.href = window.GESHER_PUBLIC_CONFIG.mockAppLinks.browser;
+    ctaBrowser.href = pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.browser);
   }
 }
 
@@ -85,8 +85,8 @@ function renderCtaBand() {
       <p>${t('ctaBandText')}</p>
     </div>
     <div class="hero__actions" style="margin:0;">
-      <a class="btn btn--primary" id="cta-band-download" href="${window.GESHER_PUBLIC_CONFIG.mockAppLinks.android}">${t('ctaDownload')}</a>
-      <a class="btn btn--secondary" id="cta-band-browser" href="${window.GESHER_PUBLIC_CONFIG.mockAppLinks.browser}">${t('ctaBrowser')}</a>
+      <a class="btn btn--primary" id="cta-band-download" href="${pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.android)}">${t('ctaDownload')}</a>
+      <a class="btn btn--secondary" id="cta-band-browser" href="${pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.browser)}">${t('ctaBrowser')}</a>
     </div>
   `;
 }
@@ -112,6 +112,11 @@ function renderHeroMockCards(petitions) {
 async function renderHomePage() {
   renderHeroCopy();
   renderCtaBand();
+  setPageMeta({
+    title: t('homeMetaTitle'),
+    description: t('homeMetaDescription'),
+    canonicalPath: '/index.html',
+  });
 
   try {
     const seed = await loadPublicSeed();
