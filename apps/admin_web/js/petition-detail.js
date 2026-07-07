@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.getElementById('back-dashboard').href = pagePath('/dashboard.html');
   document.getElementById('sign-out-btn').addEventListener('click', signOutStaff);
+  attachPrintButton('print-btn');
 
   renderPetitionDetail(document.getElementById('petition-detail'), petition);
   renderPetitionActions(document.getElementById('petition-actions'), petition, session);

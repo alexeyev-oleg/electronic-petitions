@@ -27,14 +27,16 @@
             <p id="petition-subtitle" style="margin:4px 0 0;color:var(--color-text-muted);"></p>
           </div>
           <div class="topbar__meta">
+            <button class="btn btn--secondary no-print" id="print-btn" type="button">Печать</button>
             <span class="chip" id="role-chip"></span>
             <strong id="user-name"></strong>
           </div>
         </header>
 
-        <div class="content">
-          <section class="card" style="padding:var(--space-lg);" id="petition-detail"></section>
-          <section class="card" style="padding:var(--space-lg);" id="petition-actions"></section>
+        <div class="content content--printable">
+          <p class="print-only">G.E.S.H.E.R. Staff Portal · mock beta · печать карточки инициативы</p>
+          <section class="card print-area" style="padding:var(--space-lg);" id="petition-detail"></section>
+          <section class="card no-print" style="padding:var(--space-lg);" id="petition-actions"></section>
           <p id="action-message" style="min-height:1.25rem;color:var(--color-success);font-weight:600;"></p>
         </div>
       </div>

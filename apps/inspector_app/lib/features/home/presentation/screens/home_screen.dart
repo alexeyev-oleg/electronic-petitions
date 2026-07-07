@@ -8,9 +8,11 @@ import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/mock/mock_local_store.dart';
 import '../../../../core/mock/mock_snapshot_importer.dart';
+import '../../../../core/widgets/app_brand_header.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../../dispatch/application/dispatch_controller.dart';
 import '../../../triage/application/triage_controller.dart';
+import '../../application/inspector_queue_stats.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -20,6 +22,8 @@ class HomeScreen extends ConsumerWidget {
     final l10n = AppLocalizations.of(context);
     final auth = ref.watch(authControllerProvider);
     final user = auth.currentUser;
+    final triage = ref.watch(triageControllerProvider);
+    final stats = InspectorQueueStats.fromReports(triage.reports);
 
     if (user == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -34,6 +38,10 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.inspectorHomeTitle),
         actions: [
+          TextButton(
+            onPressed: () => context.push('/help'),
+            child: Text(l10n.openHelpAction),
+          ),
           TextButton(
             onPressed: auth.isLoading
                 ? null
@@ -50,50 +58,146 @@ class HomeScreen extends ConsumerWidget {
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.md),
         children: [
+          Center(
+            child: AppBrandHeader(
+              compact: true,
+              subtitle: l10n.inspectorAppBadge,
+            ),
+          ),
+          const SizedBox(height: AppSpacing.md),
           Text(
-            user?.fullName ?? l10n.appTitle,
+            user.fullName,
             style: Theme.of(context).textTheme.headlineSmall,
           ),
           const SizedBox(height: AppSpacing.sm),
           Text(l10n.inspectorHomeSubtitle),
           const SizedBox(height: AppSpacing.md),
+          _KpiSection(stats: stats, l10n: l10n),
+          const SizedBox(height: AppSpacing.md),
           Card(
             child: ListTile(
               leading: const Icon(Icons.badge_outlined),
               title: Text(l10n.badgeIdLabel),
-              subtitle: Text(user?.badgeId ?? '-'),
+              subtitle: Text(user.badgeId),
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          Card(
-            child: ListTile(
-              leading: const Icon(Icons.verified_user_outlined),
-              title: Text(l10n.inspectorRoleLabel),
-              subtitle: Text(user?.role ?? '-'),
-            ),
-          ),
-          const SizedBox(height: AppSpacing.lg),
-          Card(
-            child: ListTile(
-              leading: const Icon(Icons.inbox_outlined),
-              title: Text(l10n.openTriageQueueAction),
-              subtitle: Text(l10n.triageQueueTitle),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => context.push('/triage'),
+          Semantics(
+            button: true,
+            label: l10n.openTriageQueueAction,
+            child: Card(
+              child: ListTile(
+                leading: const Icon(Icons.inbox_outlined),
+                title: Text(l10n.openTriageQueueAction),
+                subtitle: Text(
+                  '${l10n.triageQueueTitle} · ${l10n.queueCountLabel(stats.triageOpen)}',
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => context.push('/triage'),
+              ),
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          Card(
-            child: ListTile(
-              leading: const Icon(Icons.directions_walk_outlined),
-              title: Text(l10n.openDispatchQueueAction),
-              subtitle: Text(l10n.dispatchQueueTitle),
-              trailing: const Icon(Icons.chevron_right),
-              onTap: () => context.push('/dispatch'),
+          Semantics(
+            button: true,
+            label: l10n.openDispatchQueueAction,
+            child: Card(
+              child: ListTile(
+                leading: const Icon(Icons.directions_walk_outlined),
+                title: Text(l10n.openDispatchQueueAction),
+                subtitle: Text(
+                  '${l10n.dispatchQueueTitle} · ${stats.dispatchActive}',
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () => context.push('/dispatch'),
+              ),
             ),
           ),
           const SizedBox(height: AppSpacing.lg),
           const _MockSyncCard(),
+        ],
+      ),
+    );
+  }
+}
+
+class _KpiSection extends StatelessWidget {
+  const _KpiSection({
+    required this.stats,
+    required this.l10n,
+  });
+
+  final InspectorQueueStats stats;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(AppSpacing.md),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.kpiSectionTitle,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: AppSpacing.sm),
+            Wrap(
+              spacing: AppSpacing.sm,
+              runSpacing: AppSpacing.sm,
+              children: [
+                _KpiChip(label: l10n.kpiTriageOpen, value: stats.triageOpen),
+                _KpiChip(label: l10n.kpiLowTrust, value: stats.lowTrust),
+                _KpiChip(
+                  label: l10n.kpiDispatchActive,
+                  value: stats.dispatchActive,
+                ),
+                _KpiChip(
+                  label: l10n.kpiDispatchDone,
+                  value: stats.dispatchCompleted,
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _KpiChip extends StatelessWidget {
+  const _KpiChip({
+    required this.label,
+    required this.value,
+  });
+
+  final String label;
+  final int value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: AppSpacing.md,
+        vertical: AppSpacing.sm,
+      ),
+      decoration: BoxDecoration(
+        color: AppColors.primary.withValues(alpha: 0.08),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.primary.withValues(alpha: 0.2)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '$value',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  color: AppColors.primary,
+                  fontWeight: FontWeight.w700,
+                ),
+          ),
+          Text(label, style: Theme.of(context).textTheme.bodySmall),
         ],
       ),
     );
@@ -174,14 +278,18 @@ class _MockSyncCardState extends ConsumerState<_MockSyncCard> {
             ),
             const SizedBox(height: AppSpacing.sm),
             Text(
-              l10n.importMockSnapshotHelp,
+              l10n.demoSyncHint,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(height: AppSpacing.sm),
-            OutlinedButton.icon(
-              onPressed: _onImportSnapshot,
-              icon: const Icon(Icons.upload_file_outlined),
-              label: Text(l10n.importMockSnapshot),
+            Semantics(
+              button: true,
+              label: l10n.importMockSnapshot,
+              child: OutlinedButton.icon(
+                onPressed: _onImportSnapshot,
+                icon: const Icon(Icons.upload_file_outlined),
+                label: Text(l10n.importMockSnapshot),
+              ),
             ),
             if (_importMessage != null) ...[
               const SizedBox(height: AppSpacing.sm),

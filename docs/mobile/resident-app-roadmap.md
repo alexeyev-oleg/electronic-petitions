@@ -422,4 +422,10 @@ Exit criteria:
 
 ## Next Recommended Execution Stage
 If we move from planning to execution, start with:
-1. `M0` backend integration planning
+1. **M0.2** — `services/api/` Go skeleton (`docs/backend/m0-foundation-plan.md`)
+
+### `M0` Backend foundation (in progress)
+- **M0.1** integration plan — `docs/backend/m0-foundation-plan.md` (completed)
+- **M0.2–M0.7** skeleton, local stack, migrations, health API, backend CI, DOKS baseline (pending)
+
+Exit criteria (full M0): see `docs/backend/m0-foundation-plan.md`

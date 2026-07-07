@@ -193,6 +193,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.getElementById('back-dashboard').href = pagePath('/dashboard.html');
   document.getElementById('sign-out-btn').addEventListener('click', signOutStaff);
+  attachPrintButton('print-btn');
 
   renderComplaintDetail(document.getElementById('complaint-detail'), complaint);
   renderComplaintActions(document.getElementById('complaint-actions'), complaint, session);

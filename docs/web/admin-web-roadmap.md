@@ -53,6 +53,16 @@ Exit criteria:
 - admin actions: save settings, reset mock data, clear audit log (OTP `123456`)
 - seed v1.4.0 with `settings` and sample audit entries
 
+### `W1.5` Admin polish for live demo (completed)
+- dashboard KPI cards computed from live mock queues (role-aware)
+- mock sync hint with link to public `demo-sync.html`
+- print-friendly petition and complaint detail pages
+- keyboard navigation `j` / `k` / `Enter` on petition list (moderator roles)
+
+Exit criteria:
+- staff dashboard is usable for live laptop demo without extra explanation
+- export → mobile import path is visible from dashboard
+
 ## Related
 
 - `docs/web/deploy-github-pages.md`

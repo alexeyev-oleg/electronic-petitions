@@ -62,6 +62,16 @@ Exit criteria:
 Exit criteria:
 - inspector can process `e4` from dispatch through validated outcome in mock mode
 
+### `I6` Inspector polish for live demo (completed)
+- home queue KPI chips from live mock reports (triage, trust, dispatch)
+- G.E.S.H.E.R. brand header and Help / FAQ screen
+- semantics on primary home actions and mock import
+- demo sync guidance aligned with staff export workflow
+
+Exit criteria:
+- inspector home is demo-ready without extra narration
+- FAQ covers OTP, triage, dispatch, and snapshot import
+
 ## Mock Credentials
 
 | Field | Value |

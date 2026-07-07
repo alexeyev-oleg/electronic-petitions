@@ -7,7 +7,7 @@ File-based bridge between Admin Web and mobile apps for demo rehearsals.
 ```json
 {
   "format": "gesher_mock_snapshot",
-  "seedVersion": "1.5.0",
+  "seedVersion": "1.6.2",
   "exportedAt": "2026-07-06T12:00:00.000Z",
   "data": { }
 }

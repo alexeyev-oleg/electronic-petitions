@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/presentation/screens/login_screen.dart';
 import '../../features/dispatch/presentation/screens/dispatch_queue_screen.dart';
 import '../../features/dispatch/presentation/screens/dispatch_task_detail_screen.dart';
+import '../../features/help/presentation/screens/help_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/onboarding/presentation/screens/splash_screen.dart';
 import '../../features/triage/presentation/screens/triage_queue_screen.dart';
@@ -24,6 +25,10 @@ final appRouterProvider = Provider<GoRouter>(
       GoRoute(
         path: '/home',
         builder: (context, state) => const HomeScreen(),
+      ),
+      GoRoute(
+        path: '/help',
+        builder: (context, state) => const HelpScreen(),
       ),
       GoRoute(
         path: '/triage',

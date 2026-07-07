@@ -20,6 +20,85 @@ function renderSidebarNav(modules, activeId) {
 
 let _session = null;
 let _modules = [];
+let _activeModuleId = null;
+let _petitionNav = {
+  items: [],
+  selectedIndex: 0,
+  keyHandler: null,
+};
+
+function teardownPetitionKeyboardNav() {
+  if (_petitionNav.keyHandler) {
+    document.removeEventListener('keydown', _petitionNav.keyHandler);
+    _petitionNav.keyHandler = null;
+  }
+  _petitionNav.items = [];
+  _petitionNav.selectedIndex = 0;
+}
+
+function openPetitionAtIndex(index) {
+  const petition = _petitionNav.items[index];
+  if (!petition) {
+    return;
+  }
+  window.location.href = petitionDetailPath(petition.id);
+}
+
+function setupPetitionKeyboardNav(table, petitions) {
+  teardownPetitionKeyboardNav();
+  if (!petitions.length || !['moderator', 'admin', 'supervisor'].includes(_session.role)) {
+    return;
+  }
+
+  _petitionNav.items = petitions;
+  _petitionNav.selectedIndex = 0;
+
+  function focusRow() {
+    table.querySelectorAll('[data-row-index]').forEach((row) => {
+      const index = Number(row.getAttribute('data-row-index'));
+      row.classList.toggle('is-focused', index === _petitionNav.selectedIndex);
+    });
+    const activeRow = table.querySelector(`[data-row-index="${_petitionNav.selectedIndex}"]`);
+    if (activeRow) {
+      activeRow.focus();
+    }
+  }
+
+  _petitionNav.keyHandler = (event) => {
+    if (_activeModuleId !== 'petitions') {
+      return;
+    }
+    const tag = (event.target && event.target.tagName) || '';
+    if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag)) {
+      return;
+    }
+
+    if (event.key === 'j') {
+      event.preventDefault();
+      _petitionNav.selectedIndex = Math.min(
+        _petitionNav.items.length - 1,
+        _petitionNav.selectedIndex + 1,
+      );
+      focusRow();
+      return;
+    }
+
+    if (event.key === 'k') {
+      event.preventDefault();
+      _petitionNav.selectedIndex = Math.max(0, _petitionNav.selectedIndex - 1);
+      focusRow();
+      return;
+    }
+
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      openPetitionAtIndex(_petitionNav.selectedIndex);
+    }
+  };
+
+  document.addEventListener('keydown', _petitionNav.keyHandler);
+  focusRow();
+}
 
 function showModule(moduleId) {
   const module = _modules.find((item) => item.id === moduleId) || _modules[0];
@@ -27,8 +106,18 @@ function showModule(moduleId) {
     return;
   }
 
+  _activeModuleId = module.id;
+  teardownPetitionKeyboardNav();
+
   document.getElementById('page-title').textContent = module.label;
   document.getElementById('page-subtitle').textContent = `Роль: ${roleLabel(_session.role)}`;
+
+  const keyboardHint = document.getElementById('keyboard-hint');
+  if (keyboardHint) {
+    const showKeys =
+      module.id === 'petitions' && ['moderator', 'admin', 'supervisor'].includes(_session.role);
+    keyboardHint.hidden = !showKeys;
+  }
 
   const table = document.getElementById('module-table');
   if (module.id === 'petitions') {
@@ -39,9 +128,11 @@ function showModule(moduleId) {
       const items = filterPetitions(GesherMockStore.getPetitions(), activeFilter);
       renderPetitionFilters(filtersHost, activeFilter, (filterId) => {
         activeFilter = filterId;
+        _petitionNav.selectedIndex = 0;
         renderList();
       });
-      renderPetitionsTable(table, items);
+      renderPetitionsTable(table, items, { selectedIndex: _petitionNav.selectedIndex });
+      setupPetitionKeyboardNav(table, items);
     }
 
     filtersHost.style.display = 'flex';
@@ -106,6 +197,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     </p>
   `;
 
+  renderQueueKpis(
+    document.getElementById('kpi-panel'),
+    GesherMockStore.getQueueKpis(),
+    _session.role,
+  );
   renderStats(document.getElementById('stats-panel'), GesherMockStore.getStats());
 
   _modules = modulesForRole(_session.role);
@@ -116,6 +212,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   showModule(_modules[0].id);
+
+  const demoSyncLink = document.getElementById('demo-sync-link');
+  if (demoSyncLink) {
+    demoSyncLink.href = publicSitePath('/demo-sync.html');
+  }
 
   document.getElementById('sign-out-btn').addEventListener('click', signOutStaff);
 });

@@ -93,6 +93,30 @@ class AppLocalizations {
       'mergeCaseDialogTitle': 'Merge with existing case',
       'mergeCaseIdLabel': 'Existing case ID',
       'mergeCaseNote': 'Merged into case {caseId}',
+      'helpTitle': 'Help & FAQ',
+      'openHelpAction': 'Help & FAQ',
+      'kpiSectionTitle': 'Queue overview',
+      'kpiTriageOpen': 'In triage',
+      'kpiLowTrust': 'Low geo trust',
+      'kpiDispatchActive': 'Active field tasks',
+      'kpiDispatchDone': 'Validated outcomes',
+      'demoSyncHint':
+          'After staff export in Admin Web, import the JSON snapshot on Home to align with resident and staff changes.',
+      'faqQuestionOtp': 'What verification code should I use?',
+      'faqAnswerOtp':
+          'In mock beta use 123456 for inspector actions and staff OTP confirmation.',
+      'faqQuestionTriage': 'What is the triage queue?',
+      'faqAnswerTriage':
+          'Review new enforcement reports e1–e4, trust labels, and geo mismatch before dispatch or closure.',
+      'faqQuestionDispatch': 'What is the field dispatch queue?',
+      'faqAnswerDispatch':
+          'Tasks assigned after supervisor dispatch. Start a field visit, then record a validated outcome.',
+      'faqQuestionSync': 'How does mock sync work?',
+      'faqAnswerSync':
+          'Export JSON from Admin Web settings, then Import admin snapshot on inspector Home. Seed version must match.',
+      'faqQuestionIds': 'Why do report IDs match the resident app?',
+      'faqAnswerIds':
+          'Demo enforcement IDs e1–e4 are shared across resident, staff, and inspector mock clients.',
     },
     'he': {
       'appTitle': 'G.E.S.H.E.R.',
@@ -170,6 +194,24 @@ class AppLocalizations {
       'mergeCaseDialogTitle': 'מיזוג עם תיק קיים',
       'mergeCaseIdLabel': 'מזהה תיק קיים',
       'mergeCaseNote': 'מוזג לתיק {caseId}',
+      'helpTitle': 'עזרה ושאלות',
+      'openHelpAction': 'עזרה',
+      'kpiSectionTitle': 'סקירת תורים',
+      'kpiTriageOpen': 'ב-triage',
+      'kpiLowTrust': 'אמון geo נמוך',
+      'kpiDispatchActive': 'משימות שטח פעילות',
+      'kpiDispatchDone': 'תוצאות מאומתות',
+      'demoSyncHint': 'לאחר ייצוא מ-Admin Web, ייבאו snapshot במסך הבית.',
+      'faqQuestionOtp': 'איזה קוד אימות להשתמש?',
+      'faqAnswerOtp': 'ב-mock beta השתמשו ב-123456.',
+      'faqQuestionTriage': 'מהו תור triage?',
+      'faqAnswerTriage': 'סקירת דיווחי אכיפה e1–e4 לפני שליחה לשטח.',
+      'faqQuestionDispatch': 'מהי משימות השטח?',
+      'faqAnswerDispatch': 'משימות לאחר dispatch — התחילו ביקור ורשמו תוצאה.',
+      'faqQuestionSync': 'איך עובד mock sync?',
+      'faqAnswerSync': 'ייצוא JSON מ-Admin Web וייבוא ב-Home.',
+      'faqQuestionIds': 'למה מזהי דיווח תואמים לתושב?',
+      'faqAnswerIds': 'מזהי e1–e4 משותפים לכל לקוחות ה-mock.',
     },
     'ru': {
       'appTitle': 'G.E.S.H.E.R.',
@@ -249,6 +291,25 @@ class AppLocalizations {
       'mergeCaseDialogTitle': 'Объединить с существующим делом',
       'mergeCaseIdLabel': 'ID существующего дела',
       'mergeCaseNote': 'Объединено с делом {caseId}',
+      'helpTitle': 'Справка и FAQ',
+      'openHelpAction': 'Справка',
+      'kpiSectionTitle': 'Обзор очередей',
+      'kpiTriageOpen': 'В triage',
+      'kpiLowTrust': 'Низкий geo trust',
+      'kpiDispatchActive': 'Активные выезды',
+      'kpiDispatchDone': 'Завершённые исходы',
+      'demoSyncHint':
+          'После экспорта в Admin Web импортируйте snapshot на главном экране.',
+      'faqQuestionOtp': 'Какой код подтверждения использовать?',
+      'faqAnswerOtp': 'В mock beta используйте 123456.',
+      'faqQuestionTriage': 'Что такое очередь triage?',
+      'faqAnswerTriage': 'Проверка донесений e1–e4, trust и geo mismatch.',
+      'faqQuestionDispatch': 'Что такое полевая очередь?',
+      'faqAnswerDispatch': 'Задачи после dispatch супервайзера — выезд и исход.',
+      'faqQuestionSync': 'Как работает mock sync?',
+      'faqAnswerSync': 'Экспорт JSON из Admin Web → импорт на Home.',
+      'faqQuestionIds': 'Почему ID совпадают с resident app?',
+      'faqAnswerIds': 'Демо ID e1–e4 общие для всех mock-клиентов.',
     },
     'ar': {
       'appTitle': 'G.E.S.H.E.R.',
@@ -327,6 +388,24 @@ class AppLocalizations {
       'mergeCaseDialogTitle': 'دمج مع حالة موجودة',
       'mergeCaseIdLabel': 'معرف الحالة الموجودة',
       'mergeCaseNote': 'تم الدمج مع الحالة {caseId}',
+      'helpTitle': 'المساعدة والأسئلة',
+      'openHelpAction': 'مساعدة',
+      'kpiSectionTitle': 'نظرة على الطوابير',
+      'kpiTriageOpen': 'في triage',
+      'kpiLowTrust': 'ثقة geo منخفضة',
+      'kpiDispatchActive': 'مهام ميدانية نشطة',
+      'kpiDispatchDone': 'نتائج معتمدة',
+      'demoSyncHint': 'بعد التصدير من Admin Web، استورد snapshot من الشاشة الرئيسية.',
+      'faqQuestionOtp': 'ما رمز التحقق؟',
+      'faqAnswerOtp': 'في mock beta استخدم 123456.',
+      'faqQuestionTriage': 'ما طابور triage؟',
+      'faqAnswerTriage': 'مراجعة بلاغات e1–e4 قبل الإرسال للميدان.',
+      'faqQuestionDispatch': 'ما قائمة المهام الميدانية؟',
+      'faqAnswerDispatch': 'مهام بعد dispatch — زيارة ميدانية ثم نتيجة.',
+      'faqQuestionSync': 'كيف يعمل mock sync؟',
+      'faqAnswerSync': 'تصدير JSON من Admin Web ثم الاستيراد في Home.',
+      'faqQuestionIds': 'لماذا تتطابق المعرفات مع تطبيق السكان؟',
+      'faqAnswerIds': 'معرفات e1–e4 مشتركة في mock demo.',
     },
   };
 
@@ -423,6 +502,24 @@ class AppLocalizations {
   String get actionNoteLabel => _text('actionNoteLabel');
   String get mergeCaseDialogTitle => _text('mergeCaseDialogTitle');
   String get mergeCaseIdLabel => _text('mergeCaseIdLabel');
+  String get helpTitle => _text('helpTitle');
+  String get openHelpAction => _text('openHelpAction');
+  String get kpiSectionTitle => _text('kpiSectionTitle');
+  String get kpiTriageOpen => _text('kpiTriageOpen');
+  String get kpiLowTrust => _text('kpiLowTrust');
+  String get kpiDispatchActive => _text('kpiDispatchActive');
+  String get kpiDispatchDone => _text('kpiDispatchDone');
+  String get demoSyncHint => _text('demoSyncHint');
+  String get faqQuestionOtp => _text('faqQuestionOtp');
+  String get faqAnswerOtp => _text('faqAnswerOtp');
+  String get faqQuestionTriage => _text('faqQuestionTriage');
+  String get faqAnswerTriage => _text('faqAnswerTriage');
+  String get faqQuestionDispatch => _text('faqQuestionDispatch');
+  String get faqAnswerDispatch => _text('faqAnswerDispatch');
+  String get faqQuestionSync => _text('faqQuestionSync');
+  String get faqAnswerSync => _text('faqAnswerSync');
+  String get faqQuestionIds => _text('faqQuestionIds');
+  String get faqAnswerIds => _text('faqAnswerIds');
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

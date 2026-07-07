@@ -72,6 +72,6 @@ See `docs/web/mock-platform.md` for export/import and cross-client demo flow.
 
 Mobile import/export UI: `docs/web/mock-demo-sync.md`.
 
-Demo rehearsal: `docs/demo/municipality-rehearsal.md`.
+Demo rehearsal: `docs/demo/municipality-rehearsal.md` (v2). Pre-flight: `docs/demo/live-demo-checklist.md`.
 
 Shared FAQ: `shared/content/faq.json` — run `./scripts/sync-shared-content.sh` after edits.

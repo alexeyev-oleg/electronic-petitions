@@ -65,6 +65,8 @@ Build: `./apps/resident_app/scripts/build-mock-apk.sh`
 
 | File | Screen | Notes |
 |------|--------|-------|
+| `inspector-home-kpi.png` | Home | Queue KPI chips + brand header |
+| `inspector-help-faq.png` | Help / FAQ | Inspector FAQ screen |
 | `inspector-home.png` | Home | Triage + dispatch entry points |
 | `inspector-triage-e4.png` | Triage detail | Trust label, evidence |
 | `inspector-dispatch-queue.png` | Dispatch list | Filters assigned / in field |
@@ -76,7 +78,7 @@ Build: `./apps/inspector_app/scripts/build-inspector-apk.sh`
 
 ## Status
 
-Screenshots are **placeholders until captured**. After adding PNGs:
+Screenshots are **placeholders until captured**. Before the next municipality meeting, run through `docs/demo/live-demo-checklist.md`.
 
 1. Reference them from root `README.md` (optional gallery section)
 2. Embed in `docs/mobile/user-guides/getting-started.md` where noted
@@ -84,6 +86,8 @@ Screenshots are **placeholders until captured**. After adding PNGs:
 
 ## Related
 
+- `docs/demo/README.md` — demo materials index
+- `docs/demo/live-demo-checklist.md` — pre-flight
 - `docs/demo/municipality-deck.md` — slide narrative
-- `docs/demo/municipality-rehearsal.md` — 15 min live script
+- `docs/demo/municipality-rehearsal.md` — 15 min live script (v2)
 - `docs/mobile/branding.md` — colors and launcher icons

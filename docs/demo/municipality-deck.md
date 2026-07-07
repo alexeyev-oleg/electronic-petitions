@@ -57,11 +57,13 @@ No backend required for this demo. Data is **local** with optional **JSON snapsh
 
 ## Slide 5 — Resident journey
 
-1. Onboarding + language (4 locales)
+1. Onboarding v2 — G.E.S.H.E.R. brand, 5 slides, public web CTA
 2. Browse petitions `p1`–`p3`, sign after mock KYC (OTP `123456`)
 3. Submit complaint with media and map confirmation
 4. Report enforcement violation with evidence
-5. Inbox notifications → deep link to related item
+5. Inbox notifications → **deep link** to petition / complaint / report
+6. Mock push simulation from Profile
+7. Shared FAQ + contact feedback (local mock)
 
 ---
 
@@ -69,12 +71,13 @@ No backend required for this demo. Data is **local** with optional **JSON snapsh
 
 | Role | Demo action |
 |------|-------------|
-| Moderator | Publish petition `p2` (OTP) |
+| Moderator | Dashboard KPI queues → publish `p2` (OTP); hotkeys `j`/`k`/`Enter` |
 | Operator | Assign complaint `c1` to department |
 | Supervisor | Dispatch enforcement `e4` |
 | Municipality staff | Official response on published `p3` |
+| All | Mock sync banner → export JSON for mobile import |
 
-All roles: `*@gesher.mock` / `staff123`
+All roles: `*@gesher.mock` / `staff123` · Print-friendly petition/complaint cards
 
 ---
 
@@ -123,18 +126,20 @@ Production path (documented):
 
 | Step | Outcome |
 |------|---------|
-| **Pilot approval** | Agree workflows and branding with municipality |
-| **M0 backend** | Identity + petitions API on staging |
+| **Pilot feedback** | UX, process fit, branding approval on mock-v0.2.0 |
+| **Optional captures** | Screenshots per `docs/demo/screenshots/README.md` |
+| **Backend (later)** | Identity + petitions API when pilot scope is signed |
 | **Pilot (M4)** | Limited staff + resident group on real data |
 | **Public launch (M5)** | Full operations, monitoring, support |
 
-**Ask:** feedback on UX, process fit, and pilot scope.
+**Ask:** which flow matters most for your municipality — initiatives, complaints, or enforcement?
 
 ---
 
 ## Appendix — Quick links
 
 - Rehearsal script: `docs/demo/municipality-rehearsal.md`
+- Pre-flight checklist: `docs/demo/live-demo-checklist.md`
 - Root README: mock credentials and repo map
 - Changelog: `CHANGELOG.md` (mock-v0.2.0)
 - Screenshot checklist: `docs/demo/screenshots/README.md`

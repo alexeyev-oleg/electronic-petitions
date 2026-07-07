@@ -143,7 +143,7 @@ const I18N_STRINGS = {
       'Resident: Профиль → Mock beta → Import admin mock snapshot|Inspector: Home → Mock sync → Import admin snapshot|Версия seed в файле должна совпадать с приложением|OTP для staff-действий: 123456',
     demoRehearsalTitle: 'Сценарий презентации',
     demoRehearsalText:
-      '15-минутный сценарий для муниципалитета: public → resident → staff → export/import → inspector. См. docs/demo/municipality-rehearsal.md в репозитории.',
+      'Сценарий v2 (mock-v0.2.0): public → resident R7 → staff W1.5 KPI → export/import → inspector. Чеклист: docs/demo/live-demo-checklist.md · Скрипт: docs/demo/municipality-rehearsal.md',
   },
   en: {
     navHome: 'Home',
@@ -282,7 +282,7 @@ const I18N_STRINGS = {
       'Resident: Profile → Mock beta → Import admin mock snapshot|Inspector: Home → Mock sync → Import admin snapshot|Seed version must match the app|Staff action OTP: 123456',
     demoRehearsalTitle: 'Presentation script',
     demoRehearsalText:
-      '15-minute municipality demo: public → resident → staff → export/import → inspector. See docs/demo/municipality-rehearsal.md in the repo.',
+      'v2 script (mock-v0.2.0): public → resident R7 → staff W1.5 KPI → export/import → inspector. Checklist: docs/demo/live-demo-checklist.md',
   },
   he: {
     navHome: 'בית',

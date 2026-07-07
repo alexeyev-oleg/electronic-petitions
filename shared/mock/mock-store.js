@@ -114,6 +114,29 @@
     return readData().stats;
   }
 
+  function getQueueKpis() {
+    const data = readData();
+    const petitions = data.petitions || [];
+    const complaints = data.complaints || [];
+    const enforcement = data.enforcement || [];
+
+    return {
+      seedVersion: data.version || _seed?.version || '0.0.0',
+      petitionsModeration: petitions.filter((item) => item.status === 'moderation_review').length,
+      petitionsDraft: petitions.filter((item) => item.status === 'draft').length,
+      complaintsTriage: complaints.filter((item) => item.status === 'triage').length,
+      complaintsInProgress: complaints.filter((item) => item.status === 'in_progress').length,
+      enforcementTriage: enforcement.filter((item) => item.status === 'triage').length,
+      enforcementDispatch: enforcement.filter((item) =>
+        ['dispatch_task', 'field_in_progress', 'review_required'].includes(item.status),
+      ).length,
+      slaAttention:
+        petitions.filter((item) => item.status === 'moderation_review').length +
+        complaints.filter((item) => item.status === 'triage').length +
+        enforcement.filter((item) => item.status === 'triage').length,
+    };
+  }
+
   function getSettings() {
     const data = readData();
     if (!data.settings) {
@@ -231,6 +254,7 @@
     findEnforcementById,
     updateEnforcement,
     getStats,
+    getQueueKpis,
     getSettings,
     updateSettings,
     clearAuditLog,

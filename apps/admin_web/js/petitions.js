@@ -49,14 +49,14 @@ function renderPetitionFilters(container, activeFilter, onChange) {
 }
 
 function renderPetitionsTable(container, petitions, options = {}) {
-  const { clickable = true } = options;
+  const { clickable = true, selectedIndex = -1 } = options;
   if (petitions.length === 0) {
     container.innerHTML = '<p>Нет инициатив по выбранному фильтру.</p>';
     return;
   }
 
   container.innerHTML = `
-    <table class="table">
+    <table class="table" data-keyboard-table="petitions">
       <thead>
         <tr>
           <th>ID</th>
@@ -68,10 +68,15 @@ function renderPetitionsTable(container, petitions, options = {}) {
       </thead>
       <tbody>
         ${petitions
-          .map((item) => {
-            const rowClass = clickable ? 'table-row-link' : '';
+          .map((item, index) => {
+            const rowClass = [
+              clickable ? 'table-row-link' : '',
+              index === selectedIndex ? 'is-focused' : '',
+            ]
+              .filter(Boolean)
+              .join(' ');
             const attrs = clickable
-              ? `class="${rowClass}" data-petition-id="${item.id}"`
+              ? `class="${rowClass}" data-petition-id="${item.id}" data-row-index="${index}" tabindex="0"`
               : '';
             return `
           <tr ${attrs}>

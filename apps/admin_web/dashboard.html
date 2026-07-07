@@ -35,9 +35,18 @@
         <div class="content">
           <section class="banner" id="role-banner"></section>
 
+          <section class="card" style="padding:var(--space-lg);">
+            <h2 style="margin-top:0;">Очереди (mock KPI)</h2>
+            <div id="kpi-panel"></div>
+          </section>
+
           <div class="grid-2">
             <section class="card" style="padding:var(--space-lg);">
               <h2 style="margin-top:0;">Очередь по роли</h2>
+              <p class="keyboard-hint" id="keyboard-hint" hidden>
+                Горячие клавиши в списке инициатив: <kbd>j</kbd> / <kbd>k</kbd> — строка,
+                <kbd>Enter</kbd> — открыть
+              </p>
               <div class="filter-row" id="module-filters" style="display:none;"></div>
               <div id="module-table"></div>
             </section>
@@ -48,11 +57,16 @@
             </section>
           </div>
 
-          <section class="card banner--muted" style="padding:var(--space-lg);">
-            <h2 style="margin-top:0;">Mock demo</h2>
-            <p style="margin:0;color:var(--color-text-muted);">
-              Данные загружаются из <code>mock/seed.json</code> (W3 shared mock).
-              OTP для защищённых действий: <strong>123456</strong>.
+          <section class="card banner--muted sync-hint" style="padding:var(--space-lg);">
+            <h2 style="margin-top:0;">Mock sync</h2>
+            <p style="margin:0 0 var(--space-sm);color:var(--color-text-muted);">
+              После изменений в портале экспортируйте JSON и импортируйте в Resident / Inspector,
+              чтобы выровнять списки на устройствах. Публичный сайт читает bundled seed и не меняется
+              автоматически.
+            </p>
+            <p style="margin:0;">
+              <a class="sync-hint__link" href="#" id="demo-sync-link">Инструкция Demo sync →</a>
+              · OTP: <strong>123456</strong>
             </p>
           </section>
         </div>

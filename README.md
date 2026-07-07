@@ -89,6 +89,8 @@ Full reference: `shared/mock/README.md`
 
 Script for municipality presentations:
 
+- `docs/demo/README.md` — index of demo materials
+- `docs/demo/live-demo-checklist.md` — pre-flight checklist
 - `docs/demo/municipality-rehearsal.md` — step-by-step live demo
 - `docs/demo/municipality-deck.md` — 10-slide narrative (text)
 - https://alexeyev-oleg.github.io/electronic-petitions/demo-sync.html — snapshot import guide
@@ -103,7 +105,8 @@ Script for municipality presentations:
 | Inspector app | `docs/mobile/inspector-app-roadmap.md` |
 | Public web | `docs/web/public-web-roadmap.md` |
 | User guides | `docs/mobile/user-guides/`, `docs/web/user-guides/` |
-| Backend (planned) | `docs/backend/architecture.md` |
+| Backend (M0) | `docs/backend/m0-foundation-plan.md` |
+| Backend architecture | `docs/backend/architecture.md` |
 | Infrastructure | `docs/infra/digitalocean-architecture.md` |
 | FAQ (canonical) | `shared/content/faq.json` |
 | Changelog | `CHANGELOG.md` |
@@ -153,7 +156,7 @@ Details: `docs/ci.md` · workflow: `.github/workflows/quality.yml`
 - Legally binding petition signatures
 - Production KYC providers
 
-Next engineering milestone: **M0** backend foundation — see `docs/delivery-roadmap.md`.
+Next engineering milestone: **M0** backend foundation — see `docs/backend/m0-foundation-plan.md` (M0.1 planning ✅).
 
 ## License
 

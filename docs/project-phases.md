@@ -91,3 +91,12 @@
 - [x] Stage 3 complete
 - [x] Stage 4 complete
 - [x] Stage 5 complete
+
+## Stage 6. Backend foundation (M0)
+- [x] M0.1 Integration and foundation plan — `docs/backend/m0-foundation-plan.md`
+- [ ] M0.2 Repository skeleton (`services/api/`)
+- [ ] M0.3 Local dev stack (Docker Compose)
+- [ ] M0.4 Migration framework
+- [ ] M0.5 Health / version endpoints
+- [ ] M0.6 Backend CI workflow
+- [ ] M0.7 Staging DOKS baseline

@@ -48,3 +48,51 @@ function renderStats(container, stats) {
   `;
 }
 
+function renderQueueKpis(container, kpis, role) {
+  const cards = [];
+
+  if (['moderator', 'admin', 'supervisor', 'municipality_staff'].includes(role)) {
+    cards.push(
+      { value: kpis.petitionsModeration, label: 'Инициатив на модерации' },
+      { value: kpis.petitionsDraft, label: 'Черновиков' },
+    );
+  }
+  if (['operator', 'admin', 'supervisor'].includes(role)) {
+    cards.push(
+      { value: kpis.complaintsTriage, label: 'Жалоб в triage' },
+      { value: kpis.complaintsInProgress, label: 'Жалоб в работе' },
+    );
+  }
+  if (['supervisor', 'admin'].includes(role)) {
+    cards.push(
+      { value: kpis.enforcementTriage, label: 'Донесений в triage' },
+      { value: kpis.enforcementDispatch, label: 'Выездов / review' },
+    );
+  }
+
+  cards.push({ value: kpis.slaAttention, label: 'Требуют внимания (mock SLA)' });
+
+  container.innerHTML = `
+    <div class="kpi-grid">
+      ${cards
+        .map(
+          (card) => `
+        <div class="kpi-card">
+          <strong>${card.value}</strong>
+          <span>${card.label}</span>
+        </div>`,
+        )
+        .join('')}
+    </div>
+    <p class="kpi-meta">Seed <code>${kpis.seedVersion}</code> · очереди из текущего mock store</p>
+  `;
+}
+
+function attachPrintButton(buttonId) {
+  const button = document.getElementById(buttonId);
+  if (!button) {
+    return;
+  }
+  button.addEventListener('click', () => window.print());
+}
+
