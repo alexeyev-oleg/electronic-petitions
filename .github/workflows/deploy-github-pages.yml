@@ -7,7 +7,10 @@ on:
       - 'apps/public_web/**'
       - 'apps/admin_web/**'
       - 'shared/mock/**'
+      - 'shared/content/**'
       - 'scripts/prepare-github-pages.sh'
+      - 'scripts/sync-mobile-seed.sh'
+      - 'scripts/sync-shared-content.sh'
       - '.github/workflows/deploy-github-pages.yml'
   workflow_dispatch:
 

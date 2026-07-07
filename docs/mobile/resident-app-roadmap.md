@@ -409,7 +409,17 @@ For each major milestone:
 - update screenshots or UI notes
 - update FAQ
 
+### `Q1` CI quality gates (completed)
+- GitHub Actions workflow `.github/workflows/quality.yml`
+- `scripts/ci-check-js.sh` — `node --check` for web + shared JS
+- `scripts/ci-smoke-pages.sh` — `prepare-github-pages.sh` artifact smoke test
+- `flutter analyze` matrix for resident and inspector apps (no APK build in CI)
+- deploy workflow paths include `shared/content/**`
+
+Exit criteria:
+- PRs and pushes to main run automated lint/smoke without manual steps
+- local developers can reproduce checks with documented scripts
+
 ## Next Recommended Execution Stage
 If we move from planning to execution, start with:
-1. `Q1` CI quality gates (Flutter analyze, JS lint, Pages smoke test)
-2. `M0` backend integration planning
+1. `M0` backend integration planning

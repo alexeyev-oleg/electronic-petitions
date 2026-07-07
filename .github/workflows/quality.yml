@@ -1,0 +1,65 @@
+name: Quality gates
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+concurrency:
+  group: quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  js-syntax:
+    name: JS syntax
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check JavaScript syntax
+        run: |
+          chmod +x scripts/ci-check-js.sh
+          scripts/ci-check-js.sh
+
+  pages-smoke:
+    name: Pages smoke
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build and verify GitHub Pages bundle
+        run: |
+          chmod +x scripts/ci-smoke-pages.sh
+          scripts/ci-smoke-pages.sh
+
+  flutter-analyze:
+    name: Flutter analyze (${{ matrix.app }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        app: [resident_app, inspector_app]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Resolve dependencies
+        working-directory: apps/${{ matrix.app }}
+        run: flutter pub get
+
+      - name: Analyze
+        working-directory: apps/${{ matrix.app }}
+        run: flutter analyze --fatal-infos --fatal-warnings

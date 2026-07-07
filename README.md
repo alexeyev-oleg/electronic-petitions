@@ -107,6 +107,7 @@ Script for municipality presentations:
 | Infrastructure | `docs/infra/digitalocean-architecture.md` |
 | FAQ (canonical) | `shared/content/faq.json` |
 | Changelog | `CHANGELOG.md` |
+| CI | `docs/ci.md` |
 
 ## Clients at a glance
 
@@ -133,6 +134,17 @@ Push to `main` triggers `.github/workflows/deploy-github-pages.yml`, or run loca
 ./scripts/prepare-github-pages.sh
 ./scripts/publish-to-github.sh   # requires gh auth
 ```
+
+## CI
+
+Quality gates on every PR and push to `main`:
+
+```bash
+./scripts/ci-check-js.sh
+./scripts/ci-smoke-pages.sh
+```
+
+Details: `docs/ci.md` · workflow: `.github/workflows/quality.yml`
 
 ## What is not in mock beta
 
