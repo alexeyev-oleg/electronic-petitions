@@ -23,6 +23,11 @@ class AppTheme {
         scrolledUnderElevation: 0,
         backgroundColor: AppColors.surfaceMuted,
         foregroundColor: AppColors.primaryDark,
+        titleTextStyle: TextStyle(
+          color: AppColors.primaryDark,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -42,6 +47,18 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
+        ),
+      ),
+      textTheme: const TextTheme(
+        headlineSmall: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w700,
+          color: AppColors.primaryDark,
+        ),
+        bodyMedium: TextStyle(
+          fontSize: 14,
+          height: 1.4,
+          color: AppColors.textMuted,
         ),
       ),
     );

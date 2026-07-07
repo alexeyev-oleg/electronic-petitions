@@ -43,6 +43,16 @@ function initiativeDetailPath(id) {
   return pagePath(`/initiative.html?id=${encodeURIComponent(id)}`);
 }
 
+function mediaPath(relativePath) {
+  if (!relativePath) {
+    return '';
+  }
+  const normalized = relativePath.startsWith('media/')
+    ? relativePath
+    : `media/${relativePath}`;
+  return assetPath(`/${normalized}`);
+}
+
 function filterInitiativesByCategory(initiatives, filterId) {
   if (filterId === 'all') {
     return initiatives;

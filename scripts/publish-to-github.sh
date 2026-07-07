@@ -15,7 +15,14 @@ fi
 
 if ! gh repo view "$REPO" >/dev/null 2>&1; then
   echo "==> Creating repository"
-  gh repo create "$REPO" --public --description "G.E.S.H.E.R. electronic petitions monorepo" --source=. --remote=origin
+  if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    gh repo create "$REPO" --public --description "G.E.S.H.E.R. electronic petitions monorepo"
+    git remote get-url origin >/dev/null 2>&1 || \
+      git remote add origin "https://github.com/${REPO}.git"
+  else
+    echo "ERROR: not inside a git work tree. Run from project root with git initialized."
+    exit 1
+  fi
 else
   echo "==> Repository exists"
   git remote get-url origin >/dev/null 2>&1 || git remote add origin "https://github.com/${REPO}.git"

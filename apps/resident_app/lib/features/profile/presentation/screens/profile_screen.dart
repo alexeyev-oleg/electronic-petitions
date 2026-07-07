@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -7,6 +9,7 @@ import '../../../../app/environment/app_environment.dart';
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/mock/mock_local_store.dart';
+import '../../../../core/mock/mock_snapshot_exporter.dart';
 import '../../../../core/mock/mock_snapshot_importer.dart';
 import '../../../../core/services/push_notification_service.dart';
 import '../../../../core/widgets/app_feature_tile.dart';
@@ -266,6 +269,43 @@ class _MockBetaSettingsCardState extends ConsumerState<_MockBetaSettingsCard> {
     await _reloadFeatureLists();
   }
 
+  Future<void> _onExportSnapshot() async {
+    final l10n = AppLocalizations.of(context);
+    try {
+      final jsonText = await MockSnapshotExporter.exportResidentSnapshot(
+        store: ref.read(mockLocalStoreProvider),
+      );
+      final saved = await FilePicker.platform.saveFile(
+        fileName:
+            'gesher-mock-${DateTime.now().toUtc().toIso8601String().replaceAll(':', '-')}.json',
+        bytes: utf8.encode(jsonText),
+        type: FileType.custom,
+        allowedExtensions: const ['json'],
+      );
+
+      if (!mounted) {
+        return;
+      }
+
+      if (saved == null) {
+        return;
+      }
+
+      setState(() {
+        _importSuccess = true;
+        _importMessage = l10n.exportMockSnapshotSuccess;
+      });
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _importSuccess = false;
+        _importMessage = l10n.exportMockSnapshotFailed;
+      });
+    }
+  }
+
   Future<void> _onImportSnapshot() async {
     final l10n = AppLocalizations.of(context);
     final result = await FilePicker.platform.pickFiles(
@@ -333,6 +373,14 @@ class _MockBetaSettingsCardState extends ConsumerState<_MockBetaSettingsCard> {
             onPressed: _onImportSnapshot,
             icon: const Icon(Icons.upload_file_outlined),
             label: Text(l10n.importMockSnapshot),
+          ),
+          const SizedBox(height: AppSpacing.sm),
+          Text(l10n.exportMockSnapshotHelp),
+          const SizedBox(height: AppSpacing.sm),
+          OutlinedButton.icon(
+            onPressed: _onExportSnapshot,
+            icon: const Icon(Icons.download_outlined),
+            label: Text(l10n.exportMockSnapshot),
           ),
           if (_importMessage != null) ...[
             const SizedBox(height: AppSpacing.sm),

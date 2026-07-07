@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 
 abstract final class AppColors {
-  static const primary = Color(0xFF003D82);
-  static const primaryDark = Color(0xFF002855);
+  static const terracotta = Color(0xFFC6643C);
+  static const graphite = Color(0xFF2B2B2B);
+  static const primary = terracotta;
+  static const primaryDark = graphite;
   static const secondary = Color(0xFF00897B);
   static const surfaceMuted = Color(0xFFF4F7FB);
   static const outline = Color(0xFFD7E0EA);
+  static const textMuted = Color(0xFF64748B);
 
   static const statusPending = Color(0xFFF59E0B);
-  static const statusActive = Color(0xFF2563EB);
+  static const statusActive = Color(0xFFC6643C);
   static const statusSuccess = Color(0xFF059669);
   static const statusNeutral = Color(0xFF64748B);
   static const statusWarning = Color(0xFFDC2626);

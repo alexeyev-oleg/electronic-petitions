@@ -21,25 +21,24 @@ Electronic petitions and municipal services for residents: petitions, complaints
 - strong hierarchy
 - minimal decorative elements
 
-### Logo mark (beta)
-Until an official municipality logo is approved, the app uses a civic icon mark:
-- icon: `account_balance_outlined`
-- container: rounded square with primary tint background
+### Logo mark
+`GesherBrandMark` — stylized **G** with terracotta accent dot, matching the public web identity.
 
 ## Color System
 | Token | Hex | Usage |
 |------|-----|-------|
-| Primary | `#0057B8` | main actions, civic identity |
-| Primary dark | `#003D82` | titles, app bar text |
+| Terracotta (primary) | `#C6643C` | main actions, brand accents |
+| Graphite (primary dark) | `#2B2B2B` | titles, splash background |
 | Secondary | `#00897B` | secondary actions, complaints accent |
 | Surface muted | `#F4F7FB` | screen background |
 | Outline | `#D7E0EA` | card borders, input borders |
+| Text muted | `#64748B` | secondary body copy |
 
 ### Status colors
 | Meaning | Hex | Example statuses |
 |--------|-----|------------------|
 | Pending / review | `#F59E0B` | draft, moderation, triage |
-| Active / submitted | `#2563EB` | published, submitted, in progress |
+| Active / submitted | `#C6643C` | published, submitted, in progress |
 | Success | `#059669` | resolved, approved |
 | Warning / rejected | `#DC2626` | rejected, failed |
 | Neutral | `#64748B` | fallback |

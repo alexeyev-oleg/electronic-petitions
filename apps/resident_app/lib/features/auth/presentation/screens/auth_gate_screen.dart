@@ -64,8 +64,7 @@ class _AuthGateScreenState extends ConsumerState<AuthGateScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   AppBrandHeader(
-                    title: l10n.appTitle,
-                    subtitle: l10n.homeTitle,
+                    subtitle: l10n.brandTagline,
                   ),
                   const SizedBox(height: AppSpacing.sm),
                   AppInfoBanner(message: l10n.secureUpgradeNotice),

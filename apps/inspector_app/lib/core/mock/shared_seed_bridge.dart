@@ -34,6 +34,7 @@ class SharedSeedBridge {
         latitude: (json['latitude'] as num?)?.toDouble(),
         longitude: (json['longitude'] as num?)?.toDouble(),
         actionNote: json['actionNote'] as String?,
+        oversightNote: json['oversightNote'] as String?,
       );
     }).toList();
   }

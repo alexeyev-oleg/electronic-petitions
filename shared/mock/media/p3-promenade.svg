@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Promenade tiles">
+  <rect width="640" height="360" fill="#87CEEB"/>
+  <rect y="200" width="640" height="160" fill="#C6643C" opacity="0.35"/>
+  <rect y="220" width="640" height="8" fill="#8b7355"/>
+  <g fill="#9ca3af">
+    <rect x="40" y="240" width="80" height="40" rx="4"/>
+    <rect x="140" y="240" width="80" height="40" rx="4"/>
+    <rect x="240" y="240" width="80" height="40" rx="4"/>
+    <rect x="340" y="240" width="80" height="40" rx="4"/>
+    <rect x="440" y="240" width="80" height="40" rx="4"/>
+    <rect x="540" y="240" width="60" height="40" rx="4"/>
+  </g>
+  <text x="24" y="40" fill="#2B2B2B" font-family="Arial,sans-serif" font-size="22" font-weight="700">p3 · 015@56=0O</text>
+</svg>

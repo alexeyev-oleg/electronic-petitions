@@ -17,6 +17,7 @@ function renderInitiativeDetail(petition) {
     </div>
 
     <h1 class="initiative-detail__title">${petition.title}</h1>
+    ${petition.coverImage ? `<img class="initiative-card__cover" src="${mediaPath(petition.coverImage)}" alt="" />` : ''}
     <p class="initiative-detail__summary">${petition.summary}</p>
 
     <section class="detail-panel">

@@ -24,7 +24,7 @@ class AboutScreen extends StatelessWidget {
             child: Column(
               children: [
                 AppBrandHeader(
-                  title: l10n.appTitle,
+                  subtitle: l10n.brandTagline,
                   compact: true,
                 ),
                 const SizedBox(height: AppSpacing.md),

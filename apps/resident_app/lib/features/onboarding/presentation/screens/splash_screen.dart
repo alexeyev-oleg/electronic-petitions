@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/widgets/gesher_brand_mark.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../../profile/application/preferences_controller.dart';
 
@@ -48,7 +49,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.graphite,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -56,28 +57,12 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 88,
-                  height: 88,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withValues(alpha: 0.16),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Icon(
-                    Icons.account_balance_outlined,
-                    size: 44,
-                    color: Colors.white,
-                  ),
+                GesherBrandMark(
+                  size: 96,
+                  inverted: true,
+                  tagline: l10n.brandTagline,
                 ),
-                const SizedBox(height: AppSpacing.lg),
-                Text(
-                  l10n.appTitle,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                        color: Colors.white,
-                      ),
-                ),
-                const SizedBox(height: AppSpacing.lg),
+                const SizedBox(height: AppSpacing.xl),
                 const CircularProgressIndicator(
                   color: Colors.white,
                 ),

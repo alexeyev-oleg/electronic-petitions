@@ -50,11 +50,15 @@ class MockTriageRepository implements TriageRepository {
       throw const TriageActionException('report_already_closed');
     }
 
-    if (action.requiresExistingDispatch && !report.canValidateOutcome) {
-      throw const TriageActionException('dispatch_required');
-    }
-
-    if (!action.requiresExistingDispatch && !report.canApplyTriageActions) {
+    if (action.requiresDispatchAssignment) {
+      if (!report.canStartFieldVisit) {
+        throw const TriageActionException('dispatch_assignment_required');
+      }
+    } else if (action.requiresExistingDispatch) {
+      if (!report.canValidateOutcome) {
+        throw const TriageActionException('dispatch_required');
+      }
+    } else if (!report.canApplyTriageActions) {
       throw const TriageActionException('triage_action_not_allowed');
     }
 

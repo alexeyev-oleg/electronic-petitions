@@ -27,6 +27,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
   build_runner: ^2.6.0
   freezed: ^3.2.0
   freezed_annotation: ^3.1.0
@@ -37,4 +38,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/l10n/
+    - assets/brand/
     - assets/mock/seed.json
+    - assets/mock/media/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/brand/app_icon.png
+  adaptive_icon_background: "#2B2B2B"
+  adaptive_icon_foreground: assets/brand/app_icon.png

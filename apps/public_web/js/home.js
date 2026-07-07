@@ -1,3 +1,29 @@
+function renderMockBetaBanner(seed) {
+  const host = document.getElementById('mock-beta-banner');
+  if (!host) {
+    return;
+  }
+
+  const version = seed?.version || '—';
+  const staffUrl = pagePath(window.GESHER_PUBLIC_CONFIG.staffPortalPath);
+  const demoUrl = pagePath('/demo-sync.html');
+
+  host.hidden = false;
+  host.innerHTML = `
+    <div class="mock-beta-banner__inner">
+      <div class="mock-beta-banner__head">
+        <span class="chip">${t('mockBadge')}</span>
+        <span class="mock-beta-banner__version">${t('demoSeedVersion')}: <code>${version}</code></span>
+      </div>
+      <p class="mock-beta-banner__text">${t('demoBannerText')}</p>
+      <div class="hero__actions" style="margin:0;">
+        <a class="btn btn--secondary" href="${staffUrl}">${t('ctaStaff')}</a>
+        <a class="btn btn--secondary" href="${demoUrl}">${t('navDemoSync')}</a>
+      </div>
+    </div>
+  `;
+}
+
 function renderHeroCopy() {
   const heroTitle = document.getElementById('hero-title');
   const heroSubtitle = document.getElementById('hero-subtitle');
@@ -89,6 +115,7 @@ async function renderHomePage() {
 
   try {
     const seed = await loadPublicSeed();
+    renderMockBetaBanner(seed);
     renderStats(seed.stats);
     renderHeroMockCards(seed.petitions || []);
   } catch {

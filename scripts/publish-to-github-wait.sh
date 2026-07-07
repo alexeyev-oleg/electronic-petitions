@@ -6,9 +6,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG="${ROOT_DIR}/.publish-github.log"
 
 cd "$ROOT_DIR"
-exec > >(tee -a "$LOG") 2>&1
 
-echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) publish-to-github wait loop ==="
+echo "=== $(date -u +%Y-%m-%dT%H:%M:%SZ) publish-to-github wait loop ===" | tee -a "$LOG"
 
 for i in $(seq 1 120); do
   if gh auth status -h github.com >/dev/null 2>&1; then
@@ -27,7 +26,7 @@ done
 
 if ! gh repo view "$REPO" >/dev/null 2>&1; then
   echo "Creating $REPO"
-  gh repo create "$REPO" --public --description "G.E.S.H.E.R. electronic petitions monorepo" --source=. --remote=origin
+  gh repo create "$REPO" --public --description "G.E.S.H.E.R. electronic petitions monorepo"
 fi
 
 git remote get-url origin >/dev/null 2>&1 || git remote add origin "https://github.com/${REPO}.git"

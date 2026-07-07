@@ -118,7 +118,7 @@ class AppTheme {
         bodyMedium: TextStyle(
           fontSize: 14,
           height: 1.4,
-          color: Color(0xFF475569),
+          color: AppColors.textMuted,
         ),
         labelLarge: TextStyle(
           fontSize: 13,

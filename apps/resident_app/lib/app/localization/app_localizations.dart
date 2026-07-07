@@ -25,7 +25,8 @@ class AppLocalizations {
 
   static const _localizedValues = <String, Map<String, String>>{
     'en': {
-      'appTitle': 'Resident App',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'Your voice. Your city.',
       'betaBanner': 'Beta mode',
       'signIn': 'Sign in',
       'signUp': 'Create account',
@@ -105,7 +106,7 @@ class AppLocalizations {
       'onboardingNext': 'Next',
       'onboardingGetStarted': 'Get started',
       'onboardingLanguagePrompt': 'Choose your language',
-      'onboardingSlideWelcomeTitle': 'Welcome to Resident App',
+      'onboardingSlideWelcomeTitle': 'Welcome to G.E.S.H.E.R.',
       'onboardingSlideWelcomeBody': 'Connect with your municipality through petitions, complaints, and violation reports.',
       'onboardingSlidePetitionsTitle': 'Electronic petitions',
       'onboardingSlidePetitionsBody': 'Browse active petitions, follow progress, and prepare to support causes that matter to your community.',
@@ -116,7 +117,7 @@ class AppLocalizations {
       'helpAndSupport': 'Help and support',
       'aboutApp': 'About the app',
       'helpFaq': 'FAQ',
-      'aboutDescription': 'Resident App helps citizens interact with municipal services through petitions, complaints, and violation reporting.',
+      'aboutDescription': 'G.E.S.H.E.R. helps citizens interact with municipal services through petitions, complaints, and violation reporting.',
       'appVersionLabel': 'Version',
       'faqQuestionBeta': 'Why does the app show beta or mock mode?',
       'faqAnswerBeta': 'This build is for early testing. Data and authentication are simplified until design and functionality are approved.',
@@ -142,6 +143,10 @@ class AppLocalizations {
           'Pick gesher-mock-*.json exported from Admin Web to sync petitions, complaints, and enforcement.',
       'importMockSnapshotSuccess': 'Mock snapshot imported.',
       'importMockSnapshotFailed': 'Could not import snapshot. Check file version and format.',
+      'exportMockSnapshot': 'Export mock snapshot',
+      'exportMockSnapshotHelp': 'Save local petitions, complaints, enforcement, and notifications as JSON.',
+      'exportMockSnapshotSuccess': 'Mock snapshot exported.',
+      'exportMockSnapshotFailed': 'Could not export snapshot.',
       'phoneVerificationTitle': 'Phone verification',
       'phoneVerificationHelp': 'Verify your phone number to upgrade from beta to a secure session.',
       'phoneNumberLabel': 'Phone number',
@@ -226,7 +231,8 @@ class AppLocalizations {
       'petitionAttachmentTypeExcel': 'Excel',
     },
     'he': {
-      'appTitle': 'אפליקציית תושבים',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'הקול שלך. העיר שלך.',
       'betaBanner': 'מצב בטא',
       'signIn': 'התחברות',
       'signUp': 'יצירת חשבון',
@@ -342,6 +348,10 @@ class AppLocalizations {
       'importMockSnapshotHelp': 'בחרו קובץ JSON שיוצא מ-Admin Web.',
       'importMockSnapshotSuccess': 'ה-snapshot יובא.',
       'importMockSnapshotFailed': 'לא ניתן לייבא snapshot.',
+      'exportMockSnapshot': 'ייצוא mock snapshot',
+      'exportMockSnapshotHelp': 'שמירת נתוני mock מקומיים לקובץ JSON.',
+      'exportMockSnapshotSuccess': 'ה-snapshot יוצא.',
+      'exportMockSnapshotFailed': 'ייצוא snapshot נכשל.',
       'phoneVerificationTitle': 'אימות טלפון',
       'phoneVerificationHelp': 'אמתו את מספר הטלפון כדי לשדרג מבטא לסשן מאובטח.',
       'phoneNumberLabel': 'מספר טלפון',
@@ -426,7 +436,8 @@ class AppLocalizations {
       'petitionAttachmentTypeExcel': 'Excel',
     },
     'ru': {
-      'appTitle': 'Приложение жителя',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'Ваш голос. Ваш город.',
       'betaBanner': 'Бета-режим',
       'signIn': 'Войти',
       'signUp': 'Создать аккаунт',
@@ -506,7 +517,7 @@ class AppLocalizations {
       'onboardingNext': 'Далее',
       'onboardingGetStarted': 'Начать',
       'onboardingLanguagePrompt': 'Выберите язык',
-      'onboardingSlideWelcomeTitle': 'Добро пожаловать в Resident App',
+      'onboardingSlideWelcomeTitle': 'Добро пожаловать в G.E.S.H.E.R.',
       'onboardingSlideWelcomeBody': 'Связь с муниципалитетом через петиции, жалобы и сообщения о нарушениях.',
       'onboardingSlidePetitionsTitle': 'Электронные петиции',
       'onboardingSlidePetitionsBody': 'Просматривайте активные петиции, следите за статусом и готовьтесь поддерживать важные инициативы.',
@@ -517,7 +528,7 @@ class AppLocalizations {
       'helpAndSupport': 'Помощь и поддержка',
       'aboutApp': 'О приложении',
       'helpFaq': 'FAQ',
-      'aboutDescription': 'Resident App помогает жителям взаимодействовать с муниципалитетом через петиции, жалобы и сообщения о нарушениях.',
+      'aboutDescription': 'G.E.S.H.E.R. помогает жителям взаимодействовать с муниципалитетом через петиции, жалобы и сообщения о нарушениях.',
       'appVersionLabel': 'Версия',
       'faqQuestionBeta': 'Почему приложение показывает beta или mock режим?',
       'faqAnswerBeta': 'Эта сборка для раннего тестирования. Данные и авторизация упрощены до утверждения дизайна и функционала.',
@@ -543,6 +554,10 @@ class AppLocalizations {
           'Выберите gesher-mock-*.json, экспортированный из Admin Web, для синхронизации данных.',
       'importMockSnapshotSuccess': 'Mock-снимок импортирован.',
       'importMockSnapshotFailed': 'Не удалось импортировать снимок.',
+      'exportMockSnapshot': 'Экспорт mock-снимка',
+      'exportMockSnapshotHelp': 'Сохранить локальные petitions, complaints, enforcement и уведомления в JSON.',
+      'exportMockSnapshotSuccess': 'Mock-снимок экспортирован.',
+      'exportMockSnapshotFailed': 'Не удалось экспортировать снимок.',
       'phoneVerificationTitle': 'Подтверждение телефона',
       'phoneVerificationHelp': 'Подтвердите телефон, чтобы перейти от beta к secure-сессии.',
       'phoneNumberLabel': 'Номер телефона',
@@ -627,7 +642,8 @@ class AppLocalizations {
       'petitionAttachmentTypeExcel': 'Excel',
     },
     'ar': {
-      'appTitle': 'تطبيق السكان',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'صوتك. مدينتك.',
       'betaBanner': 'وضع تجريبي',
       'signIn': 'تسجيل الدخول',
       'signUp': 'إنشاء حساب',
@@ -743,6 +759,10 @@ class AppLocalizations {
       'importMockSnapshotHelp': 'اختر ملف JSON من Admin Web.',
       'importMockSnapshotSuccess': 'تم استيراد snapshot.',
       'importMockSnapshotFailed': 'تعذر استيراد snapshot.',
+      'exportMockSnapshot': 'تصدير mock snapshot',
+      'exportMockSnapshotHelp': 'حفظ البيانات المحلية كملف JSON.',
+      'exportMockSnapshotSuccess': 'تم تصدير snapshot.',
+      'exportMockSnapshotFailed': 'تعذر تصدير snapshot.',
       'phoneVerificationTitle': 'تأكيد الهاتف',
       'phoneVerificationHelp': 'أكد رقم هاتفك للترقية من بيتا إلى جلسة آمنة.',
       'phoneNumberLabel': 'رقم الهاتف',
@@ -834,6 +854,7 @@ class AppLocalizations {
   }
 
   String get appTitle => _text('appTitle');
+  String get brandTagline => _text('brandTagline');
   String get betaBanner => _text('betaBanner');
   String get signIn => _text('signIn');
   String get signUp => _text('signUp');
@@ -955,6 +976,10 @@ class AppLocalizations {
   String get importMockSnapshotHelp => _text('importMockSnapshotHelp');
   String get importMockSnapshotSuccess => _text('importMockSnapshotSuccess');
   String get importMockSnapshotFailed => _text('importMockSnapshotFailed');
+  String get exportMockSnapshot => _text('exportMockSnapshot');
+  String get exportMockSnapshotHelp => _text('exportMockSnapshotHelp');
+  String get exportMockSnapshotSuccess => _text('exportMockSnapshotSuccess');
+  String get exportMockSnapshotFailed => _text('exportMockSnapshotFailed');
   String get phoneVerificationTitle => _text('phoneVerificationTitle');
   String get phoneVerificationHelp => _text('phoneVerificationHelp');
   String get phoneNumberLabel => _text('phoneNumberLabel');

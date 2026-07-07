@@ -9,7 +9,7 @@ Cross-client mock data strategy for G.E.S.H.E.R. demo without backend.
 | `shared/mock/seed.json` | Single schema + demo entities |
 | `shared/mock/mock-store.js` | Web mutable store (`localStorage`) |
 
-Current seed version: see `version` field in `seed.json` (e.g. `1.5.0`).
+Current seed version: see `version` field in `seed.json` (e.g. `1.6.0`).
 
 ## Client adapters (W3.1)
 
@@ -62,7 +62,7 @@ Export from Admin Web, then import on device:
 
 | App | Location |
 |-----|----------|
-| Resident | Profile → Mock beta settings → Import admin mock snapshot |
+| Resident | Profile → Mock beta settings → Import / **Export** admin mock snapshot |
 | Inspector | Home → Mock sync → Import admin snapshot |
 
 See `docs/web/mock-demo-sync.md` for format and demo script.
@@ -84,6 +84,14 @@ Live auto-sync between clients on one device is **not** implemented. Clients ali
 - [x] `MockSnapshotImporter` on Resident + Inspector
 - [x] Admin export → mobile import UI
 - [x] `docs/web/mock-demo-sync.md`
+
+## W3.3 (completed)
+
+- [x] `docs/demo/municipality-rehearsal.md` — 15 min demo script
+- [x] Public `demo-sync.html` + home mock beta banner (seed version)
+- [x] Resident `MockSnapshotExporter` (export JSON)
+- [x] Demo media previews in `shared/mock/media/` (seed `coverImage`)
+- [x] Seed v1.6.0
 
 ## Related
 

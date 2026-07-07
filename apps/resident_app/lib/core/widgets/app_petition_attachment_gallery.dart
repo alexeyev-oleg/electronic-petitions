@@ -75,6 +75,18 @@ class _PhotoTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (attachment.path.startsWith('assets/')) {
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(12),
+        child: Image.asset(
+          attachment.path,
+          width: 112,
+          height: 112,
+          fit: BoxFit.cover,
+        ),
+      );
+    }
+
     final file = File(attachment.path);
     if (file.existsSync()) {
       return ClipRRect(

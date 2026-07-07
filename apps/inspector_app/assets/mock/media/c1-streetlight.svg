@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Broken streetlight">
+  <rect width="640" height="360" fill="#2B2B2B"/>
+  <rect y="280" width="640" height="80" fill="#374151"/>
+  <rect x="300" y="60" width="10" height="220" fill="#6b7280"/>
+  <circle cx="305" cy="52" r="20" fill="#4b5563" stroke="#9ca3af" stroke-width="2" stroke-dasharray="4 4"/>
+  <text x="24" y="40" fill="#f9fafb" font-family="Arial,sans-serif" font-size="22" font-weight="700">c1 · #;8G=K9 D>=0@L</text>
+</svg>

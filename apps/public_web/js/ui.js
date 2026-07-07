@@ -38,6 +38,7 @@ function renderSiteHeader() {
         ${navLink('/how-it-works.html', t('navHow'), page === 'how-it-works.html')}
         ${navLink('/faq.html', t('navFaq'), page === 'faq.html')}
         ${navLink('/about.html', t('navAbout'), page === 'about.html')}
+        ${navLink('/demo-sync.html', t('navDemoSync'), page === 'demo-sync.html')}
       </nav>
       <div class="site-header__actions">
         <label class="sr-only" for="locale-select">${t('localeLabel')}</label>
@@ -82,6 +83,7 @@ function renderSiteFooter() {
           <h3>${t('footerStaff')}</h3>
           <ul>
             <li><a href="${pagePath(window.GESHER_PUBLIC_CONFIG.staffPortalPath)}">${t('ctaStaff')}</a></li>
+            <li><a href="${pagePath('/demo-sync.html')}">${t('navDemoSync')}</a></li>
             <li><a href="${pagePath('/about.html')}">${t('navAbout')}</a></li>
           </ul>
         </div>

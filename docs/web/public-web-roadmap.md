@@ -30,6 +30,12 @@ Brand: **G.E.S.H.E.R.** — terracotta `#C6643C`, graphite `#2B2B2B`.
 - combined GitHub Pages deploy: public `/`, staff `/staff/`
 - `scripts/prepare-github-pages.sh`, `deploy-github-pages.yml`
 
+### `W2.3` Demo platform (completed)
+- `demo-sync.html` — import/export guide for mock rehearsals
+- Home mock beta banner with seed version + staff link
+- Initiative cover previews from `shared/mock/media/`
+- `docs/demo/municipality-rehearsal.md`
+
 ## Related
 
 - `apps/public_web/README.md`

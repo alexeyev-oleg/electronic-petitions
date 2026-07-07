@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.1",
   "locale": "ru",
   "brand": {
     "name": "G.E.S.H.E.R.",
@@ -63,7 +63,15 @@
       "submittedAtLabel": "12 дней назад",
       "isOwnedByCurrentUser": false,
       "officialResponse": null,
-      "moderationNote": null
+      "moderationNote": null,
+      "coverImage": "media/p1-park-lighting.svg",
+      "attachments": [
+        {
+          "path": "assets/mock/media/p1-park-lighting.svg",
+          "kind": "photo",
+          "displayName": "park-lighting.jpg"
+        }
+      ]
     },
     {
       "id": "p2",
@@ -89,7 +97,8 @@
       "submittedAtLabel": "1 неделя назад",
       "isOwnedByCurrentUser": false,
       "officialResponse": "Мэрия рассматривает инициативу в рамках плана благоустройства набережной.",
-      "moderationNote": null
+      "moderationNote": null,
+      "coverImage": "media/p3-promenade.svg"
     },
     {
       "id": "p4",
@@ -118,7 +127,8 @@
       "operatorNote": null,
       "resolutionNote": null,
       "assignedOperatorLabel": null,
-      "submittedAtLabel": "Сегодня"
+      "submittedAtLabel": "Сегодня",
+      "coverImage": "media/c1-streetlight.svg"
     },
     {
       "id": "c2",
@@ -163,7 +173,8 @@
       "actionNote": null,
       "oversightNote": null,
       "mergedCaseId": null,
-      "submittedAtLabel": "Сегодня"
+      "submittedAtLabel": "Сегодня",
+      "coverImage": "media/e1-sidewalk-parking.svg"
     },
     {
       "id": "e2",
@@ -206,7 +217,7 @@
       "geoMismatch": false,
       "trustLabel": "standard",
       "actionNote": "Полевая бригада назначена инспектором.",
-      "oversightNote": null,
+      "oversightNote": "Супервайзер: приоритет у входа в торговый центр, проверить разрешение.",
       "mergedCaseId": null,
       "submittedAtLabel": "3 дня назад"
     }

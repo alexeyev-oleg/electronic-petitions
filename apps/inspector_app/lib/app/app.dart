@@ -16,7 +16,7 @@ class InspectorApp extends ConsumerWidget {
     final router = ref.watch(appRouterProvider);
 
     return MaterialApp.router(
-      title: 'Inspector App',
+      title: 'G.E.S.H.E.R. Inspector',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
       routerConfig: router,

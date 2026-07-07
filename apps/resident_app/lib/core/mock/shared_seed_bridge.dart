@@ -6,6 +6,7 @@ import '../../features/complaints/application/complaint.dart';
 import '../../features/enforcement/application/enforcement_report.dart';
 import '../../features/notifications/application/app_notification.dart';
 import '../../features/petitions/application/petition.dart';
+import '../models/petition_attachment.dart';
 
 /// Loads canonical demo entities from `assets/mock/seed.json` (W3.1).
 class SharedSeedBridge {
@@ -33,6 +34,7 @@ class SharedSeedBridge {
             status: json['status'] as String,
             signatureCount: json['signatureCount'] as int? ?? 0,
             isOwnedByCurrentUser: json['isOwnedByCurrentUser'] as bool? ?? false,
+            attachments: _attachmentsFromJson(json['attachments'] as List<dynamic>?),
           );
         })
         .toList();
@@ -58,6 +60,25 @@ class SharedSeedBridge {
     final items = root['notifications'] as List<dynamic>? ?? const [];
     return items
         .map((item) => AppNotification.fromJson(item as Map<String, dynamic>))
+        .toList();
+  }
+
+  static List<PetitionAttachment> _attachmentsFromJson(List<dynamic>? raw) {
+    if (raw == null) {
+      return const [];
+    }
+    return raw
+        .map((item) {
+          final json = item as Map<String, dynamic>;
+          return PetitionAttachment(
+            path: json['path'] as String,
+            kind: PetitionAttachmentKind.values.firstWhere(
+              (value) => value.name == json['kind'],
+              orElse: () => PetitionAttachmentKind.photo,
+            ),
+            displayName: json['displayName'] as String? ?? 'attachment',
+          );
+        })
         .toList();
   }
 }

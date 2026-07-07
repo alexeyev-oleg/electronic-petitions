@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Sidewalk parking">
+  <rect width="640" height="360" fill="#d1d5db"/>
+  <rect y="200" width="640" height="160" fill="#6b7280"/>
+  <rect x="120" y="150" width="200" height="70" rx="8" fill="#C6643C"/>
+  <rect x="140" y="165" width="50" height="40" fill="#1f2937" opacity="0.3"/>
+  <rect x="250" y="165" width="50" height="40" fill="#1f2937" opacity="0.3"/>
+  <text x="24" y="40" fill="#2B2B2B" font-family="Arial,sans-serif" font-size="22" font-weight="700">e1 · 0@:>2:0 =0 B@>BC0@5</text>
+</svg>

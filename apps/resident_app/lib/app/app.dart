@@ -18,7 +18,7 @@ class ResidentApp extends ConsumerWidget {
     final preferences = ref.watch(preferencesControllerProvider);
 
     return MaterialApp.router(
-      title: 'Resident App',
+      title: 'G.E.S.H.E.R.',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
       routerConfig: router,

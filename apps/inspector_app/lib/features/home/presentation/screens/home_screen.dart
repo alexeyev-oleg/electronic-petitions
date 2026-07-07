@@ -9,6 +9,7 @@ import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/mock/mock_local_store.dart';
 import '../../../../core/mock/mock_snapshot_importer.dart';
 import '../../../auth/application/auth_controller.dart';
+import '../../../dispatch/application/dispatch_controller.dart';
 import '../../../triage/application/triage_controller.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -82,34 +83,18 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: AppSpacing.sm),
-          _PlaceholderTile(
-            icon: Icons.directions_walk_outlined,
-            label: l10n.dispatchQueuePlaceholder,
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.directions_walk_outlined),
+              title: Text(l10n.openDispatchQueueAction),
+              subtitle: Text(l10n.dispatchQueueTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push('/dispatch'),
+            ),
           ),
           const SizedBox(height: AppSpacing.lg),
           const _MockSyncCard(),
         ],
-      ),
-    );
-  }
-}
-
-class _PlaceholderTile extends StatelessWidget {
-  const _PlaceholderTile({
-    required this.icon,
-    required this.label,
-  });
-
-  final IconData icon;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Icon(icon),
-        title: Text(label),
-        trailing: const Icon(Icons.lock_clock_outlined),
       ),
     );
   }
@@ -160,7 +145,10 @@ class _MockSyncCardState extends ConsumerState<_MockSyncCard> {
       return;
     }
 
-    await ref.read(triageControllerProvider).load();
+    await Future.wait([
+      ref.read(triageControllerProvider).load(),
+      ref.read(dispatchControllerProvider).load(),
+    ]);
     if (!mounted) {
       return;
     }

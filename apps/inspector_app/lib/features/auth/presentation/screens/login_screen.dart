@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/widgets/gesher_brand_mark.dart';
 import '../../application/auth_controller.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
@@ -71,6 +72,12 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                GesherBrandMark(
+                  size: 72,
+                  badge: l10n.inspectorAppBadge,
+                  tagline: l10n.brandTagline,
+                ),
+                const SizedBox(height: AppSpacing.lg),
                 Text(
                   l10n.inspectorHomeSubtitle,
                   style: Theme.of(context).textTheme.bodyMedium,

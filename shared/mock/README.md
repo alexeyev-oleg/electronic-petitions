@@ -8,6 +8,7 @@ Single source of truth for demo data across web and mobile clients.
 |------|---------|
 | `seed.json` | Canonical mock entities and staff users |
 | `mock-store.js` | Browser `localStorage` adapter for web clients |
+| `media/` | Demo SVG previews for initiatives and entities |
 
 ## Entity IDs
 
@@ -69,4 +70,6 @@ chmod +x scripts/sync-mobile-seed.sh
 
 See `docs/web/mock-platform.md` for export/import and cross-client demo flow.
 
-Mobile import UI: `docs/web/mock-demo-sync.md`.
+Mobile import/export UI: `docs/web/mock-demo-sync.md`.
+
+Demo rehearsal: `docs/demo/municipality-rehearsal.md`.

@@ -2,6 +2,7 @@ enum InspectorTriageAction {
   markInvalid,
   mergeCase,
   dispatchTask,
+  startFieldVisit,
   validateWarning,
   validateFine,
   validateNoAction,
@@ -16,6 +17,8 @@ extension InspectorTriageActionX on InspectorTriageAction {
         return 'merged_with_existing_case';
       case InspectorTriageAction.dispatchTask:
         return 'dispatch_task';
+      case InspectorTriageAction.startFieldVisit:
+        return 'field_in_progress';
       case InspectorTriageAction.validateWarning:
         return 'validated_warning';
       case InspectorTriageAction.validateFine:
@@ -30,6 +33,17 @@ extension InspectorTriageActionX on InspectorTriageAction {
       case InspectorTriageAction.validateWarning:
       case InspectorTriageAction.validateFine:
       case InspectorTriageAction.validateNoAction:
+        return true;
+      case InspectorTriageAction.startFieldVisit:
+        return false;
+      default:
+        return false;
+    }
+  }
+
+  bool get requiresDispatchAssignment {
+    switch (this) {
+      case InspectorTriageAction.startFieldVisit:
         return true;
       default:
         return false;

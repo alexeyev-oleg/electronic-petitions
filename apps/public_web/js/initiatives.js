@@ -70,8 +70,12 @@ function renderInitiativeFilters(container, activeFilter, onChange) {
 
 function renderInitiativeCard(item) {
   const percent = signaturePercent(item);
+  const cover = item.coverImage
+    ? `<img class="initiative-card__cover" src="${mediaPath(item.coverImage)}" alt="" loading="lazy" />`
+    : '';
   return `
     <article class="initiative-card">
+      ${cover}
       <div class="initiative-card__meta">
         <span class="chip chip--success">${t('statusPublished')}</span>
         <span class="chip">${categoryLabel(item.category)}</span>

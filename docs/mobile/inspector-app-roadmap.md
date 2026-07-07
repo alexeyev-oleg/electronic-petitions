@@ -52,6 +52,16 @@ Exit criteria:
 - inspector mock workflow is documented end-to-end
 - APK build path and credentials are documented
 
+### `I5` Field dispatch queue (completed)
+- dispatch queue screen with filters: assigned / in field / completed
+- field task detail with supervisor note (`oversightNote`)
+- actions: start field visit, validated outcomes (OTP `123456`)
+- home navigation + mock snapshot import reloads dispatch queue
+- `docs/mobile/user-guides/inspector-dispatch.md`
+
+Exit criteria:
+- inspector can process `e4` from dispatch through validated outcome in mock mode
+
 ## Mock Credentials
 
 | Field | Value |
@@ -67,9 +77,12 @@ Exit criteria:
 - inspector home
 - triage queue
 - triage report detail (actions + evidence)
+- field dispatch queue
+- field task detail (visit + validated outcomes)
 
 ## Related Docs
 
 - `docs/mobile/user-guides/inspector-triage.md`
+- `docs/mobile/user-guides/inspector-dispatch.md`
 - `docs/mobile/build-inspector-apk.md`
 - `docs/mobile/mock-demo-data.md`

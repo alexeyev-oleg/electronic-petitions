@@ -8,6 +8,7 @@ const I18N_STRINGS = {
     navHow: 'Как это работает',
     navFaq: 'FAQ',
     navAbout: 'О платформе',
+    navDemoSync: 'Demo sync',
     heroTagline: 'Ваш голос. Ваш город.',
     heroTitle: 'Участвуйте в жизни города через G.E.S.H.E.R.',
     heroSubtitle:
@@ -56,6 +57,21 @@ const I18N_STRINGS = {
     stepImplemented: 'Реализована',
     initiativeNotFound: 'Инициатива не найдена или не опубликована.',
     viewDetails: 'Подробнее',
+    demoSyncTitle: 'Синхронизация mock-демо',
+    demoSyncIntro:
+      'Переносите изменения между Staff portal и мобильными приложениями через JSON-снимок без backend.',
+    demoSeedVersion: 'Версия seed',
+    demoBannerText:
+      'Публичный сайт читает bundled seed. Изменения staff portal видны на mobile только после export → import.',
+    demoExportTitle: 'Экспорт (Staff portal)',
+    demoExportSteps:
+      'Войти как staff (*@gesher.mock / staff123)|Настройки → Mock sync|Экспорт JSON|Файл gesher-mock-*.json сохраняется на устройстве',
+    demoImportTitle: 'Импорт (мобильные приложения)',
+    demoImportItems:
+      'Resident: Профиль → Mock beta → Import admin mock snapshot|Inspector: Home → Mock sync → Import admin snapshot|Версия seed в файле должна совпадать с приложением|OTP для staff-действий: 123456',
+    demoRehearsalTitle: 'Сценарий презентации',
+    demoRehearsalText:
+      '15-минутный сценарий для муниципалитета: public → resident → staff → export/import → inspector. См. docs/demo/municipality-rehearsal.md в репозитории.',
   },
   en: {
     navHome: 'Home',
@@ -63,6 +79,7 @@ const I18N_STRINGS = {
     navHow: 'How it works',
     navFaq: 'FAQ',
     navAbout: 'About',
+    navDemoSync: 'Demo sync',
     heroTagline: 'Your voice. Your city.',
     heroTitle: 'Shape your city with G.E.S.H.E.R.',
     heroSubtitle:
@@ -111,6 +128,21 @@ const I18N_STRINGS = {
     stepImplemented: 'Implemented',
     initiativeNotFound: 'Initiative not found or not published.',
     viewDetails: 'View details',
+    demoSyncTitle: 'Mock demo sync',
+    demoSyncIntro:
+      'Move demo state between the staff portal and mobile apps using a JSON snapshot — no backend required.',
+    demoSeedVersion: 'Seed version',
+    demoBannerText:
+      'The public site reads bundled seed. Staff changes appear on mobile only after export → import.',
+    demoExportTitle: 'Export (staff portal)',
+    demoExportSteps:
+      'Sign in as staff (*@gesher.mock / staff123)|Settings → Mock sync|Export JSON|Save gesher-mock-*.json',
+    demoImportTitle: 'Import (mobile apps)',
+    demoImportItems:
+      'Resident: Profile → Mock beta → Import admin mock snapshot|Inspector: Home → Mock sync → Import admin snapshot|Seed version must match the app|Staff action OTP: 123456',
+    demoRehearsalTitle: 'Presentation script',
+    demoRehearsalText:
+      '15-minute municipality demo: public → resident → staff → export/import → inspector. See docs/demo/municipality-rehearsal.md in the repo.',
   },
   he: {
     navHome: 'בית',
@@ -118,6 +150,7 @@ const I18N_STRINGS = {
     navHow: 'איך זה עובד',
     navFaq: 'שאלות נפוצות',
     navAbout: 'אודות',
+    navDemoSync: 'Demo sync',
     heroTagline: 'הקול שלך. העיר שלך.',
     heroTitle: 'השפיעו על העיר עם G.E.S.H.E.R.',
     heroSubtitle: 'חתמו על יוזמות, שלחו תלונות ודווחו על הפרות באפליקציה אזרחית אחת.',
@@ -163,6 +196,16 @@ const I18N_STRINGS = {
     stepImplemented: 'יושם',
     initiativeNotFound: 'היוזמה לא נמצאה או לא פורסמה.',
     viewDetails: 'פרטים',
+    demoSyncTitle: 'סנכרון mock demo',
+    demoSyncIntro: 'העברת מצב דמו בין פורטל הצוות לאפליקציות באמצעות snapshot JSON.',
+    demoSeedVersion: 'גרסת seed',
+    demoBannerText: 'האתר הציבורי קורא seed מקומי. שינויים בפורטל מופיעים במובייל רק אחרי export → import.',
+    demoExportTitle: 'ייצוא (פורטל צוות)',
+    demoExportSteps: 'התחברות staff|הגדרות → Mock sync|ייצוא JSON|שמירת gesher-mock-*.json',
+    demoImportTitle: 'ייבוא (אפליקציות)',
+    demoImportItems: 'Resident: פרופיל → Mock beta → Import|Inspector: Home → Mock sync → Import|גרסת seed חייבת להתאים|OTP: 123456',
+    demoRehearsalTitle: 'תסריט הדגמה',
+    demoRehearsalText: 'תסריט 15 דקות למוניציפליות — ראה docs/demo/municipality-rehearsal.md.',
   },
   ar: {
     navHome: 'الرئيسية',
@@ -170,6 +213,7 @@ const I18N_STRINGS = {
     navHow: 'كيف يعمل',
     navFaq: 'الأسئلة الشائعة',
     navAbout: 'حول المنصة',
+    navDemoSync: 'Demo sync',
     heroTagline: 'صوتك. مدينتك.',
     heroTitle: 'شارك في حياة مدينتك عبر G.E.S.H.E.R.',
     heroSubtitle: 'وقّع على المبادرات، أرسل الشكاوى، وأبلغ عن المخالفات في تطبيق موحد.',
@@ -215,6 +259,16 @@ const I18N_STRINGS = {
     stepImplemented: 'منفذة',
     initiativeNotFound: 'المبادرة غير موجودة أو غير منشورة.',
     viewDetails: 'التفاصيل',
+    demoSyncTitle: 'مزامنة mock demo',
+    demoSyncIntro: 'نقل حالة العرض بين بوابة الموظفين وتطبيقات الهاتف عبر snapshot JSON.',
+    demoSeedVersion: 'إصدار seed',
+    demoBannerText: 'الموقع العام يقرأ seed محليًا. تظهر تغييرات الموظفين على الهاتف بعد export → import فقط.',
+    demoExportTitle: 'تصدير (بوابة الموظفين)',
+    demoExportSteps: 'تسجيل دخول staff|الإعدادات → Mock sync|تصدير JSON|حفظ gesher-mock-*.json',
+    demoImportTitle: 'استيراد (التطبيقات)',
+    demoImportItems: 'Resident: الملف → Mock beta → Import|Inspector: Home → Mock sync → Import|يجب تطابق إصدار seed|OTP: 123456',
+    demoRehearsalTitle: 'سيناريو العرض',
+    demoRehearsalText: 'عرض 15 دقيقة للبلدية — راجع docs/demo/municipality-rehearsal.md.',
   },
 };
 

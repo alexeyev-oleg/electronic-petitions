@@ -33,6 +33,12 @@ Same section → **Импорт JSON**. OTP `123456` required. Replaces browser 
 2. **Import admin mock snapshot** — pick exported JSON.
 3. Petitions, complaints, enforcement, and notifications reload from snapshot.
 
+## Export (Resident App, W3.3)
+
+1. Profile → **Mock beta settings**.
+2. **Export mock snapshot** — saves `gesher-mock-*.json` with local entity lists.
+3. Use for backup or to share resident-side mock changes (partial `data` object).
+
 ## Import (Inspector App)
 
 1. Home → **Mock sync (W3.2)** card.

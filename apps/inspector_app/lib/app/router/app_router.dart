@@ -2,6 +2,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/auth/presentation/screens/login_screen.dart';
+import '../../features/dispatch/presentation/screens/dispatch_queue_screen.dart';
+import '../../features/dispatch/presentation/screens/dispatch_task_detail_screen.dart';
 import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/onboarding/presentation/screens/splash_screen.dart';
 import '../../features/triage/presentation/screens/triage_queue_screen.dart';
@@ -31,6 +33,16 @@ final appRouterProvider = Provider<GoRouter>(
         path: '/triage/:reportId',
         builder: (context, state) => TriageReportDetailScreen(
           reportId: state.pathParameters['reportId']!,
+        ),
+      ),
+      GoRoute(
+        path: '/dispatch',
+        builder: (context, state) => const DispatchQueueScreen(),
+      ),
+      GoRoute(
+        path: '/dispatch/:taskId',
+        builder: (context, state) => DispatchTaskDetailScreen(
+          taskId: state.pathParameters['taskId']!,
         ),
       ),
     ],

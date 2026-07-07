@@ -3,7 +3,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <application
-        android:label="Resident App"
+        android:label="G.E.S.H.E.R."
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

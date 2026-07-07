@@ -14,7 +14,9 @@ class AppLocalizations {
 
   static const _strings = {
     'en': {
-      'appTitle': 'Inspector App',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'Your voice. Your city.',
+      'inspectorAppBadge': 'Inspector',
       'signIn': 'Staff sign in',
       'emailLabel': 'Work email',
       'passwordLabel': 'Password',
@@ -28,7 +30,17 @@ class AppLocalizations {
       'inspectorRoleLabel': 'Role',
       'badgeIdLabel': 'Badge ID',
       'openTriageQueueAction': 'Open triage queue',
-      'dispatchQueuePlaceholder': 'Field task list (future release)',
+      'openDispatchQueueAction': 'Open field dispatch queue',
+      'dispatchQueueTitle': 'Field dispatch',
+      'dispatchTaskDetail': 'Field task detail',
+      'dispatchTaskNotFound': 'Field task not found.',
+      'emptyDispatchQueue': 'No field tasks match the selected filters.',
+      'filterDispatchAssigned': 'Assigned',
+      'filterDispatchInField': 'In field',
+      'filterDispatchCompleted': 'Completed',
+      'startFieldVisitAction': 'Start field visit',
+      'dispatchActionsTitle': 'Field actions',
+      'oversightNoteLabel': 'Supervisor note',
       'mockCredentialsHint':
           'Mock login: inspector@haifa.mock / inspector123',
       'triageQueueTitle': 'Triage queue',
@@ -83,7 +95,9 @@ class AppLocalizations {
       'mergeCaseNote': 'Merged into case {caseId}',
     },
     'he': {
-      'appTitle': 'אפליקציית פיקוח',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'הקול שלך. העיר שלך.',
+      'inspectorAppBadge': 'פיקוח',
       'signIn': 'כניסת צוות',
       'emailLabel': 'דוא"ל עבודה',
       'passwordLabel': 'סיסמה',
@@ -96,7 +110,17 @@ class AppLocalizations {
       'inspectorRoleLabel': 'תפקיד',
       'badgeIdLabel': 'מספר תג',
       'openTriageQueueAction': 'פתיחת תור triage',
-      'dispatchQueuePlaceholder': 'רשימת משימות שטח (גרסה עתידית)',
+      'openDispatchQueueAction': 'פתיחת תור שטח',
+      'dispatchQueueTitle': 'משימות שטח',
+      'dispatchTaskDetail': 'פרטי משימת שטח',
+      'dispatchTaskNotFound': 'משימת שטח לא נמצאה.',
+      'emptyDispatchQueue': 'אין משימות שטח לפי המסנן.',
+      'filterDispatchAssigned': 'הוקצה',
+      'filterDispatchInField': 'בשטח',
+      'filterDispatchCompleted': 'הושלם',
+      'startFieldVisitAction': 'התחלת ביקור שטח',
+      'dispatchActionsTitle': 'פעולות שטח',
+      'oversightNoteLabel': 'הערת מפקח',
       'mockCredentialsHint': 'Mock: inspector@haifa.mock / inspector123',
       'triageQueueTitle': 'תור triage',
       'triageReportDetail': 'פרטי דיווח',
@@ -148,7 +172,9 @@ class AppLocalizations {
       'mergeCaseNote': 'מוזג לתיק {caseId}',
     },
     'ru': {
-      'appTitle': 'Приложение инспектора',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'Ваш голос. Ваш город.',
+      'inspectorAppBadge': 'Инспектор',
       'signIn': 'Вход для staff',
       'emailLabel': 'Рабочий email',
       'passwordLabel': 'Пароль',
@@ -162,7 +188,17 @@ class AppLocalizations {
       'inspectorRoleLabel': 'Роль',
       'badgeIdLabel': 'Badge ID',
       'openTriageQueueAction': 'Открыть очередь triage',
-      'dispatchQueuePlaceholder': 'Список полевых задач (будущий релиз)',
+      'openDispatchQueueAction': 'Открыть полевую очередь',
+      'dispatchQueueTitle': 'Полевые задачи',
+      'dispatchTaskDetail': 'Детали полевой задачи',
+      'dispatchTaskNotFound': 'Полевая задача не найдена.',
+      'emptyDispatchQueue': 'Нет задач по выбранному фильтру.',
+      'filterDispatchAssigned': 'Назначено',
+      'filterDispatchInField': 'В поле',
+      'filterDispatchCompleted': 'Завершено',
+      'startFieldVisitAction': 'Начать обход',
+      'dispatchActionsTitle': 'Полевые действия',
+      'oversightNoteLabel': 'Заметка супервайзера',
       'mockCredentialsHint': 'Mock: inspector@haifa.mock / inspector123',
       'triageQueueTitle': 'Очередь triage',
       'triageReportDetail': 'Детали репорта',
@@ -215,7 +251,9 @@ class AppLocalizations {
       'mergeCaseNote': 'Объединено с делом {caseId}',
     },
     'ar': {
-      'appTitle': 'تطبيق المفتش',
+      'appTitle': 'G.E.S.H.E.R.',
+      'brandTagline': 'صوتك. مدينتك.',
+      'inspectorAppBadge': 'مفتش',
       'signIn': 'دخول الموظفين',
       'emailLabel': 'البريد الوظيفي',
       'passwordLabel': 'كلمة المرور',
@@ -229,7 +267,17 @@ class AppLocalizations {
       'inspectorRoleLabel': 'الدور',
       'badgeIdLabel': 'رقم الشارة',
       'openTriageQueueAction': 'فتح طابور triage',
-      'dispatchQueuePlaceholder': 'قائمة المهام الميدانية (إصدار لاحق)',
+      'openDispatchQueueAction': 'فتح قائمة المهام الميدانية',
+      'dispatchQueueTitle': 'المهام الميدانية',
+      'dispatchTaskDetail': 'تفاصيل المهمة الميدانية',
+      'dispatchTaskNotFound': 'المهمة الميدانية غير موجودة.',
+      'emptyDispatchQueue': 'لا توجد مهام مطابقة للفلتر.',
+      'filterDispatchAssigned': 'معيّنة',
+      'filterDispatchInField': 'في الميدان',
+      'filterDispatchCompleted': 'مكتملة',
+      'startFieldVisitAction': 'بدء الزيارة الميدانية',
+      'dispatchActionsTitle': 'إجراءات ميدانية',
+      'oversightNoteLabel': 'ملاحظة المشرف',
       'mockCredentialsHint': 'Mock: inspector@haifa.mock / inspector123',
       'triageQueueTitle': 'طابور triage',
       'triageReportDetail': 'تفاصيل البلاغ',
@@ -295,6 +343,8 @@ class AppLocalizations {
   }
 
   String get appTitle => _text('appTitle');
+  String get brandTagline => _text('brandTagline');
+  String get inspectorAppBadge => _text('inspectorAppBadge');
   String get signIn => _text('signIn');
   String get emailLabel => _text('emailLabel');
   String get passwordLabel => _text('passwordLabel');
@@ -307,7 +357,17 @@ class AppLocalizations {
   String get inspectorRoleLabel => _text('inspectorRoleLabel');
   String get badgeIdLabel => _text('badgeIdLabel');
   String get openTriageQueueAction => _text('openTriageQueueAction');
-  String get dispatchQueuePlaceholder => _text('dispatchQueuePlaceholder');
+  String get openDispatchQueueAction => _text('openDispatchQueueAction');
+  String get dispatchQueueTitle => _text('dispatchQueueTitle');
+  String get dispatchTaskDetail => _text('dispatchTaskDetail');
+  String get dispatchTaskNotFound => _text('dispatchTaskNotFound');
+  String get emptyDispatchQueue => _text('emptyDispatchQueue');
+  String get filterDispatchAssigned => _text('filterDispatchAssigned');
+  String get filterDispatchInField => _text('filterDispatchInField');
+  String get filterDispatchCompleted => _text('filterDispatchCompleted');
+  String get startFieldVisitAction => _text('startFieldVisitAction');
+  String get dispatchActionsTitle => _text('dispatchActionsTitle');
+  String get oversightNoteLabel => _text('oversightNoteLabel');
   String get mockCredentialsHint => _text('mockCredentialsHint');
   String get triageQueueTitle => _text('triageQueueTitle');
   String get triageReportDetail => _text('triageReportDetail');

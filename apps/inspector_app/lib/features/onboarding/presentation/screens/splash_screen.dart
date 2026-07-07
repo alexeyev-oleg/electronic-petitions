@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_colors.dart';
 import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/widgets/gesher_brand_mark.dart';
 import '../../../auth/application/auth_controller.dart';
 
 class SplashScreen extends ConsumerStatefulWidget {
@@ -40,25 +41,19 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     final l10n = AppLocalizations.of(context);
 
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: AppColors.graphite,
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.fact_check_outlined,
-                size: 56,
-                color: Colors.white,
+              GesherBrandMark(
+                size: 96,
+                inverted: true,
+                badge: l10n.inspectorAppBadge,
+                tagline: l10n.brandTagline,
               ),
-              const SizedBox(height: AppSpacing.lg),
-              Text(
-                l10n.appTitle,
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      color: Colors.white,
-                    ),
-              ),
-              const SizedBox(height: AppSpacing.lg),
+              const SizedBox(height: AppSpacing.xl),
               const CircularProgressIndicator(color: Colors.white),
             ],
           ),

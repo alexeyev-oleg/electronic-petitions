@@ -1,33 +1,50 @@
-# Resident App Branding (Beta)
+# G.E.S.H.E.R. Mobile Branding
 
-This is interim civic branding for UX review, not final municipality identity.
+Unified brand identity for resident and inspector Flutter apps, aligned with the public web platform.
+
+## Brand Name
+**G.E.S.H.E.R.** — displayed on splash screens, auth headers, and home-screen labels.
+
+Tagline (localized): **«Ваш голос. Ваш город.»** / *Your voice. Your city.*
 
 ## Colors
 | Token | Hex | Usage |
 |-------|-----|--------|
-| Primary | `#0057B8` | App bar, splash, civic accents |
-| Primary dark | `#003D82` | Text on light info banners |
-| Secondary | `#00897B` | Complaints tile accent |
+| Terracotta | `#C6643C` | Primary actions, accents, active status |
+| Graphite | `#2B2B2B` | Titles, splash background, launcher adaptive bg |
+| Secondary | `#00897B` | Complaints / secondary accents |
 | Surface muted | `#F4F7FB` | Screen background |
+| Text muted | `#64748B` | Secondary body text |
 
-Defined in `apps/resident_app/lib/app/theme/app_colors.dart`.
+Defined in:
+- `apps/resident_app/lib/app/theme/app_colors.dart`
+- `apps/inspector_app/lib/app/theme/app_colors.dart`
+
+## Logo Mark
+`GesherBrandMark` widget (`lib/core/widgets/gesher_brand_mark.dart`):
+- Stylized **G** with terracotta dot
+- Wordmark **G.E.S.H.E.R.**
+- Optional tagline and inspector badge
+
+Used on splash screens and `AppBrandHeader` (resident auth/about).
 
 ## Typography
-Material 3 text theme via `AppTheme.build()` — headline for screen titles, titleSmall for cards.
+Material 3 text theme via `AppTheme.build()` — graphite headlines, terracotta primary buttons.
 
 ## Launch / Splash
-- In-app splash: civic blue background + account balance icon (`SplashScreen`)
-- Android native launch: `@color/launch_background` (`#0057B8`)
+- In-app splash: graphite background + `GesherBrandMark` (inverted)
+- Android native launch: `@color/launch_background` (`#2B2B2B`)
 
-## App Label
-- Android manifest label: `Resident App`
-- iOS display name: `Resident App`
+## App Labels
+| App | Android / iOS label |
+|-----|---------------------|
+| Resident | `G.E.S.H.E.R.` |
+| Inspector | `G.E.S.H.E.R. Inspector` |
 
-## Launcher Icon (TODO for municipality)
-Replace default Flutter launcher icons before public release:
-1. Prepare 1024×1024 master icon
-2. Use `flutter_launcher_icons` or design tool export
-3. Update Android `mipmap-*` and iOS `AppIcon.appiconset`
+## Launcher Icons
+1. Master icon: `assets/brand/app_icon.png` (1024×1024)
+2. Regenerate: `python3 scripts/generate-gesher-app-icon.py`
+3. Apply to platforms: `dart run flutter_launcher_icons` in each app directory
 
 ## Beta Banner
 Mock/dev flavors show a corner banner with flavor name (`MOCK`, etc.).
