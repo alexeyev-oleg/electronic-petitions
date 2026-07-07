@@ -31,6 +31,7 @@ Run after every seed bump:
 
 ```bash
 ./scripts/sync-mobile-seed.sh
+./scripts/sync-shared-content.sh
 ```
 
 This copies `shared/mock/seed.json` into:

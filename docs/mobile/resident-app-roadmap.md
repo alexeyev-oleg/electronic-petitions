@@ -259,6 +259,17 @@ Exit criteria:
 - demo path covers signing UX, help/contact, and notification navigation without backend
 - onboarding introduces brand and public web companion site
 
+### `U9` Documentation and demo assets (completed)
+- root `README.md` with monorepo map, credentials, and quick start
+- `CHANGELOG.md` for mock release milestones (v0.1.x–v0.2.0)
+- canonical `shared/content/faq.json` synced to public web and resident FAQ
+- `docs/demo/municipality-deck.md` — 10-slide presentation narrative
+- `docs/demo/screenshots/README.md` — capture checklist per client
+
+Exit criteria:
+- new contributors onboard from README in under 30 minutes
+- FAQ has a single source for web and mobile surfaces
+
 ### `P1` Resident polish without backend (completed)
 - push notification scaffold with mock device token in profile
 - analytics and crash reporting hooks (mock/no-op via environment flags)
@@ -400,6 +411,5 @@ For each major milestone:
 
 ## Next Recommended Execution Stage
 If we move from planning to execution, start with:
-1. `U9` documentation and demo assets (README, screenshots, CHANGELOG)
-2. `Q1` CI quality gates (Flutter analyze, JS lint, Pages smoke test)
-3. `M0` backend integration planning
+1. `Q1` CI quality gates (Flutter analyze, JS lint, Pages smoke test)
+2. `M0` backend integration planning

@@ -1,5 +1,8 @@
 # FAQ and Troubleshooting
 
+> **In-app and public FAQ** load from `shared/content/faq.json` (sync via `./scripts/sync-shared-content.sh`).  
+> This guide covers extended troubleshooting beyond the shared FAQ entries.
+
 ## Login and Account
 ### I cannot sign in
 - Check that your email format is valid.

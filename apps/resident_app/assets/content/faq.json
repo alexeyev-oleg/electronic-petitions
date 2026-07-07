@@ -1,0 +1,357 @@
+{
+  "version": "1.0.0",
+  "items": [
+    {
+      "id": "what-is-gesher",
+      "surfaces": ["web"],
+      "text": {
+        "en": {
+          "question": "What is G.E.S.H.E.R.?",
+          "answer": "A civic platform for initiatives, complaints, and violation reports. Currently mock beta without backend."
+        },
+        "ru": {
+          "question": "Что такое G.E.S.H.E.R.?",
+          "answer": "Гражданская платформа для инициатив, жалоб и сообщений о нарушениях. Сейчас работает в mock beta без backend."
+        },
+        "he": {
+          "question": "מה זה G.E.S.H.E.R.?",
+          "answer": "פלטפורמה אזרחית ליוזמות, תלונות ודיווחי הפרות. כרגע mock beta."
+        },
+        "ar": {
+          "question": "ما هي G.E.S.H.E.R.؟",
+          "answer": "منصة مدنية للمبادرات والشكاوى وبلاغات المخالفات. حاليًا mock beta."
+        }
+      }
+    },
+    {
+      "id": "sign-on-website",
+      "surfaces": ["web"],
+      "text": {
+        "en": {
+          "question": "Can I sign an initiative on the website?",
+          "answer": "No. Signing is available only in the mobile app after identity verification (simplified in mock)."
+        },
+        "ru": {
+          "question": "Можно ли подписать инициативу на сайте?",
+          "answer": "Нет. Подпись доступна только в мобильном приложении после верификации личности (в mock — упрощённый режим)."
+        },
+        "he": {
+          "question": "האם ניתן לחתום באתר?",
+          "answer": "לא. חתימה זמינה באפליקציית המובייל בלבד."
+        },
+        "ar": {
+          "question": "هل يمكن التوقيع على الموقع؟",
+          "answer": "لا. التوقيع متاح في تطبيق الهاتف فقط."
+        }
+      }
+    },
+    {
+      "id": "browse-initiatives",
+      "surfaces": ["web"],
+      "text": {
+        "en": {
+          "question": "Where can I browse published initiatives?",
+          "answer": "On the Initiatives page. Only published records from the shared mock seed are shown."
+        },
+        "ru": {
+          "question": "Где посмотреть опубликованные инициативы?",
+          "answer": "На странице «Инициативы» этого сайта. Показываются только опубликованные записи из shared mock seed."
+        },
+        "he": {
+          "question": "איפה רואים יוזמות?",
+          "answer": "בעמוד היוזמות באתר הציבורי."
+        },
+        "ar": {
+          "question": "أين أرى المبادرات؟",
+          "answer": "في صفحة المبادرات على الموقع العام."
+        }
+      }
+    },
+    {
+      "id": "is-production",
+      "surfaces": ["web"],
+      "text": {
+        "en": {
+          "question": "Is this production?",
+          "answer": "No. This build is for UX demo and process alignment. Data is stored locally in mock mode."
+        },
+        "ru": {
+          "question": "Это уже production?",
+          "answer": "Нет. Текущая версия для демонстрации UX и согласования процессов. Данные хранятся локально в mock-режиме."
+        },
+        "he": {
+          "question": "האם זה production?",
+          "answer": "לא. זו גרסת mock להדגמת UX."
+        },
+        "ar": {
+          "question": "هل هذا إنتاج؟",
+          "answer": "لا. هذا إصدار mock لعرض تجربة المستخدم."
+        }
+      }
+    },
+    {
+      "id": "staff-portal",
+      "surfaces": ["web"],
+      "text": {
+        "en": {
+          "question": "Where is the staff portal?",
+          "answer": "Use the Staff portal link in the header or go to /staff/index.html"
+        },
+        "ru": {
+          "question": "Где портал для сотрудников мэрии?",
+          "answer": "Staff Portal доступен по ссылке «Портал сотрудников» в шапке сайта или напрямую: /staff/index.html"
+        },
+        "he": {
+          "question": "איפה פורטל הצוות?",
+          "answer": "בקישור פורטל צוות או ב-/staff/index.html"
+        },
+        "ar": {
+          "question": "أين بوابة الموظفين؟",
+          "answer": "عبر رابط بوابة الموظفين أو /staff/index.html"
+        }
+      }
+    },
+    {
+      "id": "beta-mode",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "Why does the app show beta or mock mode?",
+          "answer": "This build is for early testing. Data and authentication are simplified until design and functionality are approved."
+        },
+        "ru": {
+          "question": "Почему приложение показывает beta или mock режим?",
+          "answer": "Эта сборка для раннего тестирования. Данные и авторизация упрощены до утверждения дизайна и функционала."
+        },
+        "he": {
+          "question": "למה האפליקציה מציגה מצב בטא או דמה?",
+          "answer": "גרסה זו מיועדת לבדיקות מוקדמות. הנתונים והאימות פשוטים עד לאישור העיצוב והפונקציונליות."
+        },
+        "ar": {
+          "question": "لماذا يظهر التطبيق وضع بيتا أو تجريبي؟",
+          "answer": "هذا الإصدار للاختبار المبكر. البيانات والمصادقة مبسطة حتى اعتماد التصميم والوظائف."
+        }
+      }
+    },
+    {
+      "id": "language",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "How do I change the language?",
+          "answer": "Open Profile and choose a language. You can also set it during first launch onboarding."
+        },
+        "ru": {
+          "question": "Как сменить язык?",
+          "answer": "Откройте Profile и выберите язык. Также можно выбрать при первом запуске."
+        },
+        "he": {
+          "question": "איך משנים שפה?",
+          "answer": "פתחו פרופיל ובחרו שפה. ניתן גם לבחור בשלב ההתחברות הראשון."
+        },
+        "ar": {
+          "question": "كيف أغير اللغة؟",
+          "answer": "افتح الملف الشخصي واختر اللغة. يمكن أيضاً اختيارها عند أول تشغيل."
+        }
+      }
+    },
+    {
+      "id": "secure-auth",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "When will secure registration be enabled?",
+          "answer": "Secure verification with document and identity checks will be added after beta UX approval."
+        },
+        "ru": {
+          "question": "Когда будет включена secure-регистрация?",
+          "answer": "Secure-верификация с документом и проверкой личности добавится после утверждения beta UX."
+        },
+        "he": {
+          "question": "מתי יופעל אימות מאובטח?",
+          "answer": "אימות מאובטח עם בדיקת זהות ומסמכים יתווסף לאחר אישור חוויית הבטא."
+        },
+        "ar": {
+          "question": "متى سيتم تفعيل التسجيل الآمن؟",
+          "answer": "سيتم إضافة التحقق الآمن بالهوية والمستندات بعد اعتماد تجربة البيتا."
+        }
+      }
+    },
+    {
+      "id": "mock-otp",
+      "surfaces": ["mobile", "web"],
+      "text": {
+        "en": {
+          "question": "What code should I use for phone or sensitive actions?",
+          "answer": "In this beta build, use 123456 for mock OTP and sensitive-action confirmation."
+        },
+        "ru": {
+          "question": "Какой код для телефона и sensitive actions?",
+          "answer": "В этой beta-сборке используйте 123456 для mock OTP и подтверждения действий."
+        },
+        "he": {
+          "question": "איזה קוד להשתמש לטלפון או פעולות רגישות?",
+          "answer": "בגרסת בטא זו השתמשו ב-123456 ל-OTP mock ולאישור פעולות רגישות."
+        },
+        "ar": {
+          "question": "ما الرمز للهاتف أو الإجراءات الحساسة؟",
+          "answer": "في نسخة البيتا هذه استخدم 123456 لOTP mock وتأكيد الإجراءات."
+        }
+      }
+    },
+    {
+      "id": "location",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "Why does the app ask for location permission?",
+          "answer": "Location helps attach coordinates to complaints and reports. You can always enter an address manually if GPS is inaccurate."
+        },
+        "ru": {
+          "question": "Зачем приложению нужна геолокация?",
+          "answer": "Координаты помогают прикрепить место к жалобе или донесению. Адрес можно ввести вручную."
+        },
+        "he": {
+          "question": "למה האפליקציה מבקשת הרשאת מיקום?",
+          "answer": "מיקום עוזר לצרף קואורדינטות לתלונות ודיווחים. תמיד אפשר להזין כתובת ידנית."
+        },
+        "ar": {
+          "question": "لماذا يطلب التطبيق إذن الموقع؟",
+          "answer": "يساعد الموقع على إرفاق الإحداثيات بالشكاوى والبلاغات. يمكنك إدخال العنوان يدوياً."
+        }
+      }
+    },
+    {
+      "id": "media",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "Why can the app use camera, gallery, or microphone?",
+          "answer": "Media permissions are used only when you attach photo or video evidence to a complaint or violation report."
+        },
+        "ru": {
+          "question": "Зачем нужны камера, галерея или микрофон?",
+          "answer": "Разрешения используются только когда вы прикрепляете фото или видео к жалобе или донесению."
+        },
+        "he": {
+          "question": "למה האפליקציה משתמשת במצלמה, בגלריה או במיקרופון?",
+          "answer": "הרשאות מדיה משמשות רק כשאתם מצרפים תמונה או וידאו לתלונה או דיווח."
+        },
+        "ar": {
+          "question": "لماذا يطلب التطبيق صلاحيات الكاميرا أو المعرض؟",
+          "answer": "تُستخدم هذه الصلاحيات فقط عند إرفاق صورة أو فيديو."
+        }
+      }
+    },
+    {
+      "id": "pending-status",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "Why does my case show pending or review?",
+          "answer": "In beta mock mode, statuses simulate municipal processing. Real status updates will come from the backend later."
+        },
+        "ru": {
+          "question": "Почему статус pending или review?",
+          "answer": "В mock-режиме статусы симулируют обработку муниципалитетом. Реальные обновления придут с backend."
+        },
+        "he": {
+          "question": "למה הסטטוס מציג pending או review?",
+          "answer": "במצב mock, הסטטוס מדמה עיבוד עירוני. עדכונים אמיתיים יגיעו מה-backend."
+        },
+        "ar": {
+          "question": "لماذا تظهر حالة pending أو review؟",
+          "answer": "في وضع mock، تحاكي الحالات معالجة البلدية. التحديثات الحقيقية ستأتي من الخلفية."
+        }
+      }
+    },
+    {
+      "id": "petitions",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "How do petitions and signatures work?",
+          "answer": "Browse published petitions, complete KYC mock verification, then sign with staff OTP 123456. Signatures are stored locally in mock beta."
+        },
+        "ru": {
+          "question": "Как работают петиции и подписи?",
+          "answer": "Просматривайте опубликованные петиции, пройдите mock KYC и подпишите с OTP 123456. Подписи сохраняются локально."
+        },
+        "he": {
+          "question": "איך עובדות עצומות וחתימות?",
+          "answer": "עיינו ביוזמות, השלימו mock KYC וחתמו עם OTP 123456. החתימות נשמרות מקומית."
+        },
+        "ar": {
+          "question": "كيف تعمل الالتماسات والتوقيعات؟",
+          "answer": "تصفح الالتماسات المنشورة، أكمل mock KYC، ثم وقّع برمز OTP 123456."
+        }
+      }
+    },
+    {
+      "id": "complaints",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "How do I submit a complaint?",
+          "answer": "Open Complaints, attach photos or video, confirm location on the map, and submit. Status updates appear in your lists and inbox."
+        },
+        "ru": {
+          "question": "Как отправить жалобу?",
+          "answer": "Откройте Жалобы, прикрепите медиа, подтвердите адрес на карте и отправьте."
+        },
+        "he": {
+          "question": "איך שולחים תלונה?",
+          "answer": "פתחו תלונות, צרפו מדיה, אשרו מיקום במפה ושלחו."
+        },
+        "ar": {
+          "question": "كيف أرسل شكوى؟",
+          "answer": "افتح الشكاوى، أرفق الوسائط، أكد الموقع على الخريطة وأرسل."
+        }
+      }
+    },
+    {
+      "id": "notifications",
+      "surfaces": ["mobile"],
+      "text": {
+        "en": {
+          "question": "Where do notifications appear?",
+          "answer": "Open Inbox from Home. Tap a notification with a link icon to jump to the related petition, complaint, or report."
+        },
+        "ru": {
+          "question": "Где смотреть уведомления?",
+          "answer": "Входящие на главном экране. Нажмите уведомление со значком ссылки для перехода к объекту."
+        },
+        "he": {
+          "question": "איפה רואים התראות?",
+          "answer": "פתחו Inbox מהבית. הקשה על התראה עם קישור תפתח את הפריט."
+        },
+        "ar": {
+          "question": "أين تظهر الإشعارات؟",
+          "answer": "افتح الوارد من الرئيسية. اضغط إشعارًا به رابط للانتقال للعنصر."
+        }
+      }
+    },
+    {
+      "id": "mock-sync",
+      "surfaces": ["mobile", "web"],
+      "text": {
+        "en": {
+          "question": "How does mock sync work?",
+          "answer": "Staff export JSON from the admin portal and import it in Profile → Mock beta (resident) or Inspector mock sync. Seed versions must match."
+        },
+        "ru": {
+          "question": "Как работает mock sync?",
+          "answer": "Staff экспортирует JSON, житель импортирует в Профиль → Mock beta. Версия seed должна совпадать."
+        },
+        "he": {
+          "question": "איך עובד mock sync?",
+          "answer": "Staff מייצא JSON ומייבא ב-Profile → Mock beta או באפליקציית inspector."
+        },
+        "ar": {
+          "question": "كيف يعمل mock sync؟",
+          "answer": "يصدّر staff ملف JSON ويستورده في الملف → Mock beta. يجب تطابق إصدار seed."
+        }
+      }
+    }
+  ]
+}

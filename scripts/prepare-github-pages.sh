@@ -15,6 +15,9 @@ chmod +x "$ROOT_DIR/apps/admin_web/scripts/prepare-site.sh"
 "$ROOT_DIR/apps/admin_web/scripts/prepare-site.sh"
 "$ROOT_DIR/scripts/sync-mobile-seed.sh"
 
+chmod +x "$ROOT_DIR/scripts/sync-shared-content.sh"
+"$ROOT_DIR/scripts/sync-shared-content.sh"
+
 cp -R "$ROOT_DIR/apps/public_web/." "$DIST_DIR/"
 cp -R "$ROOT_DIR/apps/admin_web/." "$DIST_DIR/staff/"
 

@@ -42,6 +42,7 @@ flutter:
     - assets/brand/
     - assets/mock/seed.json
     - assets/mock/media/
+    - assets/content/faq.json
 
 flutter_launcher_icons:
   android: true
