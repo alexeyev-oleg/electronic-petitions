@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.2",
   "locale": "ru",
   "brand": {
     "name": "G.E.S.H.E.R.",
@@ -217,7 +217,7 @@
       "geoMismatch": false,
       "trustLabel": "standard",
       "actionNote": "Полевая бригада назначена инспектором.",
-      "oversightNote": null,
+      "oversightNote": "Супервайзер: приоритет у входа в торговый центр, проверить разрешение.",
       "mergedCaseId": null,
       "submittedAtLabel": "3 дня назад"
     }
@@ -234,21 +234,24 @@
       "title": "Обновление инициативы",
       "body": "Инициатива p3 получила официальный ответ мэрии.",
       "createdAtLabel": "Сегодня",
-      "isRead": false
+      "isRead": false,
+      "deepLink": "/petitions/p3"
     },
     {
       "id": "n2",
       "title": "Статус жалобы",
       "body": "Жалоба c2 передана в санитарную службу.",
       "createdAtLabel": "Вчера",
-      "isRead": false
+      "isRead": false,
+      "deepLink": "/complaints/c2"
     },
     {
       "id": "n3",
       "title": "Сообщение о нарушении",
       "body": "Отчёт e4 назначен на полевую проверку.",
       "createdAtLabel": "2 дня назад",
-      "isRead": true
+      "isRead": true,
+      "deepLink": "/enforcement/e4"
     }
   ],
   "settings": {

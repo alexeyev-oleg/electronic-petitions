@@ -574,6 +574,43 @@
   font-size: 0.8125rem;
 }
 
+.app-only-banner {
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid color-mix(in srgb, var(--color-terracotta) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-terracotta) 8%, #fff);
+}
+
+.app-only-banner strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-graphite);
+}
+
+.app-only-banner p {
+  margin: 0 0 var(--space-md);
+}
+
+.store-buttons,
+.share-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.store-btn {
+  min-width: 10rem;
+}
+
+.initiative-qr-wrap {
+  margin-top: var(--space-md);
+}
+
+.initiative-qr-wrap .download-qr {
+  margin: 0;
+}
+
 @media (max-width: 900px) {
   .download-layout {
     grid-template-columns: 1fr;

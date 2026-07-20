@@ -83,10 +83,12 @@ function renderCtaBand() {
     <div>
       <h2 style="margin:0 0 8px;">${t('ctaBandTitle')}</h2>
       <p>${t('ctaBandText')}</p>
+      <p class="info-note">${t('appOnlyRegistrationText')}</p>
     </div>
     <div class="hero__actions" style="margin:0;">
-      <a class="btn btn--primary" id="cta-band-download" href="${pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.android)}">${t('ctaDownload')}</a>
-      <a class="btn btn--secondary" id="cta-band-browser" href="${pagePath(window.GESHER_PUBLIC_CONFIG.mockAppLinks.browser)}">${t('ctaBrowser')}</a>
+      <a class="btn btn--primary" id="cta-band-download" href="${pagePath('/download.html')}">${t('ctaDownload')}</a>
+      <a class="btn btn--secondary" href="${storeLink('android')}">${t('storeGooglePlay')}</a>
+      <a class="btn btn--secondary" href="${storeLink('ios')}">${t('storeAppStore')}</a>
     </div>
   `;
 }

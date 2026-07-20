@@ -58,7 +58,7 @@ No backend required for this demo. Data is **local** with optional **JSON snapsh
 ## Slide 5 — Resident journey
 
 1. Onboarding v2 — G.E.S.H.E.R. brand, 5 slides, public web CTA
-2. Browse petitions `p1`–`p3`, sign after mock KYC (OTP `123456`)
+2. Browse petitions `p1`–`p3`, share via Email / WhatsApp / Telegram or QR, sign after mock KYC (OTP `123456`)
 3. Submit complaint with media and map confirmation
 4. Report enforcement violation with evidence
 5. Inbox notifications → **deep link** to petition / complaint / report

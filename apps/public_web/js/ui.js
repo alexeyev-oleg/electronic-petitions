@@ -38,6 +38,7 @@ function renderSiteHeader() {
         ${navLink('/how-it-works.html', t('navHow'), page === 'how-it-works.html')}
         ${navLink('/faq.html', t('navFaq'), page === 'faq.html')}
         ${navLink('/about.html', t('navAbout'), page === 'about.html')}
+        ${navLink('/download.html', t('navDownload'), page === 'download.html')}
         ${navLink('/demo-sync.html', t('navDemoSync'), page === 'demo-sync.html')}
       </nav>
       <div class="site-header__actions">

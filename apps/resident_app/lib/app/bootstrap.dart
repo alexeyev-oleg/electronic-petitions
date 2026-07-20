@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../monitoring/app_monitoring.dart';
+import '../core/monitoring/app_monitoring.dart';
 import 'app.dart';
 import 'environment/app_environment.dart';
 import '../core/services/push_notification_service.dart';

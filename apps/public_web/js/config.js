@@ -7,11 +7,29 @@ window.GESHER_PUBLIC_CONFIG = {
   githubRepo: 'electronic-petitions',
   staffPortalPath: '/staff/index.html',
   mockAppLinks: {
-    android: '/download.html',
-    ios: '/download.html',
+    // Store stubs until Play / App Store listings exist — both open download instructions.
+    android: '/download.html#stores',
+    ios: '/download.html#stores',
     browser: '/initiatives.html',
+    googlePlayStub: true,
+    appStoreStub: true,
   },
 };
+
+(function resolveLocalPublicBasePath() {
+  const host = window.location.hostname;
+  if (host !== 'localhost' && host !== '127.0.0.1') {
+    return;
+  }
+  const path = window.location.pathname;
+  const projectRoot = '/electronic-petitions';
+  if (path.includes(projectRoot)) {
+    window.GESHER_PUBLIC_CONFIG.basePath = projectRoot;
+    return;
+  }
+  const dir = path.replace(/\/[^/]*$/, '');
+  window.GESHER_PUBLIC_CONFIG.basePath = dir === '/' ? '' : dir;
+})();
 
 function assetPath(relativePath) {
   const base = window.GESHER_PUBLIC_CONFIG.basePath || '';

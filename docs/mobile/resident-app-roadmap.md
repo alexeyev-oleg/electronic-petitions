@@ -259,6 +259,16 @@ Exit criteria:
 - demo path covers signing UX, help/contact, and notification navigation without backend
 - onboarding introduces brand and public web companion site
 
+### `R8` Petition share + QR (completed)
+- petition detail: Share sheet (Email / WhatsApp / Telegram) and QR sheet
+- share URL = public web `initiative.html?id=…` (`AppLinks.publicInitiativeUrl`)
+- dependency: `qr_flutter`; Android queries for `mailto` / HTTPS / WhatsApp / Telegram
+- aligns with public web **W2.5** (same channels on the website)
+
+Exit criteria:
+- resident can share a published petition link without backend
+- QR encodes the same public URL used on the citizen site
+
 ### `U9` Documentation and demo assets (completed)
 - root `README.md` with monorepo map, credentials, and quick start
 - `CHANGELOG.md` for mock release milestones (v0.1.x–v0.2.0)

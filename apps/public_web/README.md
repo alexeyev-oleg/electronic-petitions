@@ -41,4 +41,11 @@ Read-only copy of `shared/mock/seed.json` (via `scripts/prepare-site.sh`).
 - Combined deploy: `./scripts/prepare-github-pages.sh`
 - Docs: `docs/web/deploy-github-pages.md`
 
+## W2.5 — Share + app-only registration
+
+- Initiative share (Email / WhatsApp / Telegram) + QR
+- Banner: registration only via mobile app
+- Store buttons (stubs) on home, download, initiative detail
+- Helpers: `js/app-cta.js`
+
 ## Related

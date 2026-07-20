@@ -5,7 +5,7 @@ import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/widgets/app_list_state_view.dart';
 import '../../application/notifications_controller.dart';
-import 'notification_navigation.dart';
+import '../notification_navigation.dart';
 
 class InboxScreen extends ConsumerWidget {
   const InboxScreen({super.key});

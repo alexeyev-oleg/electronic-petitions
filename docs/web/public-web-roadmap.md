@@ -45,8 +45,17 @@ Brand: **G.E.S.H.E.R.** — terracotta `#C6643C`, graphite `#2B2B2B`.
 - footer legal links; CTA → `download.html`
 - removed unused `js/placeholder.js`
 
+### `W2.5` Share, QR, app-only registration (completed)
+- Initiative detail: share via Email / WhatsApp / Telegram, copy link, show/hide QR
+- Site-wide message: **registration and actions only in the mobile app**
+- Google Play / App Store buttons as **stubs** → `download.html#stores` until real store URLs exist
+- Nav link **Download app**; home CTA band includes store stubs
+- Shared helpers: `apps/public_web/js/app-cta.js`
+- Resident app (parallel): share + QR on petition detail (`qr_flutter`, `PetitionShareSheet`)
+
 ## Related
 
 - `apps/public_web/README.md`
 - `shared/mock/README.md`
 - `docs/web/deploy-github-pages.md`
+- `docs/web/user-guides/public-initiatives.md`

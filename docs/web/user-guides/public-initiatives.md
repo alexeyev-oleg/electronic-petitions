@@ -20,9 +20,21 @@ Draft, moderation, and rejected initiatives are hidden from the public catalog.
 | p1 | published, collecting signatures |
 | p3 | published, with official municipality response |
 
-## Signing
+## Signing and registration
 
-Web is read-only for signatures. Use **Подписать в приложении** CTA → Resident App mock beta.
+- Web is **read-only** for signatures and accounts.
+- Banner on initiative + download pages: registration and actions happen **only in the mobile app**.
+- CTA: **Подписать в приложении** / Download → Resident App mock beta.
+- Google Play / App Store buttons are **stubs** until store listings exist (open `download.html#stores`).
+
+## Sharing
+
+On `initiative.html?id=…`:
+- Email / WhatsApp / Telegram
+- Copy link
+- Show / hide QR (points at the same public URL)
+
+Mobile Resident app has the same share + QR on petition detail.
 
 ## Admin gate
 

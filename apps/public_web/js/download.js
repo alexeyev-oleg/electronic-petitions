@@ -5,18 +5,6 @@ function renderStepList(text) {
     .join('')}</ol>`;
 }
 
-function renderQrBlock(label) {
-  const pageUrl = gesherSiteUrl('/download.html');
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(pageUrl)}`;
-
-  return `
-    <div class="download-qr">
-      <img src="${qrUrl}" width="220" height="220" alt="${label}" loading="lazy" />
-      <p>${t('downloadQrHint')}</p>
-      <code class="download-url">${pageUrl}</code>
-    </div>`;
-}
-
 function renderDownloadPage() {
   const host = document.getElementById('download-content');
   if (!host) {
@@ -24,10 +12,16 @@ function renderDownloadPage() {
   }
 
   const repoUrl = `https://github.com/${window.GESHER_PUBLIC_CONFIG.githubUser}/${window.GESHER_PUBLIC_CONFIG.githubRepo}`;
+  const pageUrl = gesherSiteUrl('/download.html');
 
   host.innerHTML = `
     <h1>${t('downloadTitle')}</h1>
     <p class="lead">${t('downloadIntro')}</p>
+
+    ${renderAppOnlyRegistrationBanner()}
+
+    <div id="stores"></div>
+    ${renderStoreButtonsPanel()}
 
     <div class="download-layout">
       <div>
@@ -45,7 +39,7 @@ function renderDownloadPage() {
         <a class="btn btn--secondary" href="${repoUrl}" target="_blank" rel="noopener noreferrer">${t('downloadRepoLink')}</a>
       </div>
 
-      ${renderQrBlock(t('downloadQrLabel'))}
+      ${renderQrForUrl(pageUrl, t('downloadQrLabel'), t('downloadQrHint'))}
     </div>
   `;
 

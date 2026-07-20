@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/constants/app_build_info.dart';
 import '../../../../core/widgets/app_brand_header.dart';
 import '../../../../core/widgets/app_info_banner.dart';
 import '../../../../core/widgets/app_section_card.dart';
@@ -35,8 +36,9 @@ class AboutScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: AppSpacing.md),
                 Text(
-                  '${l10n.appVersionLabel}: 0.1.0+1',
+                  '${l10n.appVersionLabel}: $kAppVersionFull ($kMockReleaseLabel · seed $kMockSeedVersion)',
                   style: Theme.of(context).textTheme.bodyMedium,
+                  textAlign: TextAlign.center,
                 ),
               ],
             ),

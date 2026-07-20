@@ -42,9 +42,11 @@ Material 3 text theme via `AppTheme.build()` — graphite headlines, terracotta 
 | Inspector | `G.E.S.H.E.R. Inspector` |
 
 ## Launcher Icons
-1. Master icon: `assets/brand/app_icon.png` (1024×1024)
-2. Regenerate: `python3 scripts/generate-gesher-app-icon.py`
-3. Apply to platforms: `dart run flutter_launcher_icons` in each app directory
+1. **Official design:** `/Users/duck/Pictures/Projects/gesher/` (brand guide + mobile mockup)
+2. Master PNG: `shared/brand/app_icon_master.png` (cropped **G.** mini-version from brand guide)
+3. Sync: `python3 scripts/generate-gesher-app-icon.py`
+4. Apply to Android: `python3 scripts/apply-android-launcher-icons.py`
+5. Build scripts run sync automatically before `flutter build apk`
 
 ## Beta Banner
 Mock/dev flavors show a corner banner with flavor name (`MOCK`, etc.).

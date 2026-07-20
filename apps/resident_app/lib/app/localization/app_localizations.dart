@@ -191,6 +191,16 @@ class AppLocalizations {
       'signPetitionAction': 'Sign petition',
       'petitionSignedNotice': 'Petition signed in mock mode.',
       'petitionSignedLabel': 'You signed this petition',
+      'sharePetitionTitle': 'Share petition',
+      'sharePetitionAction': 'Share',
+      'shareViaEmail': 'Email',
+      'shareViaWhatsApp': 'WhatsApp',
+      'shareViaTelegram': 'Telegram',
+      'sharePetitionFailed': 'Could not open the share app.',
+      'petitionQrTitle': 'Petition QR code',
+      'showPetitionQrAction': 'QR code',
+      'copyPetitionLink': 'Copy link',
+      'petitionLinkCopied': 'Link copied',
       'kycRequiredForAction': 'Identity verification is required for this action.',
       'secureSessionRequired': 'A secure phone-verified session is required.',
       'sensitiveActionTitle': 'Confirm sensitive action',
@@ -422,6 +432,16 @@ class AppLocalizations {
       'signPetitionAction': 'חתימה על עצומה',
       'petitionSignedNotice': 'העצומה נחתמה במצב דמה.',
       'petitionSignedLabel': 'חתמתם על יוזמה זו',
+      'sharePetitionTitle': 'שיתוף יוזמה',
+      'sharePetitionAction': 'שיתוף',
+      'shareViaEmail': 'אימייל',
+      'shareViaWhatsApp': 'WhatsApp',
+      'shareViaTelegram': 'Telegram',
+      'sharePetitionFailed': 'לא ניתן לפתוח את אפליקציית השיתוף.',
+      'petitionQrTitle': 'קוד QR של היוזמה',
+      'showPetitionQrAction': 'קוד QR',
+      'copyPetitionLink': 'העתקת קישור',
+      'petitionLinkCopied': 'הקישור הועתק',
       'kycRequiredForAction': 'נדרש אימות זהות לפעולה זו.',
       'secureSessionRequired': 'נדרש סשן מאובטח עם טלפון מאומת.',
       'sensitiveActionTitle': 'אישור פעולה רגישה',
@@ -654,6 +674,16 @@ class AppLocalizations {
       'signPetitionAction': 'Подписать петицию',
       'petitionSignedNotice': 'Петиция подписана в mock-режиме.',
       'petitionSignedLabel': 'Вы подписали эту петицию',
+      'sharePetitionTitle': 'Поделиться петицией',
+      'sharePetitionAction': 'Поделиться',
+      'shareViaEmail': 'Email',
+      'shareViaWhatsApp': 'WhatsApp',
+      'shareViaTelegram': 'Telegram',
+      'sharePetitionFailed': 'Не удалось открыть приложение для отправки.',
+      'petitionQrTitle': 'QR-код петиции',
+      'showPetitionQrAction': 'QR-код',
+      'copyPetitionLink': 'Копировать ссылку',
+      'petitionLinkCopied': 'Ссылка скопирована',
       'kycRequiredForAction': 'Для этого действия нужна верификация личности.',
       'secureSessionRequired': 'Нужна secure-сессия с подтверждённым телефоном.',
       'sensitiveActionTitle': 'Подтверждение действия',
@@ -885,6 +915,16 @@ class AppLocalizations {
       'signPetitionAction': 'توقيع الالتماس',
       'petitionSignedNotice': 'تم توقيع الالتماس في الوضع التجريبي.',
       'petitionSignedLabel': 'وقّعت هذا الالتماس',
+      'sharePetitionTitle': 'مشاركة الالتماس',
+      'sharePetitionAction': 'مشاركة',
+      'shareViaEmail': 'البريد الإلكتروني',
+      'shareViaWhatsApp': 'WhatsApp',
+      'shareViaTelegram': 'Telegram',
+      'sharePetitionFailed': 'تعذر فتح تطبيق المشاركة.',
+      'petitionQrTitle': 'رمز QR للالتماس',
+      'showPetitionQrAction': 'رمز QR',
+      'copyPetitionLink': 'نسخ الرابط',
+      'petitionLinkCopied': 'تم نسخ الرابط',
       'kycRequiredForAction': 'التحقق من الهوية مطلوب لهذا الإجراء.',
       'secureSessionRequired': 'يلزم جلسة آمنة مع هاتف مؤكد.',
       'sensitiveActionTitle': 'تأكيد إجراء حساس',
@@ -1135,6 +1175,16 @@ class AppLocalizations {
   String get signPetitionAction => _text('signPetitionAction');
   String get petitionSignedNotice => _text('petitionSignedNotice');
   String get petitionSignedLabel => _text('petitionSignedLabel');
+  String get sharePetitionTitle => _text('sharePetitionTitle');
+  String get sharePetitionAction => _text('sharePetitionAction');
+  String get shareViaEmail => _text('shareViaEmail');
+  String get shareViaWhatsApp => _text('shareViaWhatsApp');
+  String get shareViaTelegram => _text('shareViaTelegram');
+  String get sharePetitionFailed => _text('sharePetitionFailed');
+  String get petitionQrTitle => _text('petitionQrTitle');
+  String get showPetitionQrAction => _text('showPetitionQrAction');
+  String get copyPetitionLink => _text('copyPetitionLink');
+  String get petitionLinkCopied => _text('petitionLinkCopied');
   String get kycRequiredForAction => _text('kycRequiredForAction');
   String get secureSessionRequired => _text('secureSessionRequired');
   String get sensitiveActionTitle => _text('sensitiveActionTitle');

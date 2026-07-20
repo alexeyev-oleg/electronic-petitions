@@ -4,6 +4,18 @@ All notable mock-beta releases for the G.E.S.H.E.R. monorepo.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). Versions track **demo milestones**, not production semver.
 
+## [Unreleased]
+
+### Added
+- **Resident app:** share petition via Email / WhatsApp / Telegram; QR code sheet with public initiative link (`qr_flutter`)
+- **Public web (W2.5):** share + QR on initiative detail; «registration only in mobile app» banner; Google Play / App Store **stub** buttons → `download.html#stores`
+- Shared public helpers: `apps/public_web/js/app-cta.js`
+
+### Changed
+- Public nav includes Download; download page leads with app-only registration + store stubs
+- Android package visibility queries for `mailto` / HTTPS share targets
+- Launcher icon synced from official design folder `/Users/duck/Pictures/Projects/gesher/` (brand guide mini **G.**)
+
 ## [mock-v0.2.0] — 2026-07-07
 
 ### Added

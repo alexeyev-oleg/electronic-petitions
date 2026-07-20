@@ -21,10 +21,23 @@ chmod +x scripts/build-mock-apk.sh
 ./scripts/build-mock-apk.sh
 ```
 
-Output APK:
+Output APK (version from `pubspec.yaml`):
 
 ```text
-apps/resident_app/dist/resident-app-mock-0.1.2.apk
+apps/resident_app/dist/resident-app-mock-v0.2.0-b1.apk
+apps/resident_app/dist/BUILD_INFO.txt
+apps/resident_app/dist/resident-app-mock-latest.apk   # symlink to latest build
+```
+
+Naming: `resident-app-mock-v{semver}-b{build}.apk` — e.g. `v0.2.0-b1` for `version: 0.2.0+1` in `pubspec.yaml`.
+
+Mock release tag and seed are read from `shared/mock/mobile-release.json`.
+
+Before each new APK, bump the build number:
+
+```bash
+cd "/Users/duck/work/projects/electronic-petitions"
+./scripts/bump-mobile-build.sh
 ```
 
 ## Manual Build

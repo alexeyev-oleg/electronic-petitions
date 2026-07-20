@@ -25,7 +25,7 @@ Prefer **PNG**, light theme, locale **RU** or **EN** unless the guide specifies 
 | `public-initiatives-ru.png` | `initiatives.html` | Cards `p1`, `p3` with cover previews |
 | `public-initiative-detail-p3.png` | `initiative.html?id=p3` | Signature bar + municipality response |
 | `public-about-en.png` | `about.html` | Mission + mock beta disclaimer |
-| `public-download-ru.png` | `download.html` | APK instructions + QR block |
+| `public-download-ru.png` | `download.html` | App-only registration banner + store stubs + APK QR |
 
 ---
 
@@ -49,13 +49,17 @@ Prefer **PNG**, light theme, locale **RU** or **EN** unless the guide specifies 
 | `resident-splash.png` | Splash | `GesherBrandMark` + tagline |
 | `resident-onboarding-brand.png` | Onboarding slide 1 | Brand mark + language picker |
 | `resident-home.png` | Home | Feature tiles |
-| `resident-petition-detail-p3.png` | Petition detail | Progress bar, sign CTA |
-| `resident-petition-signed.png` | Petition detail | «You signed» chip |
+| `resident-petition-detail-p3.png` | Petition detail | Progress bar, **Share + QR**, signed state |
+| `resident-petition-share.png` | Share sheet | Email / WhatsApp / Telegram |
+| `resident-petition-qr.png` | QR sheet | Public initiative link QR |
+| `resident-petition-signed.png` | Petition detail | «Вы подписали эту петицию» |
 | `resident-complaint-create.png` | Create complaint | Media + map step |
+| `resident-enforcement-create.png` | Create violation report | `/enforcement/create` |
 | `resident-inbox-deeplink.png` | Inbox | Notification with link icon |
-| `resident-profile-mock-sync.png` | Profile | Import/export + simulate push |
+| `resident-profile-mock-sync.png` | Profile | Push scaffold + simulate push |
 | `resident-faq.png` | Help → FAQ | Loaded from `faq.json` |
 | `resident-contact-feedback.png` | Help → Contact | Mock feedback form |
+| `resident-about.png` | About | Brand mark + version |
 
 Build: `./apps/resident_app/scripts/build-mock-apk.sh`
 
@@ -78,11 +82,43 @@ Build: `./apps/inspector_app/scripts/build-inspector-apk.sh`
 
 ## Status
 
-Screenshots are **placeholders until captured**. Before the next municipality meeting, run through `docs/demo/live-demo-checklist.md`.
+### Resident (captured from device, RU/EN) — 25 files
 
-1. Reference them from root `README.md` (optional gallery section)
-2. Embed in `docs/mobile/user-guides/getting-started.md` where noted
-3. Bump `CHANGELOG.md` if publishing a tagged mock release with assets
+| File | Screen / этап |
+|------|----------------|
+| `resident-splash.png` | Сплэш — этап 1 |
+| `resident-onboarding-brand.png` | Онбординг слайд 1 + язык — этап 1 |
+| `resident-auth-login.png` | Вход (пусто) — этап 2 |
+| `resident-auth-login-filled.png` | Вход с email — этап 2 |
+| `resident-home.png` | Главная — этап 3 |
+| `resident-petitions-list.png` | Список петиций |
+| `resident-petition-detail-p1.png` | Карточка `p1` |
+| `resident-petition-detail-p3.png` | Карточка `p3` + Share/QR |
+| `resident-petition-share.png` | Шторка Share |
+| `resident-petition-qr.png` | Шторка QR |
+| `resident-phone-verify.png` | Подтверждение телефона — этап 4 |
+| `resident-phone-verify-otp.png` | Телефон + OTP `123456` — этап 4 |
+| `resident-kyc-after-phone.png` | KYC после телефона — этап 4 |
+| `resident-kyc.png` | KYC документ + симуляции — этап 4 |
+| `resident-petition-detail-sign.png` | Петиция, кнопка «Подписать» — этап 4 |
+| `resident-petition-sign-otp.png` | OTP при подписи — этап 4 |
+| `resident-petition-signed.png` | «Вы подписали» — этап 4 |
+| `resident-complaint-create.png` | Создать жалобу — этап 5 |
+| `resident-location-confirm.png` | Подтверждение локации — этап 5 |
+| `resident-enforcement-create.png` | Создать сообщение о нарушении — этап 5 |
+| `resident-inbox-deeplink.png` | Входящие — этап 5 |
+| `resident-profile-mock-sync.png` | Профиль / simulate push — этап 6 |
+| `resident-faq.png` | FAQ — этап 6 |
+| `resident-contact-feedback.png` | Контакты — этап 6 |
+| `resident-about.png` | О приложении — этап 6 |
+
+Still useful to capture: _(none for resident — checklist complete)._
+
+### Public / Staff / Inspector
+
+**Public captured:** `public-home-ru.png`, `public-initiatives-ru.png`, `public-initiative-detail-p3.png`, `public-about-en.png`, `public-download-ru.png`.
+
+Staff / Inspector folders still empty. Before the next municipality meeting, run through `docs/demo/live-demo-checklist.md`.
 
 ## Related
 

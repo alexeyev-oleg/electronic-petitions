@@ -1,3 +1,5 @@
+import com.android.build.gradle.LibraryExtension
+
 allprojects {
     repositories {
         google()
@@ -15,6 +17,14 @@ subprojects {
     val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
     project.layout.buildDirectory.value(newSubprojectBuildDir)
 }
+
+// file_picker 8.x hardcodes compileSdk 34; force API 36 on plugin modules after their build.gradle runs.
+subprojects {
+    afterEvaluate {
+        extensions.findByType(LibraryExtension::class.java)?.compileSdk = 36
+    }
+}
+
 subprojects {
     project.evaluationDependsOn(":app")
 }

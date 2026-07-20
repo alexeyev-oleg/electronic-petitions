@@ -1,0 +1,78 @@
+---
+description: G.E.S.H.E.R. electronic-petitions project context and current mock-beta status
+alwaysApply: true
+---
+
+# G.E.S.H.E.R. / electronic-petitions
+
+Monorepo: `/Users/duck/work/projects/electronic-petitions`  
+Mock beta without backend. Speak simply with the user (Russian). Work in stages; wait for approval between stages unless told to continue.
+
+## Design source of truth (do not invent)
+
+Official design files live in:
+
+`/Users/duck/Pictures/Projects/gesher/`
+
+- Brand guide: `file_0000000049c471f48165cddb29c6d7b6.png` (logo G., colors `#2B2B2B` / `#C6643C`)
+- Web mockup + mobile 6-screen mockup (ChatGPT Image files)
+- Launcher icon: crop mini **G.** from brand guide via `scripts/generate-gesher-app-icon.py`
+- Copies synced to `shared/brand/source/`
+- Never invent logos/icons; always sync from that folder
+
+## Apps
+
+| App | Path | Notes |
+|-----|------|-------|
+| Resident | `apps/resident_app` | Phone APK for residents |
+| Inspector | `apps/inspector_app` | Phone APK for inspectors |
+| Public web | `apps/public_web` | Read-only site |
+| Staff web | `apps/admin_web` | Staff portal |
+
+No resident web portal for actions — actions are in the mobile app.
+
+## Versioning / APK
+
+- Version in pubspec: `0.2.0+N` → APK name `*-mock-v0.2.0-bN.apk`
+- Scripts: `scripts/flutter-app-version.sh`, `scripts/bump-mobile-build.sh`, `scripts/build-mobile-mock-apks.sh`
+- Metadata: `shared/mock/mobile-release.json` (`mock-v0.2.0`, seed `1.6.2`)
+- Flutter **cannot run inside Cursor agent** (`cpuinfo_macos.cc`); user builds APKs in local Terminal
+- `file_picker` bumped to `^10.3.3`; Android `compileSdk = 36`
+- Splash hang fix: secure storage timeouts + `encryptedSharedPreferences`
+
+## Mock credentials
+
+| Role | Login | Password | OTP |
+|------|-------|----------|-----|
+| Resident | any email | ≥8 chars | `123456` |
+| Inspector | `inspector@haifa.mock` | `inspector123` | `123456` |
+| Staff (`*@gesher.mock`) | e.g. `moderator@gesher.mock` | `staff123` | `123456` |
+
+Phone verify: any number ≥9 digits (e.g. `+972501234567`). KYC doc ≥5 chars (e.g. `12345678`).  
+Phone/KYC are **after login** (Profile or petition “Начать верификацию”), not on email/password screen.
+
+## Testing stages (resident phone)
+
+1. Splash + onboarding  
+2. Login / register  
+3. Home  
+4. Phone → KYC → sign petition (`p3` preferred)  
+5. Complaints + enforcement + inbox (**on phone app, not website**)  
+6. Profile / FAQ / contact  
+
+User progress: stages 1–3 done (screenshots saved); stage 4 in progress / clarifying; 5–6 pending.
+
+## Screenshots
+
+Folder: `docs/demo/screenshots/`  
+Saved resident: auth login, home, petitions list, petition detail `p1`.  
+Still missing: splash, onboarding, signed petition, complaints, inbox, profile, FAQ, staff, inspector, remaining public.
+
+## Pending work
+
+- Rebuild APK with official brand icon if not on device yet  
+- Finish phone testing stages 4–6 + save screenshots  
+- Inspector APK build  
+- GitHub Pages deploy (auth token)  
+- Backend M0 on pause until municipality approves pilot  
+- Commit when user asks

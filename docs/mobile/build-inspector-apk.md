@@ -24,8 +24,11 @@ chmod +x scripts/build-mock-apk.sh
 Output APK:
 
 ```text
-apps/inspector_app/dist/inspector-app-mock-0.1.2.apk
+apps/inspector_app/dist/inspector-app-mock-v0.2.0-b1.apk
+apps/inspector_app/dist/BUILD_INFO.txt
 ```
+
+Naming matches Resident: `inspector-app-mock-v{semver}-b{build}.apk`.
 
 ## Manual Build
 

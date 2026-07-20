@@ -165,7 +165,7 @@ class ProfileScreen extends ConsumerWidget {
     );
   }
 
-  void _updatePreferences(
+  Future<void> _updatePreferences(
     WidgetRef ref,
     NotificationPreferences preferences,
   ) async {

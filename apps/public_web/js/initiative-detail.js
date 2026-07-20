@@ -9,6 +9,10 @@ function renderInitiativeDetail(petition) {
     return;
   }
 
+  const pageUrl = gesherSiteUrl(
+    `/initiative.html?id=${encodeURIComponent(petition.id)}`,
+  );
+
   host.innerHTML = `
     <div class="initiative-detail__meta">
       <span class="chip chip--success">${t('statusPublished')}</span>
@@ -19,6 +23,8 @@ function renderInitiativeDetail(petition) {
     <h1 class="initiative-detail__title">${petition.title}</h1>
     ${petition.coverImage ? `<img class="initiative-card__cover" src="${mediaPath(petition.coverImage)}" alt="" />` : ''}
     <p class="initiative-detail__summary">${petition.summary}</p>
+
+    ${renderAppOnlyRegistrationBanner()}
 
     <section class="detail-panel">
       <h2>${t('trackingTitle')}</h2>
@@ -41,12 +47,20 @@ function renderInitiativeDetail(petition) {
         : ''
     }
 
+    ${renderShareActions(pageUrl, petition.title)}
+
     <section class="detail-panel detail-panel--cta">
       <h2>${t('signInApp')}</h2>
       <p>${t('signInAppHint')}</p>
-      <a class="btn btn--primary" href="${pagePath('/download.html')}">${t('signInApp')}</a>
+      <div class="store-buttons">
+        <a class="btn btn--primary" href="${pagePath('/download.html')}">${t('ctaDownload')}</a>
+        <a class="btn btn--secondary" href="${storeLink('android')}">${t('storeGooglePlay')}</a>
+        <a class="btn btn--secondary" href="${storeLink('ios')}">${t('storeAppStore')}</a>
+      </div>
     </section>
   `;
+
+  bindInitiativeShareControls(pageUrl);
 }
 
 async function refreshInitiativeDetailPage() {

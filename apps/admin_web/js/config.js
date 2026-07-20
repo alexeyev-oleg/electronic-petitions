@@ -11,6 +11,21 @@ window.GESHER_CONFIG = {
   githubRepo: 'electronic-petitions',
 };
 
+(function resolveLocalStaffBasePath() {
+  const host = window.location.hostname;
+  if (host !== 'localhost' && host !== '127.0.0.1') {
+    return;
+  }
+  const path = window.location.pathname;
+  const projectStaff = '/electronic-petitions/staff';
+  if (path.includes(projectStaff)) {
+    window.GESHER_CONFIG.basePath = projectStaff;
+    return;
+  }
+  const dir = path.replace(/\/[^/]*$/, '');
+  window.GESHER_CONFIG.basePath = dir === '/' ? '' : dir;
+})();
+
 function assetPath(relativePath) {
   const base = window.GESHER_CONFIG.basePath || '';
   const normalized = relativePath.startsWith('/') ? relativePath : `/${relativePath}`;

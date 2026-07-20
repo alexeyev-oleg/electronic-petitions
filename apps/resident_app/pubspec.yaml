@@ -2,7 +2,7 @@ name: resident_app
 description: Resident mobile app for petitions, complaints, and municipal enforcement.
 publish_to: none
 
-version: 0.1.2+3
+version: 0.2.0+4
 
 environment:
   sdk: ">=3.8.0 <4.0.0"
@@ -20,9 +20,10 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   geolocator: ^13.0.2
   image_picker: ^1.1.2
-  file_picker: ^8.1.7
+  file_picker: ^10.3.3
   shared_preferences: ^2.5.3
   url_launcher: ^6.3.1
+  qr_flutter: ^4.1.0
 
 dev_dependencies:
   flutter_test:
@@ -48,5 +49,5 @@ flutter_launcher_icons:
   android: true
   ios: true
   image_path: assets/brand/app_icon.png
-  adaptive_icon_background: "#2B2B2B"
+  adaptive_icon_background: "#FFFFFF"
   adaptive_icon_foreground: assets/brand/app_icon.png

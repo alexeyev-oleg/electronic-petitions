@@ -53,8 +53,8 @@ chmod +x scripts/serve-github-pages-local.sh
 ./scripts/serve-github-pages-local.sh
 ```
 
-- Public: http://127.0.0.1:4173/index.html
-- Staff: http://127.0.0.1:4173/staff/index.html
+- Public: http://127.0.0.1:4173/electronic-petitions/index.html
+- Staff: http://127.0.0.1:4173/electronic-petitions/staff/index.html
 
 ## Per-app local preview
 

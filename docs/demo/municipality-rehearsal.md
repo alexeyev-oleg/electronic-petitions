@@ -35,6 +35,7 @@ Aligned with **mock-v0.2.0**, seed **1.6.2**, Admin **W1.5**, Resident **R7**.
 2. **Инициативы** → `p1` (park lighting) and `p3` (promenade) with cover previews.
 3. Open `p3` → signature progress + **official municipality response** (OG meta if sharing link).
 4. Mention **About**, **Contact**, **Download APK** in footer — citizen site is shareable externally.
+5. On an initiative detail page: show **Share** (Email / WhatsApp / Telegram) and **QR**; note **registration only in the mobile app** and store stub buttons.
 5. Signing and complaints happen in the **mobile app** (mock beta).
 
 ### 2:00 — Resident journey (3 min)

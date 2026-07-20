@@ -9,6 +9,8 @@ import '../../../../core/widgets/app_info_banner.dart';
 import '../../../../core/widgets/app_petition_attachment_gallery.dart';
 import '../../../../core/widgets/app_sensitive_action_sheet.dart';
 import '../../../../core/widgets/app_status_chip.dart';
+import '../../../../core/widgets/petition_qr_sheet.dart';
+import '../../../../core/widgets/petition_share_sheet.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../application/petitions_controller.dart';
 
@@ -42,6 +44,26 @@ class PetitionDetailScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.petitionDetail),
+        actions: [
+          IconButton(
+            tooltip: l10n.sharePetitionTitle,
+            onPressed: () => PetitionShareSheet.show(
+              context,
+              petitionId: petition.id,
+              title: petition.title,
+            ),
+            icon: const Icon(Icons.share_outlined),
+          ),
+          IconButton(
+            tooltip: l10n.petitionQrTitle,
+            onPressed: () => PetitionQrSheet.show(
+              context,
+              petitionId: petition.id,
+              title: petition.title,
+            ),
+            icon: const Icon(Icons.qr_code_2_outlined),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(AppSpacing.md),
@@ -94,6 +116,34 @@ class PetitionDetailScreen extends ConsumerWidget {
             ),
           ],
           const SizedBox(height: AppSpacing.lg),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => PetitionShareSheet.show(
+                    context,
+                    petitionId: petition.id,
+                    title: petition.title,
+                  ),
+                  icon: const Icon(Icons.share_outlined),
+                  label: Text(l10n.sharePetitionAction),
+                ),
+              ),
+              const SizedBox(width: AppSpacing.sm),
+              Expanded(
+                child: OutlinedButton.icon(
+                  onPressed: () => PetitionQrSheet.show(
+                    context,
+                    petitionId: petition.id,
+                    title: petition.title,
+                  ),
+                  icon: const Icon(Icons.qr_code_2_outlined),
+                  label: Text(l10n.showPetitionQrAction),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.md),
           Semantics(
             button: true,
             label: canSign ? l10n.signPetitionAction : l10n.betaSignaturePlaceholder,

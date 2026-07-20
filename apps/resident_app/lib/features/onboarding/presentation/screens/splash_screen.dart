@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -24,14 +25,15 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   }
 
   Future<void> _bootstrap() async {
-    final preferencesFuture =
-        ref.read(preferencesControllerProvider.notifier).ensureInitialized();
-    final authFuture = ref.read(authControllerProvider.notifier).ensureInitialized();
-    await Future.wait([
-      preferencesFuture,
-      authFuture,
-      Future<void>.delayed(const Duration(milliseconds: 1200)),
-    ]);
+    try {
+      await Future.wait([
+        ref.read(preferencesControllerProvider.notifier).ensureInitialized(),
+        ref.read(authControllerProvider.notifier).ensureInitialized(),
+        Future<void>.delayed(const Duration(milliseconds: 1200)),
+      ]).timeout(const Duration(seconds: 8));
+    } catch (error, stackTrace) {
+      debugPrint('splash bootstrap failed: $error\n$stackTrace');
+    }
 
     if (!mounted) return;
 

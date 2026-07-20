@@ -25,14 +25,20 @@ class SecureStorageAuthRepository implements AuthRepository {
 
   @override
   Future<AppUser?> getCurrentUser() async {
-    final raw = await _storage.read(key: _sessionKey);
-    if (raw == null || raw.isEmpty) {
+    try {
+      final raw = await _storage
+          .read(key: _sessionKey)
+          .timeout(const Duration(seconds: 5));
+      if (raw == null || raw.isEmpty) {
+        return null;
+      }
+
+      return AppUser.fromJson(
+        jsonDecode(raw) as Map<String, dynamic>,
+      );
+    } catch (_) {
       return null;
     }
-
-    return AppUser.fromJson(
-      jsonDecode(raw) as Map<String, dynamic>,
-    );
   }
 
   @override

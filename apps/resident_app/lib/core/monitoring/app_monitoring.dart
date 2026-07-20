@@ -1,9 +1,8 @@
 import 'package:flutter/foundation.dart';
 
 import '../../app/environment/app_environment.dart';
-import '../monitoring/app_monitoring.dart';
 import '../services/analytics_service.dart';
-import '../monitoring/crash_reporting_service.dart';
+import 'crash_reporting_service.dart';
 
 class AppMonitoring {
   static AnalyticsService? _analytics;
