@@ -48,6 +48,18 @@ class AppLocalizations {
       'petitionNotFound': 'Petition not found.',
       'noPetitionsYet': 'You have not created petitions yet.',
       'statusLabel': 'Status',
+      'statusPublished': 'Published',
+      'statusModerationReview': 'Moderation review',
+      'statusDraft': 'Draft',
+      'statusTriage': 'Triage',
+      'statusInProgress': 'In progress',
+      'statusResolved': 'Resolved',
+      'statusReviewRequired': 'Review required',
+      'statusDispatchTask': 'Dispatch task',
+      'statusRejected': 'Rejected',
+      'statusFieldInProgress': 'Field in progress',
+      'statusValidated': 'Validated',
+      'statusMerged': 'Merged',
       'signatureCountLabel': 'Signatures',
       'betaSignaturePlaceholder': 'Petition signing will be enabled after secure verification.',
       'complaints': 'Complaints',
@@ -290,6 +302,18 @@ class AppLocalizations {
       'petitionNotFound': 'העצומה לא נמצאה.',
       'noPetitionsYet': 'עדיין לא יצרת עצומות.',
       'statusLabel': 'סטטוס',
+      'statusPublished': 'פורסם',
+      'statusModerationReview': 'בבדיקת מודרציה',
+      'statusDraft': 'טיוטה',
+      'statusTriage': 'מיון',
+      'statusInProgress': 'בטיפול',
+      'statusResolved': 'טופל',
+      'statusReviewRequired': 'דורש בדיקה',
+      'statusDispatchTask': 'משימת שטח',
+      'statusRejected': 'נדחה',
+      'statusFieldInProgress': 'בשטח',
+      'statusValidated': 'אומת',
+      'statusMerged': 'מוזג',
       'signatureCountLabel': 'חתימות',
       'betaSignaturePlaceholder': 'חתימה על עצומה תופעל לאחר אימות מאובטח.',
       'complaints': 'תלונות',
@@ -531,6 +555,18 @@ class AppLocalizations {
       'petitionNotFound': 'Петиция не найдена.',
       'noPetitionsYet': 'Вы еще не создавали петиции.',
       'statusLabel': 'Статус',
+      'statusPublished': 'Опубликована',
+      'statusModerationReview': 'На модерации',
+      'statusDraft': 'Черновик',
+      'statusTriage': 'Сортировка',
+      'statusInProgress': 'В работе',
+      'statusResolved': 'Решена',
+      'statusReviewRequired': 'Требует проверки',
+      'statusDispatchTask': 'Выезд',
+      'statusRejected': 'Отклонена',
+      'statusFieldInProgress': 'В поле',
+      'statusValidated': 'Подтверждена',
+      'statusMerged': 'Объединена',
       'signatureCountLabel': 'Подписи',
       'betaSignaturePlaceholder': 'Подписание петиции будет включено после безопасной верификации.',
       'complaints': 'Жалобы',
@@ -773,6 +809,18 @@ class AppLocalizations {
       'petitionNotFound': 'لم يتم العثور على الالتماس.',
       'noPetitionsYet': 'لم تقم بإنشاء أي التماسات بعد.',
       'statusLabel': 'الحالة',
+      'statusPublished': 'منشورة',
+      'statusModerationReview': 'قيد المراجعة',
+      'statusDraft': 'مسودة',
+      'statusTriage': 'فرز',
+      'statusInProgress': 'قيد التنفيذ',
+      'statusResolved': 'تم الحل',
+      'statusReviewRequired': 'يتطلب مراجعة',
+      'statusDispatchTask': 'مهمة ميدانية',
+      'statusRejected': 'مرفوضة',
+      'statusFieldInProgress': 'في الميدان',
+      'statusValidated': 'تم التحقق',
+      'statusMerged': 'مدمجة',
       'signatureCountLabel': 'عدد التوقيعات',
       'betaSignaturePlaceholder': 'سيتم تفعيل توقيع الالتماسات بعد التحقق الآمن.',
       'complaints': 'الشكاوى',
@@ -1020,6 +1068,51 @@ class AppLocalizations {
   String get petitionNotFound => _text('petitionNotFound');
   String get noPetitionsYet => _text('noPetitionsYet');
   String get statusLabel => _text('statusLabel');
+  String get statusPublished => _text('statusPublished');
+  String get statusModerationReview => _text('statusModerationReview');
+  String get statusDraft => _text('statusDraft');
+  String get statusTriage => _text('statusTriage');
+  String get statusInProgress => _text('statusInProgress');
+  String get statusResolved => _text('statusResolved');
+  String get statusReviewRequired => _text('statusReviewRequired');
+  String get statusDispatchTask => _text('statusDispatchTask');
+  String get statusRejected => _text('statusRejected');
+  String get statusFieldInProgress => _text('statusFieldInProgress');
+  String get statusValidated => _text('statusValidated');
+  String get statusMerged => _text('statusMerged');
+
+  /// Localized label for mock seed status codes (`published`, `draft`, …).
+  String localizedStatus(String raw) {
+    switch (raw.toLowerCase().trim()) {
+      case 'published':
+        return statusPublished;
+      case 'moderation_review':
+        return statusModerationReview;
+      case 'draft':
+        return statusDraft;
+      case 'triage':
+        return statusTriage;
+      case 'in_progress':
+        return statusInProgress;
+      case 'resolved':
+        return statusResolved;
+      case 'review_required':
+        return statusReviewRequired;
+      case 'dispatch_task':
+        return statusDispatchTask;
+      case 'rejected':
+        return statusRejected;
+      case 'field_in_progress':
+        return statusFieldInProgress;
+      case 'validated':
+        return statusValidated;
+      case 'merged':
+        return statusMerged;
+      default:
+        return raw.replaceAll('_', ' ');
+    }
+  }
+
   String get signatureCountLabel => _text('signatureCountLabel');
   String get betaSignaturePlaceholder => _text('betaSignaturePlaceholder');
   String get complaints => _text('complaints');

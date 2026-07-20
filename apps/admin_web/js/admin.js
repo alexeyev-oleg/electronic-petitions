@@ -323,7 +323,10 @@ async function handleSaveSettings(session, root) {
   });
 
   messageEl.style.color = 'var(--color-success)';
-  messageEl.textContent = 'Настройки сохранены в localStorage.';
+  messageEl.textContent =
+    'Настройки сохранены. Статусы в очередях обновятся при следующем открытии раздела (язык: ' +
+    patch.defaultLocale +
+    ').';
 }
 
 async function handleResetMockData(session, root) {

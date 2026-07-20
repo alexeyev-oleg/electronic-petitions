@@ -33,7 +33,86 @@ function statusChipClass(status) {
   return 'chip';
 }
 
+const STATUS_LABELS = {
+  en: {
+    published: 'Published',
+    moderation_review: 'Moderation review',
+    draft: 'Draft',
+    triage: 'Triage',
+    in_progress: 'In progress',
+    resolved: 'Resolved',
+    review_required: 'Review required',
+    dispatch_task: 'Dispatch task',
+    rejected: 'Rejected',
+    field_in_progress: 'Field in progress',
+    validated: 'Validated',
+    merged: 'Merged',
+  },
+  ru: {
+    published: 'Опубликована',
+    moderation_review: 'На модерации',
+    draft: 'Черновик',
+    triage: 'Сортировка',
+    in_progress: 'В работе',
+    resolved: 'Решена',
+    review_required: 'Требует проверки',
+    dispatch_task: 'Выезд',
+    rejected: 'Отклонена',
+    field_in_progress: 'В поле',
+    validated: 'Подтверждена',
+    merged: 'Объединена',
+  },
+  he: {
+    published: 'פורסם',
+    moderation_review: 'בבדיקת מודרציה',
+    draft: 'טיוטה',
+    triage: 'מיון',
+    in_progress: 'בטיפול',
+    resolved: 'טופל',
+    review_required: 'דורש בדיקה',
+    dispatch_task: 'משימת שטח',
+    rejected: 'נדחה',
+    field_in_progress: 'בשטח',
+    validated: 'אומת',
+    merged: 'מוזג',
+  },
+  ar: {
+    published: 'منشورة',
+    moderation_review: 'قيد المراجعة',
+    draft: 'مسودة',
+    triage: 'فرز',
+    in_progress: 'قيد التنفيذ',
+    resolved: 'تم الحل',
+    review_required: 'يتطلب مراجعة',
+    dispatch_task: 'مهمة ميدانية',
+    rejected: 'مرفوضة',
+    field_in_progress: 'في الميدان',
+    validated: 'تم التحقق',
+    merged: 'مدمجة',
+  },
+};
+
+function staffStatusLocale() {
+  try {
+    if (typeof GesherMockStore !== 'undefined' && GesherMockStore.getSettings) {
+      const locale = GesherMockStore.getSettings()?.defaultLocale;
+      if (locale && STATUS_LABELS[locale]) {
+        return locale;
+      }
+    }
+  } catch (_) {
+    // Seed may not be loaded yet.
+  }
+  return 'ru';
+}
+
 function formatStatus(status) {
+  const key = (status || '').toLowerCase().trim();
+  const locale = staffStatusLocale();
+  const labels = STATUS_LABELS[locale] || STATUS_LABELS.ru;
+  if (labels[key]) {
+    return labels[key];
+  }
   return (status || '').replaceAll('_', ' ');
 }
 

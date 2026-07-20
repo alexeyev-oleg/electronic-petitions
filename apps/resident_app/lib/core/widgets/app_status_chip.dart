@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../app/localization/app_localizations.dart';
 import '../../app/theme/app_colors.dart';
 
 class AppStatusChip extends StatelessWidget {
@@ -13,17 +14,14 @@ class AppStatusChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final color = AppColors.statusColor(status);
+    final label = AppLocalizations.of(context).localizedStatus(status);
 
     return Chip(
-      label: Text(_labelForStatus(status)),
+      label: Text(label),
       labelStyle: TextStyle(color: color),
       backgroundColor: AppColors.statusBackground(status),
       padding: EdgeInsets.zero,
       visualDensity: VisualDensity.compact,
     );
-  }
-
-  String _labelForStatus(String raw) {
-    return raw.replaceAll('_', ' ');
   }
 }
