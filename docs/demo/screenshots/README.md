@@ -9,7 +9,7 @@ Capture checklist for municipality decks, README, and user guides.
 |----------|----------------|
 | Android emulator | `flutter run --target lib/main_mock.dart`, then device screenshot |
 | Android device | Power + Volume down |
-| Public web | Browser DevTools → device toolbar (375×812) |
+| Public web | Desktop viewport **1440×900**, first screen (not full page), so the one-row header is visible. Mobile-specific shots: 390×844 with `-mobile` in the name |
 | Staff portal | Desktop 1280×800, login as `moderator@gesher.mock` |
 
 Store files under `docs/demo/screenshots/<client>/` using the naming below.  
@@ -22,6 +22,7 @@ Prefer **PNG**, light theme, locale **RU** or **EN** unless the guide specifies 
 | File | Screen | Notes |
 |------|--------|-------|
 | `public-home-ru.png` | `index.html` | Hero, stats from seed, terracotta brand |
+| `public-home-he.png` | `index.html`, locale HE | Right-to-left layout, brand reads G.E.S.H.E.R., primary button first (on the right) |
 | `public-initiatives-ru.png` | `initiatives.html` | Cards `p1`, `p3` with cover previews |
 | `public-initiative-detail-p3.png` | `initiative.html?id=p3` | Signature bar + municipality response |
 | `public-about-en.png` | `about.html` | Mission + mock beta disclaimer |
@@ -116,7 +117,7 @@ Still useful to capture: _(none for resident — checklist complete)._
 
 ### Public / Staff / Inspector
 
-**Public captured:** `public-home-ru.png`, `public-initiatives-ru.png`, `public-initiative-detail-p3.png`, `public-about-en.png`, `public-download-ru.png`.
+**Public captured (re-shot 2026-11-18 at 1440×900 after the stage 1 header fix):** `public-home-ru.png`, `public-home-he.png`, `public-initiatives-ru.png`, `public-initiative-detail-p3.png`, `public-about-en.png`, `public-download-ru.png`.
 
 Staff / Inspector folders still empty. Before the next municipality meeting, run through `docs/demo/live-demo-checklist.md`.
 

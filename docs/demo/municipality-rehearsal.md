@@ -34,9 +34,9 @@ Aligned with **mock-v0.2.0**, seed **1.6.2**, Admin **W1.5**, Resident **R7**.
 1. Open **public site** → hero + platform stats.
 2. **Инициативы** → `p1` (park lighting) and `p3` (promenade) with cover previews.
 3. Open `p3` → signature progress + **official municipality response** (OG meta if sharing link).
-4. Mention **About**, **Contact**, **Download APK** in footer — citizen site is shareable externally.
+4. Point to the header: five sections + the **Скачать приложение** button; **About**, **Contact**, **Privacy** live in the footer — citizen site is shareable externally. On a phone the sections are behind **☰**, the language switch stays visible.
 5. On an initiative detail page: show **Share** (Email / WhatsApp / Telegram) and **QR**; note **registration only in the mobile app** and store stub buttons.
-5. Signing and complaints happen in the **mobile app** (mock beta).
+6. Signing and complaints happen in the **mobile app** (mock beta).
 
 ### 2:00 — Resident journey (3 min)
 
@@ -49,7 +49,7 @@ Aligned with **mock-v0.2.0**, seed **1.6.2**, Admin **W1.5**, Resident **R7**.
 
 ### 5:00 — Staff operations (4 min)
 
-1. Staff portal → login as **moderator**.
+1. Staff portal — open the direct URL `…/staff/` (keep it in a browser tab) or go via the public site footer **Для мэрии → Портал сотрудников**; it is no longer in the site header. Login as **moderator**.
 2. Dashboard **Очереди (mock KPI)** — live counts from current mock store.
 3. **Petitions** list — keyboard `j` / `k`, `Enter` to open row (optional wow moment).
 4. Open `p2` → publish or request changes (OTP `123456`).
@@ -76,7 +76,7 @@ Aligned with **mock-v0.2.0**, seed **1.6.2**, Admin **W1.5**, Resident **R7**.
 
 ### 14:00 — Close (1 min)
 
-- Multilingual: RU / EN / HE / AR on web and mobile.
+- Multilingual: RU / EN / HE / AR on web and both mobile apps; Hebrew and Arabic run right-to-left. Quick proof: switch the inspector app language from the 🌐 button on its home screen.
 - **mock-v0.2.0** complete for UX pilot — backend when municipality approves scope.
 - Q&A.
 
