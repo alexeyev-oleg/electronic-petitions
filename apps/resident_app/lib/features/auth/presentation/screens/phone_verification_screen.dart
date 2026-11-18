@@ -9,6 +9,7 @@ import '../../../../core/widgets/app_section_card.dart';
 import '../../../../shared/repositories/secure_storage_auth_repository.dart';
 import '../../application/auth_controller.dart';
 import '../../application/auth_validators.dart';
+import '../../../../core/utils/bidi.dart';
 
 class PhoneVerificationScreen extends ConsumerStatefulWidget {
   const PhoneVerificationScreen({super.key});
@@ -57,7 +58,7 @@ class _PhoneVerificationScreenState
             AppSectionCard(
               title: l10n.phoneVerificationTitle,
               child: Text(
-                '${l10n.phoneVerifiedLabel}: ${user!.phoneNumber ?? '-'}',
+                '${l10n.phoneVerifiedLabel}: ${ltrIsolate(user!.phoneNumber ?? '-')}',
               ),
             ),
           ] else ...[
@@ -72,6 +73,8 @@ class _PhoneVerificationScreenState
                     TextFormField(
                       controller: _phoneController,
                       keyboardType: TextInputType.phone,
+                      // "+972…" must not flip in he/ar.
+                      textDirection: TextDirection.ltr,
                       enabled: !_otpSent && !auth.isLoading,
                       validator: (value) =>
                           AuthValidators.phoneNumber(value, l10n),
@@ -103,6 +106,7 @@ class _PhoneVerificationScreenState
                       TextFormField(
                         controller: _otpController,
                         keyboardType: TextInputType.number,
+                        textDirection: TextDirection.ltr,
                         maxLength: 6,
                         validator: (value) =>
                             AuthValidators.otpCode(value, l10n),

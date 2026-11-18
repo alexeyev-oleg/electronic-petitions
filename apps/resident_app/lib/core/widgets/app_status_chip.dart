@@ -20,6 +20,7 @@ class AppStatusChip extends StatelessWidget {
       label: Text(label),
       labelStyle: TextStyle(color: color),
       backgroundColor: AppColors.statusBackground(status),
+      side: BorderSide.none,
       padding: EdgeInsets.zero,
       visualDensity: VisualDensity.compact,
     );

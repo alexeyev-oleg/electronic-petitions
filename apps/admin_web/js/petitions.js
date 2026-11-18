@@ -87,7 +87,7 @@ function renderPetitionsTable(container, petitions, options = {}) {
             </td>
             <td>${categoryLabel(item.category)}</td>
             <td><span class="${statusChipClass(item.status)}">${formatStatus(item.status)}</span></td>
-            <td>${item.signatureCount} / ${item.signatureGoal}</td>
+            <td><bdi dir="ltr">${item.signatureCount} / ${item.signatureGoal}</bdi></td>
           </tr>`;
           })
           .join('')}

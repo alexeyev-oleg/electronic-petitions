@@ -4,6 +4,7 @@ const RTL_LOCALES = new Set(['he', 'ar']);
 const I18N_STRINGS = {
   ru: {
     navHome: 'Главная',
+    navMenu: 'Меню',
     navInitiatives: 'Инициативы',
     navHow: 'Как это работает',
     navFaq: 'FAQ',
@@ -167,6 +168,7 @@ const I18N_STRINGS = {
   },
   en: {
     navHome: 'Home',
+    navMenu: 'Menu',
     navInitiatives: 'Initiatives',
     navHow: 'How it works',
     navFaq: 'FAQ',
@@ -327,6 +329,7 @@ const I18N_STRINGS = {
   },
   he: {
     navHome: 'בית',
+    navMenu: 'תפריט',
     navInitiatives: 'יוזמות',
     navHow: 'איך זה עובד',
     navFaq: 'שאלות נפוצות',
@@ -470,6 +473,7 @@ const I18N_STRINGS = {
   },
   ar: {
     navHome: 'الرئيسية',
+    navMenu: 'القائمة',
     navInitiatives: 'المبادرات',
     navHow: 'كيف يعمل',
     navFaq: 'الأسئلة الشائعة',

@@ -43,6 +43,7 @@ class AppInspectorActionSheet {
                   TextField(
                     controller: otpController,
                     keyboardType: TextInputType.number,
+                    textDirection: TextDirection.ltr,
                     maxLength: 6,
                     decoration: InputDecoration(
                       labelText: l10n.otpCodeLabel,

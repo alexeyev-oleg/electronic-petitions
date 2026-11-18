@@ -165,7 +165,13 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
                                   ),
                                   const SizedBox(height: AppSpacing.sm),
                                   DropdownButtonFormField<String>(
-                                    value: preferences.locale.languageCode,
+                                    // Re-create when the locale changes so
+                                    // initialValue stays in sync.
+                                    key: ValueKey(
+                                      preferences.locale.languageCode,
+                                    ),
+                                    initialValue:
+                                        preferences.locale.languageCode,
                                     items: AppLocalizations.supportedLocales
                                         .map((locale) {
                                       return DropdownMenuItem<String>(

@@ -1,4 +1,4 @@
-import '../../shared/models/inspector_user.dart';
+import '../../../shared/models/inspector_user.dart';
 
 abstract class InspectorAuthRepository {
   Future<InspectorUser?> getCurrentUser();

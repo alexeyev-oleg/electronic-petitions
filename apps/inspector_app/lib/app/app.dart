@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'environment/app_environment.dart';
 import 'localization/app_localizations.dart';
+import 'localization/locale_controller.dart';
 import 'router/app_router.dart';
 import 'theme/app_theme.dart';
 
@@ -14,13 +15,14 @@ class InspectorApp extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final environment = ref.watch(appEnvironmentProvider);
     final router = ref.watch(appRouterProvider);
+    final locale = ref.watch(localeControllerProvider).locale;
 
     return MaterialApp.router(
       title: 'G.E.S.H.E.R. Inspector',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.build(),
       routerConfig: router,
-      locale: const Locale('en'),
+      locale: locale,
       supportedLocales: AppLocalizations.supportedLocales,
       localizationsDelegates: const [
         AppLocalizations.delegate,

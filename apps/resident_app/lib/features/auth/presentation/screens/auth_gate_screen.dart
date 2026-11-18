@@ -81,6 +81,7 @@ class _AuthGateScreenState extends ConsumerState<AuthGateScreen> {
                               label: Text(l10n.betaBanner),
                               backgroundColor: AppColors.statusPending
                                   .withValues(alpha: 0.14),
+                              side: BorderSide.none,
                               labelStyle: const TextStyle(
                                 color: AppColors.statusPending,
                               ),

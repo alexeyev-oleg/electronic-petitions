@@ -9,10 +9,12 @@ import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/mock/mock_local_store.dart';
 import '../../../../core/mock/mock_snapshot_importer.dart';
 import '../../../../core/widgets/app_brand_header.dart';
+import '../../../../core/widgets/language_menu_button.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../../dispatch/application/dispatch_controller.dart';
 import '../../../triage/application/triage_controller.dart';
 import '../../application/inspector_queue_stats.dart';
+import '../../../../core/utils/bidi.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -38,6 +40,7 @@ class HomeScreen extends ConsumerWidget {
       appBar: AppBar(
         title: Text(l10n.inspectorHomeTitle),
         actions: [
+          const LanguageMenuButton(),
           TextButton(
             onPressed: () => context.push('/help'),
             child: Text(l10n.openHelpAction),
@@ -78,7 +81,7 @@ class HomeScreen extends ConsumerWidget {
             child: ListTile(
               leading: const Icon(Icons.badge_outlined),
               title: Text(l10n.badgeIdLabel),
-              subtitle: Text(user.badgeId),
+              subtitle: Text(ltrIsolate(user.badgeId)),
             ),
           ),
           const SizedBox(height: AppSpacing.sm),

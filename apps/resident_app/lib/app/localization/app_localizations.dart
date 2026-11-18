@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import '../../core/utils/bidi.dart';
 
 class AppLocalizations {
   AppLocalizations(this.locale);
@@ -1236,9 +1237,7 @@ class AppLocalizations {
 
   String petitionAttachmentCount(int current, int max) => _text(
         'petitionAttachmentCountLabel',
-      )
-          .replaceAll('{current}', '$current')
-          .replaceAll('{max}', '$max');
+      ).replaceAll('{current} / {max}', ltrIsolate('$current / $max'));
   String get secureVerificationTitle => _text('secureVerificationTitle');
   String get sessionTierLabel => _text('sessionTierLabel');
   String get sessionTierBeta => _text('sessionTierBeta');

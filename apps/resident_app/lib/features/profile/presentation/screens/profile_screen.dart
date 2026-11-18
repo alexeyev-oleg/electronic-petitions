@@ -27,6 +27,7 @@ import '../../../notifications/presentation/notification_navigation.dart';
 import '../../../petitions/application/petitions_controller.dart';
 import '../../application/preferences_controller.dart';
 import '../../../../app/theme/app_colors.dart';
+import '../../../../core/utils/bidi.dart';
 
 class ProfileScreen extends ConsumerWidget {
   const ProfileScreen({super.key});
@@ -57,7 +58,9 @@ class ProfileScreen extends ConsumerWidget {
           AppSectionCard(
             title: l10n.language,
             child: DropdownButtonFormField<String>(
-              value: preferences.locale.languageCode,
+              // Re-create when the locale changes so initialValue stays in sync.
+              key: ValueKey(preferences.locale.languageCode),
+              initialValue: preferences.locale.languageCode,
               items: AppLocalizations.supportedLocales.map((locale) {
                 return DropdownMenuItem<String>(
                   value: locale.languageCode,
@@ -128,7 +131,7 @@ class ProfileScreen extends ConsumerWidget {
                   const SizedBox(height: AppSpacing.sm),
                   Text(
                     user.phoneVerified
-                        ? '${l10n.phoneVerifiedLabel}: ${user.phoneNumber ?? '-'}'
+                        ? '${l10n.phoneVerifiedLabel}: ${ltrIsolate(user.phoneNumber ?? '-')}'
                         : l10n.phoneVerificationBanner,
                   ),
                   const SizedBox(height: AppSpacing.sm),

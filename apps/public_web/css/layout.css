@@ -18,26 +18,54 @@
 
 .site-header__inner {
   min-height: var(--header-height);
-  display: flex;
+  display: grid;
+  /* brand | nav links (1fr) | CTA | language — same order as Tab (DOM). */
+  grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-md);
+  column-gap: var(--space-md);
 }
 
 .site-brand {
+  grid-column: 1;
+  grid-row: 1;
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+  flex-shrink: 0;
 }
 
+/* Wide screens: the nav spans columns 2-4 as a subgrid (links, CTA, empty
+   cell); the language select (after the nav in DOM) takes column 4. */
 .site-nav {
+  grid-column: 2 / 5;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: center;
+}
+
+.site-nav__links {
+  grid-column: 1;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.site-header__cta {
+  grid-column: 2;
+  white-space: nowrap;
+}
+
+.site-header__actions {
+  grid-column: 4;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
 }
 
 .site-nav__link {
+  position: relative;
+  white-space: nowrap;
   padding: 8px 12px;
   border-radius: var(--radius-pill);
   font-weight: 600;
@@ -45,16 +73,68 @@
   color: var(--color-text-muted);
 }
 
-.site-nav__link:hover,
-.site-nav__link.is-active {
+.site-nav__link:hover {
   color: var(--color-graphite);
   background: var(--color-surface-muted);
 }
 
-.site-header__actions {
-  display: flex;
+/* Active item: graphite text (AA contrast) + 2px terracotta indicator. */
+.site-nav__link.is-active {
+  color: var(--color-graphite);
+  font-weight: 600;
+}
+
+.site-nav__link.is-active::after {
+  content: "";
+  position: absolute;
+  inset-inline: 12px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-terracotta);
+}
+
+/* Compact menu button: hidden on wide screens. */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+  color: var(--color-graphite);
+  cursor: pointer;
+}
+
+.nav-toggle__bar {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-toggle:focus-visible,
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
 }
 
 .locale-select {
@@ -228,6 +308,9 @@
 .content-page h1 {
   margin: 0 0 var(--space-md);
   font-size: 2rem;
+  /* Long single words (ru "Конфиденциальность") must not widen the page. */
+  overflow-wrap: break-word;
+  hyphens: auto;
 }
 
 .content-page p {
@@ -240,22 +323,73 @@
 }
 
 
-html[dir="rtl"] .logo {
-  letter-spacing: 0.08em;
-}
-
-html[dir="rtl"] .hero__actions,
-html[dir="rtl"] .site-header__actions {
-  flex-direction: row-reverse;
-}
-
 @media (max-width: 900px) {
   .hero__grid,
   .site-footer__grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* Compact header (<=1120px): brand · language · menu button in one row;
+   the nav (5 links + CTA) becomes a dropdown panel. */
+@media (max-width: 1120px) {
+  .site-header__inner {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .site-brand {
+    margin-inline-end: auto;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
 
   .site-nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 12px 24px rgba(43, 43, 43, 0.08);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav__links {
+    flex-direction: column;
+    align-items: stretch;
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .site-nav__link {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .site-nav.is-open .site-nav__link.is-active::after {
+    inset-inline: 0 auto;
+    inset-block: 8px;
+    bottom: 8px;
+    width: 2px;
+    height: auto;
+  }
+
+}
+
+/* Very narrow: keep only the "G." mark (the link has an aria-label). */
+@media (max-width: 399px) {
+  .site-brand .logo {
     display: none;
   }
 }

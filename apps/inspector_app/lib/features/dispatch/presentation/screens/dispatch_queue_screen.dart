@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../app/localization/app_localizations.dart';
-import '../../../app/theme/app_spacing.dart';
-import '../../../core/widgets/app_list_item_card.dart';
-import '../../../core/widgets/app_list_state_view.dart';
-import '../application/dispatch_controller.dart';
+import '../../../../app/localization/app_localizations.dart';
+import '../../../../app/theme/app_spacing.dart';
+import '../../../../core/widgets/app_list_item_card.dart';
+import '../../../../core/widgets/app_list_state_view.dart';
+import '../../application/dispatch_controller.dart';
 
 class DispatchQueueScreen extends ConsumerWidget {
   const DispatchQueueScreen({super.key});

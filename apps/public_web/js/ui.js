@@ -1,9 +1,15 @@
 function renderLogo(target, inverse = false) {
   const letters = ['G', 'E', 'S', 'H', 'E', 'R'];
   const className = inverse ? 'logo logo--inverse' : 'logo';
+  target.setAttribute('dir', 'ltr');
   target.innerHTML = letters
     .map((letter) => `<span class="logo__letter">${letter}</span><span class="logo__dot"></span>`)
     .join('');
+}
+
+/** Numbers that must keep LTR order inside RTL text (e.g. "128 / 500", "26%"). */
+function ltrNumber(html) {
+  return `<bdi dir="ltr" class="num-ltr">${html}</bdi>`;
 }
 
 function formatNumber(value) {
@@ -16,7 +22,8 @@ function currentPageName() {
 }
 
 function navLink(path, label, active = false) {
-  return `<a class="site-nav__link ${active ? 'is-active' : ''}" href="${pagePath(path)}">${label}</a>`;
+  const current = active ? ' aria-current="page"' : '';
+  return `<a class="site-nav__link ${active ? 'is-active' : ''}" href="${pagePath(path)}"${current}>${label}</a>`;
 }
 
 function renderSiteHeader() {
@@ -28,34 +35,97 @@ function renderSiteHeader() {
   const page = currentPageName();
   header.innerHTML = `
     <div class="site-header__inner">
-      <a class="site-brand" href="${pagePath('/index.html')}">
+      <a class="site-brand" href="${pagePath('/index.html')}" aria-label="G.E.S.H.E.R.">
         <div class="logo-mark" aria-hidden="true">G</div>
-        <div class="logo" id="header-logo" aria-label="G.E.S.H.E.R."></div>
+        <div class="logo" id="header-logo" aria-hidden="true"></div>
       </a>
-      <nav class="site-nav" aria-label="Main">
-        ${navLink('/index.html', t('navHome'), page === 'index.html')}
-        ${navLink('/initiatives.html', t('navInitiatives'), page === 'initiatives.html' || page === 'initiative.html')}
-        ${navLink('/how-it-works.html', t('navHow'), page === 'how-it-works.html')}
-        ${navLink('/faq.html', t('navFaq'), page === 'faq.html')}
-        ${navLink('/about.html', t('navAbout'), page === 'about.html')}
-        ${navLink('/download.html', t('navDownload'), page === 'download.html')}
-        ${navLink('/demo-sync.html', t('navDemoSync'), page === 'demo-sync.html')}
+      <nav class="site-nav" id="site-nav" aria-label="${t('navMenu')}">
+        <div class="site-nav__links">
+          ${navLink('/index.html', t('navHome'), page === 'index.html')}
+          ${navLink('/initiatives.html', t('navInitiatives'), page === 'initiatives.html' || page === 'initiative.html')}
+          ${navLink('/how-it-works.html', t('navHow'), page === 'how-it-works.html')}
+          ${navLink('/faq.html', t('navFaq'), page === 'faq.html')}
+          ${navLink('/about.html', t('navAbout'), page === 'about.html')}
+        </div>
+        <a class="btn btn--primary site-header__cta" data-testid="header-cta" href="${pagePath('/download.html')}">${t('ctaDownload')}</a>
       </nav>
       <div class="site-header__actions">
         <label class="sr-only" for="locale-select">${t('localeLabel')}</label>
-        <select id="locale-select" class="locale-select" aria-label="${t('localeLabel')}">
+        <select id="locale-select" class="locale-select">
           <option value="ru">RU</option>
           <option value="en">EN</option>
           <option value="he">HE</option>
           <option value="ar">AR</option>
         </select>
-        <a class="btn btn--secondary" href="${pagePath(window.GESHER_PUBLIC_CONFIG.staffPortalPath)}">${t('ctaStaff')}</a>
       </div>
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="${t('navMenu')}"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
     </div>
   `;
 
   renderLogo(document.getElementById('header-logo'));
   bindLocaleSelect(document.getElementById('locale-select'));
+  bindNavToggle(header);
+}
+
+/**
+ * Compact menu (narrow screens): button toggles the panel; Escape, a link
+ * click or a click outside closes it and focus returns to the button.
+ * On wide screens CSS hides the button and always shows the nav.
+ */
+function bindNavToggle(header) {
+  const toggle = header.querySelector('#nav-toggle');
+  const nav = header.querySelector('#site-nav');
+  if (!toggle || !nav) {
+    return;
+  }
+
+  const isOpen = () => toggle.getAttribute('aria-expanded') === 'true';
+  const setOpen = (open, { restoreFocus = false } = {}) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+    if (open) {
+      // The panel precedes the button in DOM order: move focus into it so
+      // Tab continues through the menu, not into the page.
+      const first = nav.querySelector('a');
+      if (first) {
+        first.focus();
+      }
+    } else if (restoreFocus) {
+      toggle.focus();
+    }
+  };
+
+  toggle.addEventListener('click', () => setOpen(!isOpen()));
+
+  header.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && isOpen()) {
+      event.preventDefault();
+      setOpen(false, { restoreFocus: true });
+    }
+  });
+
+  nav.addEventListener('click', (event) => {
+    if (event.target.closest('a') && isOpen()) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('click', (event) => {
+    if (isOpen() && !header.contains(event.target)) {
+      setOpen(false);
+    }
+  });
 }
 
 function renderSiteFooter() {

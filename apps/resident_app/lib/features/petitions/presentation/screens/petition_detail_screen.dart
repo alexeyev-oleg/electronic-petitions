@@ -13,6 +13,7 @@ import '../../../../core/widgets/petition_qr_sheet.dart';
 import '../../../../core/widgets/petition_share_sheet.dart';
 import '../../../auth/application/auth_controller.dart';
 import '../../application/petitions_controller.dart';
+import '../../../../core/utils/bidi.dart';
 
 class PetitionDetailScreen extends ConsumerWidget {
   const PetitionDetailScreen({
@@ -89,7 +90,7 @@ class PetitionDetailScreen extends ConsumerWidget {
           ],
           const SizedBox(height: AppSpacing.md),
           Text(
-            '${l10n.signatureCountLabel}: ${petition.signatureCount} / ${petition.signatureGoal}',
+            '${l10n.signatureCountLabel}: ${ltrIsolate('${petition.signatureCount} / ${petition.signatureGoal}')}',
           ),
           const SizedBox(height: AppSpacing.xs),
           ClipRRect(

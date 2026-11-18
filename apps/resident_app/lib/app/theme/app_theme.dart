@@ -15,7 +15,7 @@ class AppTheme {
       surfaceContainerHighest: AppColors.surfaceMuted,
     );
 
-    return ThemeData(
+    final base = ThemeData(
       colorScheme: colorScheme,
       useMaterial3: true,
       scaffoldBackgroundColor: AppColors.surfaceMuted,
@@ -81,13 +81,6 @@ class AppTheme {
           side: const BorderSide(color: AppColors.outline),
         ),
       ),
-      chipTheme: ChipThemeData(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(999),
-        ),
-        side: BorderSide.none,
-        labelStyle: const TextStyle(fontWeight: FontWeight.w600),
-      ),
       listTileTheme: const ListTileThemeData(
         contentPadding: EdgeInsets.symmetric(
           horizontal: AppSpacing.md,
@@ -126,6 +119,38 @@ class AppTheme {
           letterSpacing: 0.2,
         ),
       ),
+    );
+
+    return base.copyWith(chipTheme: _chipTheme(base.textTheme));
+  }
+
+  /// Chip label style must extend the merged text theme: a bare [TextStyle]
+  /// in [ChipThemeData.labelStyle] replaces the Material 3 default entirely
+  /// (no colour, no size), which rendered chip labels invisible.
+  ///
+  /// Selected chips use a terracotta tint with graphite text: white on
+  /// terracotta fails WCAG AA contrast for 14sp text.
+  static ChipThemeData _chipTheme(TextTheme textTheme) {
+    final labelStyle = (textTheme.labelLarge ?? const TextStyle()).copyWith(
+      fontSize: 14,
+      fontWeight: FontWeight.w600,
+      color: AppColors.graphite,
+    );
+
+    return ChipThemeData(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(999),
+      ),
+      side: WidgetStateBorderSide.resolveWith(
+        (states) => states.contains(WidgetState.selected)
+            ? const BorderSide(color: AppColors.terracotta)
+            : const BorderSide(color: AppColors.outline),
+      ),
+      backgroundColor: Colors.white,
+      selectedColor: AppColors.terracotta.withValues(alpha: 0.12),
+      checkmarkColor: AppColors.graphite,
+      labelStyle: labelStyle,
+      secondaryLabelStyle: labelStyle,
     );
   }
 }

@@ -6,6 +6,7 @@ import '../../../../app/localization/app_localizations.dart';
 import '../../../../app/theme/app_spacing.dart';
 import '../../../../core/widgets/gesher_brand_mark.dart';
 import '../../application/auth_controller.dart';
+import '../../../../core/widgets/language_menu_button.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
@@ -63,6 +64,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.signIn),
+        actions: const [LanguageMenuButton()],
       ),
       body: Center(
         child: SingleChildScrollView(

@@ -23,7 +23,7 @@ function renderPetitionDetail(container, petition) {
     <p style="margin:var(--space-md) 0;">${petition.summary}</p>
 
     <div>
-      <strong>${petition.signatureCount}</strong> / ${petition.signatureGoal} подписей (${percent}%)
+      <bdi dir="ltr"><strong>${petition.signatureCount}</strong> / ${petition.signatureGoal}</bdi> подписей (<bdi dir="ltr">${percent}%</bdi>)
       <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
     </div>
 

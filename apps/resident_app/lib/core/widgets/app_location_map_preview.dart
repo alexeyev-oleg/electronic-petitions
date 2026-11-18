@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../app/localization/app_localizations.dart';
 import '../../app/theme/app_colors.dart';
 import '../../app/theme/app_spacing.dart';
+import '../utils/bidi.dart';
 
 class AppLocationMapPreview extends StatelessWidget {
   const AppLocationMapPreview({
@@ -77,7 +78,7 @@ class AppLocationMapPreview extends StatelessWidget {
                 if (latitude != null && longitude != null) ...[
                   const SizedBox(height: AppSpacing.xs),
                   Text(
-                    '${l10n.deviceCoordinates}: ${latitude!.toStringAsFixed(5)}, ${longitude!.toStringAsFixed(5)}',
+                    '${l10n.deviceCoordinates}: ${ltrIsolate('${latitude!.toStringAsFixed(5)}, ${longitude!.toStringAsFixed(5)}')}',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],

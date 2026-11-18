@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/utils/bidi.dart';
 
 class AppLocalizations {
   AppLocalizations(this.locale);
@@ -22,6 +23,7 @@ class AppLocalizations {
       'passwordLabel': 'Password',
       'signInAction': 'Sign in',
       'signOutAction': 'Sign out',
+      'languageLabel': 'Language',
       'invalidCredentials': 'Invalid inspector credentials.',
       'unknownError': 'Unable to sign in right now.',
       'inspectorHomeTitle': 'Inspector workspace',
@@ -127,6 +129,7 @@ class AppLocalizations {
       'passwordLabel': 'סיסמה',
       'signInAction': 'התחברות',
       'signOutAction': 'יציאה',
+      'languageLabel': 'שפה',
       'invalidCredentials': 'פרטי התחברות של inspector לא תקינים.',
       'unknownError': 'לא ניתן להתחבר כעת.',
       'inspectorHomeTitle': 'סביבת פיקוח',
@@ -222,6 +225,7 @@ class AppLocalizations {
       'passwordLabel': 'Пароль',
       'signInAction': 'Войти',
       'signOutAction': 'Выйти',
+      'languageLabel': 'Язык',
       'invalidCredentials': 'Неверные учётные данные инспектора.',
       'unknownError': 'Сейчас войти не удалось.',
       'inspectorHomeTitle': 'Рабочее место инспектора',
@@ -320,6 +324,7 @@ class AppLocalizations {
       'passwordLabel': 'كلمة المرور',
       'signInAction': 'تسجيل الدخول',
       'signOutAction': 'تسجيل الخروج',
+      'languageLabel': 'اللغة',
       'invalidCredentials': 'بيانات اعتماد المفتش غير صالحة.',
       'unknownError': 'تعذر تسجيل الدخول الآن.',
       'inspectorHomeTitle': 'مساحة عمل المفتش',
@@ -429,6 +434,7 @@ class AppLocalizations {
   String get passwordLabel => _text('passwordLabel');
   String get signInAction => _text('signInAction');
   String get signOutAction => _text('signOutAction');
+  String get languageLabel => _text('languageLabel');
   String get invalidCredentials => _text('invalidCredentials');
   String get unknownError => _text('unknownError');
   String get inspectorHomeTitle => _text('inspectorHomeTitle');
@@ -475,7 +481,7 @@ class AppLocalizations {
       _text('mockOtpHint').replaceAll('{code}', code);
 
   String mergeCaseNote(String caseId) =>
-      _text('mergeCaseNote').replaceAll('{caseId}', caseId);
+      _text('mergeCaseNote').replaceAll('{caseId}', ltrIsolate(caseId));
 
   String get inspectorActionsTitle => _text('inspectorActionsTitle');
   String get markInvalidAction => _text('markInvalidAction');

@@ -6,6 +6,7 @@ import '../../../../core/constants/app_build_info.dart';
 import '../../../../core/widgets/app_brand_header.dart';
 import '../../../../core/widgets/app_info_banner.dart';
 import '../../../../core/widgets/app_section_card.dart';
+import '../../../../core/utils/bidi.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -36,7 +37,7 @@ class AboutScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: AppSpacing.md),
                 Text(
-                  '${l10n.appVersionLabel}: $kAppVersionFull ($kMockReleaseLabel · seed $kMockSeedVersion)',
+                  '${l10n.appVersionLabel}: ${ltrIsolate('$kAppVersionFull ($kMockReleaseLabel · seed $kMockSeedVersion)')}',
                   style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),

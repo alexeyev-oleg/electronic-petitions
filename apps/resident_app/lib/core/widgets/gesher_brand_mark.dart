@@ -47,6 +47,8 @@ class GesherBrandMark extends StatelessWidget {
           SizedBox(height: size * 0.2),
           Text(
             'G.E.S.H.E.R.',
+            // Brand wordmark is always LTR, even in he/ar.
+            textDirection: TextDirection.ltr,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: fg,

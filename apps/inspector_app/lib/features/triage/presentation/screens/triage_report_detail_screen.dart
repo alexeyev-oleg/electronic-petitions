@@ -9,6 +9,7 @@ import '../../../../core/widgets/app_media_gallery.dart';
 import '../../../../core/widgets/app_status_chip.dart';
 import '../../application/inspector_triage_action.dart';
 import '../../application/triage_controller.dart';
+import '../../../../core/utils/bidi.dart';
 
 class TriageReportDetailScreen extends ConsumerStatefulWidget {
   const TriageReportDetailScreen({
@@ -68,7 +69,7 @@ class _TriageReportDetailScreenState
           if (report.latitude != null && report.longitude != null) ...[
             const SizedBox(height: AppSpacing.sm),
             Text(
-              '${l10n.coordinatesLabel}: ${report.latitude!.toStringAsFixed(3)}, ${report.longitude!.toStringAsFixed(3)}',
+              '${l10n.coordinatesLabel}: ${ltrIsolate('${report.latitude!.toStringAsFixed(3)}, ${report.longitude!.toStringAsFixed(3)}')}',
             ),
           ],
           if (report.geoMismatch) ...[

@@ -15,7 +15,6 @@ class MockAuthRepository implements AuthRepository {
 
   final Duration delay;
   AppUser? _currentUser;
-  String? _pendingPhoneNumber;
 
   @override
   Future<AppUser?> getCurrentUser() async {
@@ -53,13 +52,11 @@ class MockAuthRepository implements AuthRepository {
   Future<void> signOut() async {
     await Future<void>.delayed(const Duration(milliseconds: 150));
     _currentUser = null;
-    _pendingPhoneNumber = null;
   }
 
   @override
   Future<void> sendPhoneOtp({required String phoneNumber}) async {
     await Future<void>.delayed(const Duration(milliseconds: 450));
-    _pendingPhoneNumber = phoneNumber.trim();
   }
 
   @override

@@ -84,7 +84,7 @@ function renderInitiativeCard(item) {
       <p class="initiative-card__summary">${item.summary}</p>
       <div class="initiative-card__progress">
         <div class="progress-track"><div class="progress-fill" style="width:${percent}%"></div></div>
-        <span>${item.signatureCount} / ${item.signatureGoal} ${t('signaturesLabel')}</span>
+        <span>${ltrNumber(`${item.signatureCount} / ${item.signatureGoal}`)} ${t('signaturesLabel')}</span>
       </div>
       <div class="initiative-card__footer">
         <span class="initiative-card__date">${item.submittedAtLabel}</span>

@@ -37,7 +37,7 @@ function renderHeroCopy() {
   if (heroTitle) {
     heroTitle.innerHTML = t('heroTitle').replace(
       'G.E.S.H.E.R.',
-      'G.E.S.H.E.R<span class="accent-dot">.</span>',
+      '<bdi dir="ltr" class="brand-name">G.E.S.H.E.R<span class="accent-dot">.</span></bdi>',
     );
   }
   if (heroSubtitle) {
@@ -105,7 +105,7 @@ function renderHeroMockCards(petitions) {
       (item) => `
       <a class="hero__mock-card" href="${initiativeDetailPath(item.id)}">
         <strong>${item.title}</strong>
-        <span>${item.signatureCount} / ${item.signatureGoal}</span>
+        <span>${ltrNumber(`${item.signatureCount} / ${item.signatureGoal}`)}</span>
       </a>`,
     )
     .join('');

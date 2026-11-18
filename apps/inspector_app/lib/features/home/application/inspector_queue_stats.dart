@@ -1,4 +1,4 @@
-import '../../features/triage/application/triage_report.dart';
+import '../../triage/application/triage_report.dart';
 
 class InspectorQueueStats {
   const InspectorQueueStats({

@@ -33,7 +33,7 @@ function renderInitiativeDetail(petition) {
 
     <section class="detail-panel">
       <h2>${t('stepSignatures')}</h2>
-      <p><strong>${petition.signatureCount}</strong> / ${petition.signatureGoal} ${t('signaturesLabel')} (${percent}%)</p>
+      <p>${ltrNumber(`<strong>${petition.signatureCount}</strong> / ${petition.signatureGoal}`)} ${t('signaturesLabel')} (${ltrNumber(`${percent}%`)})</p>
       <div class="progress-track progress-track--lg"><div class="progress-fill" style="width:${percent}%"></div></div>
     </section>
 

@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 import '../../app/environment/app_environment.dart';
 import '../services/analytics_service.dart';
 import 'crash_reporting_service.dart';

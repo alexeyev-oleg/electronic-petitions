@@ -10,6 +10,7 @@ import '../../../../core/widgets/app_status_chip.dart';
 import '../../../triage/application/inspector_triage_action.dart';
 import '../../../triage/application/triage_controller.dart';
 import '../../application/dispatch_controller.dart';
+import '../../../../core/utils/bidi.dart';
 
 class DispatchTaskDetailScreen extends ConsumerStatefulWidget {
   const DispatchTaskDetailScreen({
@@ -75,7 +76,7 @@ class _DispatchTaskDetailScreenState extends ConsumerState<DispatchTaskDetailScr
           if (report.latitude != null && report.longitude != null) ...[
             const SizedBox(height: AppSpacing.sm),
             Text(
-              '${l10n.coordinatesLabel}: ${report.latitude!.toStringAsFixed(3)}, ${report.longitude!.toStringAsFixed(3)}',
+              '${l10n.coordinatesLabel}: ${ltrIsolate('${report.latitude!.toStringAsFixed(3)}, ${report.longitude!.toStringAsFixed(3)}')}',
             ),
           ],
           if (report.geoMismatch) ...[

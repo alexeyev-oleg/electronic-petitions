@@ -11,6 +11,7 @@ import '../../../../core/services/location_capture_service.dart';
 import '../../../../core/services/media_picker_service.dart';
 import '../../../../core/widgets/app_media_attachment_editor.dart';
 import '../../application/complaints_controller.dart';
+import '../../../../core/utils/bidi.dart';
 
 class ComplaintCreateScreen extends ConsumerStatefulWidget {
   const ComplaintCreateScreen({super.key});
@@ -167,7 +168,9 @@ class _ComplaintCreateScreenState extends ConsumerState<ComplaintCreateScreen> {
           ),
           if (_deviceLocation != null) ...[
             const SizedBox(height: AppSpacing.sm),
-            Text('${l10n.deviceCoordinates}: ${_deviceLocation!.coordinatesLabel}'),
+            Text(
+              '${l10n.deviceCoordinates}: ${ltrIsolate(_deviceLocation!.coordinatesLabel)}',
+            ),
             if (_geoMismatch) ...[
               const SizedBox(height: AppSpacing.sm),
               Text(
